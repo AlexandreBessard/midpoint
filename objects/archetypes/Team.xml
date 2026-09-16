@@ -1,0 +1,77 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="3cc72762-030e-4161-bd9a-5fa9cb4fd935" version="0" >
+    <_metadata id="5">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:54.580Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:54.566Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Team</name>
+    <description>Archetype for general-purpose teams, that are either stand-alone, or cross organizational boundaries. E.g. expert panels, committees, task force, advisory groups, interest groups, etc.</description>
+    <documentation>(ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
+    <assignment id="1">
+        <_metadata id="6">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:54.580Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:54.566Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="7">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:54.566Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <description>This archetype can be applied to orgs (OrgType).</description>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="2">
+            <holderType>OrgType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:54.570Z</enableTimestamp>
+    </activation>
+    <inducement id="3">
+        <identifier>membership</identifier>
+        <description>Teams are flat (no sub-teams), have members and manager.</description>
+        <assignmentRelation id="4">
+            <description>User can be direct member of team, as well as manager.</description>
+            <holderType>UserType</holderType>
+            <relation>org:default</relation>
+            <relation>org:manager</relation>
+        </assignmentRelation>
+    </inducement>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Team</t:orig>
+                <t:norm>team</t:norm>
+                <t:translation>
+                    <t:key>team.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Teams</t:orig>
+                <t:norm>teams</t:norm>
+                <t:translation>
+                    <t:key>team.pluralLabel</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fa fa-people-group</cssClass>
+                <color>#ffc107</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>

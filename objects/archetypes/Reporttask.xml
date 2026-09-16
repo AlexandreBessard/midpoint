@@ -1,0 +1,97 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000507" version="0" >
+    <_metadata id="10">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:57.380Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:57.368Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Report task</name>
+    <description>Super archetype for all report archetypes</description>
+    <assignment id="8">
+        <_metadata id="11">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:57.380Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:57.368Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="12">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:57.367Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="9">
+            <holderType>TaskType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:57.371Z</enableTimestamp>
+    </activation>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Report task</t:orig>
+                <t:norm>report task</t:norm>
+                <t:translation>
+                    <t:key>ReportTask.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Report tasks</t:orig>
+                <t:norm>report tasks</t:norm>
+                <t:translation>
+                    <t:key>ReportTasks.title</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fa fa-chart-pie</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+        <itemConstraint id="1">
+            <path>extension</path>
+            <visibility>vacant</visibility>
+        </itemConstraint>
+        <itemConstraint id="2">
+            <path xmlns:rext="http://midpoint.evolveum.com/xml/ns/public/report/extension-3">extension/rext:reportParam</path>
+            <visibility>visible</visibility>
+        </itemConstraint>
+        <itemConstraint id="3">
+            <path xmlns:rext="http://midpoint.evolveum.com/xml/ns/public/report/extension-3">extension/rext:reportDataParam</path>
+            <visibility>visible</visibility>
+        </itemConstraint>
+        <adminGuiConfiguration>
+            <objectDetails>
+                <type>TaskType</type>
+                <panel id="4">
+                    <identifier>taskBasic</identifier>
+                    <container id="5">
+                        <identifier>report-options</identifier>
+                        <display>
+                            <label>ReportTask.reportOptions</label>
+                        </display>
+                        <item id="6">
+                            <path xmlns:rext="http://midpoint.evolveum.com/xml/ns/public/report/extension-3">extension/rext:reportParam</path>
+                        </item>
+                        <item id="7">
+                            <path xmlns:rext="http://midpoint.evolveum.com/xml/ns/public/report/extension-3">extension/rext:reportDataParam</path>
+                        </item>
+                    </container>
+                </panel>
+            </objectDetails>
+        </adminGuiConfiguration>
+    </archetypePolicy>
+</archetype>

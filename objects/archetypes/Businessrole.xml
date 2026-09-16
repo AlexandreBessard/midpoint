@@ -1,0 +1,70 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000321" version="0" >
+    <_metadata id="3">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:51.746Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:51.725Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Business role</name>
+    <description>
+        Archetype for roles that have meaning from the business perspective.
+        Business roles are usually assigned directly to users, often by using
+        request-and-approve processes. Business roles are usually composed from
+        smaller roles.
+    </description>
+    <assignment id="1">
+        <_metadata id="4">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:51.746Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:51.725Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="5">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:51.725Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="2">
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:51.731Z</enableTimestamp>
+    </activation>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Business role</t:orig>
+                <t:norm>business role</t:norm>
+                <t:translation>
+                    <t:key>businessRole.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Business roles</t:orig>
+                <t:norm>business roles</t:norm>
+                <t:translation>
+                    <t:key>businessRole.pluralLabel</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>

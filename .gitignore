@@ -1,0 +1,38 @@
+### Mac OS ###
+.DS_Store
+
+### Java/Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+
+### MidPoint Studio ###
+
+scratches/
+credentials.kdbx
+
+### Sensitive / disposable data (not config) ###
+
+# Raw HR feed extracts containing employee PII - not versioned
+import/
+
+# Bulk disposable simulation-run snapshots, not hand-maintained config
+objects/simulationResults/
+
+# Repo images (screenshots/docs assets) - not pushed
+images/
+
+# Docs folder - not pushed
+docs/
+
+### Only objects/ is the actual MidPoint config - everything else excluded ###
+
+/CLAUDE.md
+/CEGID-champs.xlsx
+/backup/
+/pom.xml

@@ -1,0 +1,52 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000534" version="0" >
+    <_metadata id="4">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:58.420Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:58.409Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Certification-campaign-open-next-stage task</name>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:58.413Z</enableTimestamp>
+    </activation>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Certification campaign open next stage related task</t:orig>
+                <t:norm>certification campaign open next stage related task</t:norm>
+                <t:translation>
+                    <t:key>CertificationCampaignOpenNextStageRelatedTask.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Certification-campaign-open-next-stage-related tasks</t:orig>
+                <t:norm>certificationcampaignopennextstagerelated tasks</t:norm>
+                <t:translation>
+                    <t:key>CertificationCampaignOpenNextStageRelatedTasks.title</t:key>
+                </t:translation>
+            </pluralLabel>
+        </display>
+        <adminGuiConfiguration>
+            <objectDetails>
+                <type>TaskType</type>
+                <panel id="1">
+                    <identifier>activity</identifier>
+                    <panel id="2">
+                        <identifier>work</identifier>
+                        <container id="3">
+                            <identifier>certificationOpenNextStage</identifier>
+                            <path>activity/work/certificationOpenNextStage</path>
+                        </container>
+                    </panel>
+                </panel>
+            </objectDetails>
+        </adminGuiConfiguration>
+    </archetypePolicy>
+    <superArchetypeRef oid="00000000-0000-0000-0000-000000000520" relation="org:default" type="c:ArchetypeType"/>
+</archetype>

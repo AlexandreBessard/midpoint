@@ -1,0 +1,122 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000533" version="0" >
+    <_metadata id="10">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:58.380Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:58.367Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Provisioning propagation task (many resources)</name>
+    <assignment id="4">
+        <_metadata id="11">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:58.380Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:58.367Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="12">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:58.367Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="5">
+            <holderType>TaskType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:58.372Z</enableTimestamp>
+    </activation>
+    <inducement id="6">
+        <identifier>nameMapping</identifier>
+        <focusMappings>
+            <mapping id="8">
+                <strength>weak</strength>
+                <expression>
+                    <script>
+                        <code>
+                            return source.name
+                        </code>
+                    </script>
+                </expression>
+                <target>
+                    <path>name</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+    <inducement id="7">
+        <identifier>handlerMapping</identifier>
+        <focusMappings>
+            <mapping id="9">
+                <strength>weak</strength>
+                <source>
+                    <path>activity</path>
+                </source>
+                <expression>
+                    <value>http://midpoint.evolveum.com/xml/ns/public/provisioning/task/propagation/multi-handler-3</value>
+                </expression>
+                <target>
+                    <path>handlerUri</path>
+                </target>
+                <condition>
+                    <script>
+                        <code>
+                            activity == null
+                        </code>
+                    </script>
+                </condition>
+            </mapping>
+        </focusMappings>
+    </inducement>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Provisioning propagation task (many resources)</t:orig>
+                <t:norm>provisioning propagation task many resources</t:norm>
+                <t:translation>
+                    <t:key>ProvisioningPropagationTask.manyResources.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Provisioning propagation task (many resources)</t:orig>
+                <t:norm>provisioning propagation task many resources</t:norm>
+                <t:translation>
+                    <t:key>TaskHandlerSelector.provisioning.task.propagation.multi.handler</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fa fa-save</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+        <adminGuiConfiguration>
+            <objectDetails>
+                <type>TaskType</type>
+                <panel id="1">
+                    <identifier>activity</identifier>
+                    <panel id="2">
+                        <identifier>work</identifier>
+                        <container id="3">
+                            <identifier>work-multiPropagation</identifier>
+                            <path>activity/work/multiPropagation</path>
+                        </container>
+                    </panel>
+                </panel>
+            </objectDetails>
+        </adminGuiConfiguration>
+    </archetypePolicy>
+    <archetypeType>auxiliary</archetypeType>
+</archetype>

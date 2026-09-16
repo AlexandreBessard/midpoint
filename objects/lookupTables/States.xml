@@ -1,0 +1,34 @@
+<lookupTable xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000240" version="0" >
+    <_metadata id="6">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:55.534Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:55.527Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>States</name>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <row id="1">
+        <key>created</key>
+        <label>Created</label>
+    </row>
+    <row id="2">
+        <key>open</key>
+        <label>Open</label>
+    </row>
+    <row id="3">
+        <key>closing</key>
+        <label>Closing</label>
+    </row>
+    <row id="4">
+        <key>executing</key>
+        <label>Executing</label>
+    </row>
+    <row id="5">
+        <key>closed</key>
+        <label>Closed</label>
+    </row>
+</lookupTable>

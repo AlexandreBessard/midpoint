@@ -1,0 +1,76 @@
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ef83664c-782d-42ec-a038-000000000001" version="3" >
+    <_metadata id="1">
+        <storage>
+            <createTimestamp>2026-09-14T14:29:36.641Z</createTimestamp>
+            <creatorRef>
+                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+            </creatorRef>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#objectImport</createChannel>
+            <modifyTimestamp>2026-09-14T14:30:47.428Z</modifyTimestamp>
+            <modifierRef>
+                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+            </modifierRef>
+            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-09-14T14:29:36.642Z</requestTimestamp>
+            <requestorRef>
+                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+            </requestorRef>
+        </process>
+    </_metadata>
+    <name>Amazon Cognito</name>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <operationalState>
+        <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+        <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+        <timestamp>2026-09-14T14:38:49.374Z</timestamp>
+        <nodeId>DefaultNode</nodeId>
+    </operationalState>
+    <operationalStateHistory id="2">
+        <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+        <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+        <timestamp>2026-09-14T14:38:49.374Z</timestamp>
+        <nodeId>DefaultNode</nodeId>
+    </operationalStateHistory>
+    <connectorRef oid="1916d0f6-f12b-4c17-8524-1fddcbef03b6" relation="org:default" type="c:ConnectorType"/>
+    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector">
+            <cfg:userPoolID>eu-west-3_Zz1lXvvBM</cfg:userPoolID>
+            <cfg:region>eu-west-3</cfg:region>
+            <cfg:AWSAccessKeyID>
+                <t:encryptedData>
+                    <t:encryptionMethod>
+                        <t:algorithm xmlns="http://prism.evolveum.com/xml/ns/public/types-3">http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                    </t:encryptionMethod>
+                    <t:keyInfo>
+                        <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
+                    </t:keyInfo>
+                    <t:cipherData>
+                        <t:cipherValue>XAUXbcr5N9azolbgkduiFDcXxXdNrvvV8Mvg/xxMGdfkjUemgZUc7+WIVJJ+vqSW</t:cipherValue>
+                    </t:cipherData>
+                </t:encryptedData>
+            </cfg:AWSAccessKeyID>
+            <cfg:AWSSecretAccessKey>
+                <t:encryptedData>
+                    <t:encryptionMethod>
+                        <t:algorithm xmlns="http://prism.evolveum.com/xml/ns/public/types-3">http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                    </t:encryptionMethod>
+                    <t:keyInfo>
+                        <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
+                    </t:keyInfo>
+                    <t:cipherData>
+                        <t:cipherValue>Gce6CC0HJ/RbY4gRnlFOunbfgDGNOOSU/C/gsTFkW5d4//JwLsuJIGYboUXkaj2ob6AJ+m3u5m3JROxA77Zhng==</t:cipherValue>
+                    </t:cipherData>
+                </t:encryptedData>
+            </cfg:AWSSecretAccessKey>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+</resource>

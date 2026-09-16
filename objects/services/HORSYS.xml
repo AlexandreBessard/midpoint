@@ -1,0 +1,83 @@
+<service xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2f69fdfb-9da5-41bc-9de8-92fc0ea7e5e2" version="0" >
+    <_metadata id="2">
+        <storage>
+            <createTimestamp>2026-07-31T09:06:30.611Z</createTimestamp>
+            <creatorRef>
+                <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
+                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+            </creatorRef>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-31T09:06:30.574Z</requestTimestamp>
+            <requestorRef>
+                <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
+                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+            </requestorRef>
+        </process>
+    </_metadata>
+    <name>HORSYS</name>
+    <assignment id="1">
+        <_metadata id="3">
+            <storage>
+                <createTimestamp>2026-07-31T09:06:30.611Z</createTimestamp>
+                <creatorRef>
+                    <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </creatorRef>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-31T09:06:30.574Z</requestTimestamp>
+                <requestorRef>
+                    <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </requestorRef>
+            </process>
+            <provenance>
+                <acquisition id="4">
+                    <actorRef>
+                        <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
+                        <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                        <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                    </actorRef>
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channel>
+                    <timestamp>2026-07-31T09:06:30.574Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <archetypeRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType"/>
+    <roleMembershipRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType">
+        <_metadata id="5">
+            <storage>
+                <createTimestamp>2026-07-31T09:06:30.594Z</createTimestamp>
+            </storage>
+            <provenance>
+                <assignmentPath>
+                    <sourceRef oid="2f69fdfb-9da5-41bc-9de8-92fc0ea7e5e2" relation="org:default" type="c:ServiceType"/>
+                    <segment id="6">
+                        <segmentOrder>1</segmentOrder>
+                        <assignmentId>1</assignmentId>
+                        <targetRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType"/>
+                        <matchingOrder>true</matchingOrder>
+                    </segment>
+                </assignmentPath>
+            </provenance>
+        </_metadata>
+    </roleMembershipRef>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-31T09:06:30.584Z</enableTimestamp>
+    </activation>
+</service>

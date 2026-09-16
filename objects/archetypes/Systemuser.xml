@@ -1,0 +1,68 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000300" version="0" >
+    <_metadata id="3">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:51.584Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:51.498Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>System user</name>
+    <description>
+        Archetype for system users, i.e. non-person users that are needed for system to work.
+        This may be (root-like) system administrator, application users and so on.
+    </description>
+    <assignment id="1">
+        <_metadata id="4">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:51.584Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:51.498Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="5">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:51.498Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="2">
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:51.504Z</enableTimestamp>
+    </activation>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>System user</t:orig>
+                <t:norm>system user</t:norm>
+                <t:translation>
+                    <t:key>systemUser.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>System users</t:orig>
+                <t:norm>system users</t:norm>
+                <t:translation>
+                    <t:key>systemUser.pluralLabel</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+                <color>#da0000</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>

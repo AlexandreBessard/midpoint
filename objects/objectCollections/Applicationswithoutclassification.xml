@@ -1,0 +1,45 @@
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="d7887599-3f3a-4d51-80ae-ee8567cd51aa" version="0" >
+    <_metadata id="1">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:56.583Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:56.575Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Applications without classification</name>
+    <documentation>
+        (ISO27001/A.5.12,ISO27001/A.5.13)
+        This collection is named "without classification" rather than "Unclassified" to avoid confusion.
+        The term "unclassified" is commonly used to describe objects that are not classified for any secrecy class,
+        e.i. objects that are not restricted, secret or top secret.
+        This means that "unclassified" usually means "unrestricted" or "public".
+        However, this means that "unclassified" is a classification on its own.
+        Therefore, this mark and all other related configuration using term "no classification" rather than "unclassified".
+    </documentation>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <type>ServiceType</type>
+    <filter>
+        <q:text>effectiveMarkRef matches ( oid = "2bb936a6-91b4-4439-82ac-1b3e89c2a26a" ) and archetypeRef matches ( oid = "00000000-0000-0000-0000-000000000329" )</q:text>
+    </filter>
+    <defaultView>
+        <display>
+            <label>
+                <t:orig>Application without classification</t:orig>
+                <t:norm>application without classification</t:norm>
+                <t:translation>
+                    <t:key>applicationWithoutClassification.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Applications without classification</t:orig>
+                <t:norm>applications without classification</t:norm>
+                <t:translation>
+                    <t:key>applicationWithoutClassification.pluralLabel</t:key>
+                </t:translation>
+            </pluralLabel>
+        </display>
+    </defaultView>
+</objectCollection>

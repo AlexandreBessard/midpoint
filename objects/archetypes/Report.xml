@@ -1,0 +1,118 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000172" version="0" >
+    <_metadata id="11">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:53.767Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:53.750Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Report</name>
+    <assignment id="9">
+        <_metadata id="12">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:53.767Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:53.750Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="13">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:53.750Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="10">
+            <holderType>ReportType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:53.755Z</enableTimestamp>
+    </activation>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Report</t:orig>
+                <t:norm>report</t:norm>
+                <t:translation>
+                    <t:key>report.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Report</t:orig>
+                <t:norm>report</t:norm>
+                <t:translation>
+                    <t:key>report.pluralLabel</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fa fa-chart-pie</cssClass>
+                <color>#001F3F</color>
+            </icon>
+        </display>
+        <itemConstraint id="1">
+            <path>jasper</path>
+            <visibility>hidden</visibility>
+        </itemConstraint>
+        <itemConstraint id="2">
+            <path>diagnosticInformation</path>
+            <visibility>hidden</visibility>
+        </itemConstraint>
+        <itemConstraint id="3">
+            <path>defaultScriptConfiguration</path>
+            <visibility>hidden</visibility>
+        </itemConstraint>
+        <itemConstraint id="4">
+            <path>postReportScript</path>
+            <visibility>hidden</visibility>
+        </itemConstraint>
+        <itemConstraint id="5">
+            <path>lifecycleState</path>
+            <visibility>hidden</visibility>
+        </itemConstraint>
+        <adminGuiConfiguration>
+            <objectDetails>
+                <type>ReportType</type>
+                <panel id="6">
+                    <identifier>assignments</identifier>
+                    <visibility>hidden</visibility>
+                    <panelType>assignments</panelType>
+                </panel>
+                <panel id="7">
+                    <identifier>fileFormat</identifier>
+                    <display>
+                        <label>
+                            <t:orig>File format</t:orig>
+                            <t:norm>file format</t:norm>
+                            <t:translation>
+                                <t:key>fileFormat.panel.label</t:key>
+                            </t:translation>
+                        </label>
+                        <cssClass>fas fa-file-alt</cssClass>
+                        <icon>
+                            <cssClass>fas fa-file-alt</cssClass>
+                        </icon>
+                    </display>
+                    <displayOrder>20</displayOrder>
+                    <container id="8">
+                        <identifier>fileFormat</identifier>
+                        <path>fileFormat</path>
+                    </container>
+                    <panelType>formPanel</panelType>
+                    <path>c:fileFormat</path>
+                    <type>c:FileFormatConfigurationType</type>
+                </panel>
+            </objectDetails>
+        </adminGuiConfiguration>
+    </archetypePolicy>
+</archetype>

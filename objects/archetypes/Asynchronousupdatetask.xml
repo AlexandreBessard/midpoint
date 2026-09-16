@@ -1,0 +1,132 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000505" version="0" >
+    <_metadata id="14">
+        <storage>
+            <createTimestamp>2026-07-20T09:56:57.298Z</createTimestamp>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        </storage>
+        <process>
+            <requestTimestamp>2026-07-20T09:56:57.283Z</requestTimestamp>
+        </process>
+    </_metadata>
+    <name>Asynchronous update task</name>
+    <assignment id="10">
+        <_metadata id="15">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:57.298Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:57.283Z</requestTimestamp>
+            </process>
+            <provenance>
+                <acquisition id="16">
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                    <timestamp>2026-07-20T09:56:57.283Z</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <identifier>holderType</identifier>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation id="11">
+            <holderType>TaskType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2026-07-20T09:56:57.289Z</enableTimestamp>
+    </activation>
+    <inducement id="12">
+        <identifier>nameMapping</identifier>
+        <focusMappings>
+            <mapping id="13">
+                <strength>weak</strength>
+                <expression>
+                    <script>
+                        <code>
+                            import com.evolveum.midpoint.xml.ns._public.common.common_3.TaskType
+                            import org.apache.commons.lang3.StringUtils
+
+                            def task = focus as TaskType
+
+                            String name = source.name
+
+                            String description = midpoint.describeResourceObjectSet(task?.activity?.work?.asynchronousUpdate?.resourceObjects)
+                            if(StringUtils.isNotEmpty(description)) {
+                                return name + ': ' + description
+                            }
+
+                            return name
+                        </code>
+                    </script>
+                </expression>
+                <target>
+                    <path>name</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Asynchronous update task</t:orig>
+                <t:norm>asynchronous update task</t:norm>
+                <t:translation>
+                    <t:key>AsynchronousUpdateTask.label</t:key>
+                </t:translation>
+            </label>
+            <pluralLabel>
+                <t:orig>Asynchronous update tasks</t:orig>
+                <t:norm>asynchronous update tasks</t:norm>
+                <t:translation>
+                    <t:key>AsynchronousUpdateTasks.title</t:key>
+                </t:translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fa fa-bolt</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+        <itemConstraint id="1">
+            <path>extension</path>
+            <visibility>vacant</visibility>
+        </itemConstraint>
+        <itemConstraint id="2">
+            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:workerThreads</path>
+            <visibility>visible</visibility>
+        </itemConstraint>
+        <adminGuiConfiguration>
+            <objectDetails>
+                <type>TaskType</type>
+                <panel id="3">
+                    <identifier>activity</identifier>
+                    <panel id="5">
+                        <identifier>work</identifier>
+                        <container id="6">
+                            <identifier>work-asynchronous-update</identifier>
+                            <path>activity/work/asynchronousUpdate</path>
+                        </container>
+                    </panel>
+                </panel>
+                <panel id="4">
+                    <identifier>taskBasic</identifier>
+                    <container id="7">
+                        <identifier>async-options</identifier>
+                        <display>
+                            <label>AsynchronousUpdateTask.options</label>
+                        </display>
+                        <item id="8">
+                            <path>objectRef</path>
+                        </item>
+                        <item id="9">
+                            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:workerThreads</path>
+                        </item>
+                    </container>
+                </panel>
+            </objectDetails>
+        </adminGuiConfiguration>
+    </archetypePolicy>
+</archetype>
