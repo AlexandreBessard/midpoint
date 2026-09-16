@@ -1,16 +1,4 @@
-<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="eb1490a5-8529-4a71-8f99-42843dffcfd1" version="41" >
-    <_metadata id="47">
-        <storage>
-            <modifyTimestamp>2026-09-15T09:29:16.008Z</modifyTimestamp>
-            <modifierRef>
-                <t:oid>0422229d-9097-4691-92bf-a8276feb1bd9</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </modifierRef>
-            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
-        </storage>
-        <process/>
-    </_metadata>
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="eb1490a5-8529-4a71-8f99-42843dffcfd1" version="42" >
     <name>CEGID</name>
     <description>Ressource basée sur un export des personnes de la base CEGID en CSV</description>
     <lifecycleState>active</lifecycleState>
@@ -308,6 +296,21 @@ return null</code>
             </attribute>
             <attribute id="17">
                 <ref>ri:GenderCode</ref>
+                <inbound id="70">
+                    <name>Genre</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>if (input == null) return null
+def str = basic.trim(basic.stringify(input))
+if (basic.isEmpty(str)) return null
+return str.toLowerCase()</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>extension/gender</path>
+                    </target>
+                </inbound>
             </attribute>
             <attribute id="45">
                 <ref>ri:BirthDate</ref>
@@ -325,6 +328,70 @@ return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(
                     </expression>
                     <target>
                         <path>extension/birthDate</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="60">
+                <ref>ri:BirthCity</ref>
+                <inbound id="71">
+                    <name>Lieu de naissance</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>return basic.trim(basic.stringify(input))</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>extension/birthPlace</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="61">
+                <ref>ri:AddressPostalCode</ref>
+                <inbound id="72">
+                    <name>Code postal</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>return basic.trim(basic.stringify(input))</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>extension/postalCode</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="62">
+                <ref>ri:AddressCity</ref>
+                <inbound id="73">
+                    <name>Ville</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>return basic.trim(basic.stringify(input))</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>locality</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="63">
+                <ref>ri:InitialStartDate</ref>
+                <inbound id="74">
+                    <name>Date de début</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>if (input == null) return null
+def str = basic.trim(basic.stringify(input))
+if (basic.isEmpty(str) || !str.matches(/\d{8}/)) return null
+def iso = str.substring(0,4) + "-" + str.substring(4,6) + "-" + str.substring(6,8) + "T00:00:00"
+return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(iso)</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>extension/startDate</path>
                     </target>
                 </inbound>
             </attribute>
