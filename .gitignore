@@ -21,6 +21,14 @@ credentials.kdbx
 # Raw HR feed extracts containing employee PII - not versioned
 import/
 
+# Exports and old HR data containing employee PII - not versioned
+export/
+old_data/
+
+# Disposable one-shot tasks (shadow cleanup, simulations)
+objects/tasks/Delete*shadows.xml
+objects/tasks/Simulat*reconciliation.xml
+
 # Bulk disposable simulation-run snapshots, not hand-maintained config
 objects/simulationResults/
 

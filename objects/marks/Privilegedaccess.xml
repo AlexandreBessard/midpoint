@@ -1,26 +1,26 @@
-<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="c58394cd-c883-4e41-927c-f90a7c7a0c97" version="0" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:55.625Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:55.616Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Privileged access</name>
-    <description>Mark for objects that provide privileged access (roles), or have privileged access (users).</description>
-    <documentation>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="c58394cd-c883-4e41-927c-f90a7c7a0c97" version="0"  xsi:type="c:MarkType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:55.625Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:55.616Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Privileged access</name>
+        <description>Mark for objects that provide privileged access (roles), or have privileged access (users).</description>
+        <documentation>
         The mark is usually set by "Privileged access" classification.
         The mark is used for easier searching of objects (as opposed to classification), also for GUI visibility.
         Unlike the classification (which is an assignment), the mark can mark objects that are indirectly affected by the classification.
         (ISO27001/A.5.15,ISO27001/A.5.18,ISO27001/A.8.2,ISO27001/A.8.9)
     </documentation>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <display>
-        <icon>
-            <cssClass>fa fa-circle-radiation</cssClass>
-        </icon>
-    </display>
-</mark>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <display>
+            <icon>
+                <cssClass>fa fa-circle-radiation</cssClass>
+            </icon>
+        </display>
+    </apti:object>

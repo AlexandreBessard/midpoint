@@ -1,76 +1,647 @@
-<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ef83664c-782d-42ec-a038-000000000001" version="3" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-09-14T14:29:36.641Z</createTimestamp>
-            <creatorRef>
-                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </creatorRef>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#objectImport</createChannel>
-            <modifyTimestamp>2026-09-14T14:30:47.428Z</modifyTimestamp>
-            <modifierRef>
-                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </modifierRef>
-            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-09-14T14:29:36.642Z</requestTimestamp>
-            <requestorRef>
-                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </requestorRef>
-        </process>
-    </_metadata>
-    <name>Amazon Cognito</name>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <operationalState>
-        <lastAvailabilityStatus>broken</lastAvailabilityStatus>
-        <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
-        <timestamp>2026-09-14T14:38:49.374Z</timestamp>
-        <nodeId>DefaultNode</nodeId>
-    </operationalState>
-    <operationalStateHistory id="2">
-        <lastAvailabilityStatus>broken</lastAvailabilityStatus>
-        <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
-        <timestamp>2026-09-14T14:38:49.374Z</timestamp>
-        <nodeId>DefaultNode</nodeId>
-    </operationalStateHistory>
-    <connectorRef oid="1916d0f6-f12b-4c17-8524-1fddcbef03b6" relation="org:default" type="c:ConnectorType"/>
-    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
-        <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector">
-            <cfg:userPoolID>eu-west-3_Zz1lXvvBM</cfg:userPoolID>
-            <cfg:region>eu-west-3</cfg:region>
-            <cfg:AWSAccessKeyID>
-                <t:encryptedData>
-                    <t:encryptionMethod>
-                        <t:algorithm xmlns="http://prism.evolveum.com/xml/ns/public/types-3">http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                    </t:encryptionMethod>
-                    <t:keyInfo>
-                        <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
-                    </t:keyInfo>
-                    <t:cipherData>
-                        <t:cipherValue>XAUXbcr5N9azolbgkduiFDcXxXdNrvvV8Mvg/xxMGdfkjUemgZUc7+WIVJJ+vqSW</t:cipherValue>
-                    </t:cipherData>
-                </t:encryptedData>
-            </cfg:AWSAccessKeyID>
-            <cfg:AWSSecretAccessKey>
-                <t:encryptedData>
-                    <t:encryptionMethod>
-                        <t:algorithm xmlns="http://prism.evolveum.com/xml/ns/public/types-3">http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                    </t:encryptionMethod>
-                    <t:keyInfo>
-                        <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
-                    </t:keyInfo>
-                    <t:cipherData>
-                        <t:cipherValue>Gce6CC0HJ/RbY4gRnlFOunbfgDGNOOSU/C/gsTFkW5d4//JwLsuJIGYboUXkaj2ob6AJ+m3u5m3JROxA77Zhng==</t:cipherValue>
-                    </t:cipherData>
-                </t:encryptedData>
-            </cfg:AWSSecretAccessKey>
-        </icfc:configurationProperties>
-    </connectorConfiguration>
-</resource>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ef83664c-782d-42ec-a038-000000000001" version="3"  xsi:type="c:ResourceType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-09-14T14:29:36.641Z</createTimestamp>
+                <creatorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </creatorRef>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#objectImport</createChannel>
+                <modifyTimestamp>2026-09-14T14:30:47.428Z</modifyTimestamp>
+                <modifierRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </modifierRef>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-09-14T14:29:36.642Z</requestTimestamp>
+                <requestorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </requestorRef>
+            </process>
+        </_metadata>
+        <name>Amazon Cognito</name>
+        <fetchResult>
+            <operation>com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeObject</operation>
+            <status>partial_error</status>
+            <importance>minor</importance>
+            <start>2026-09-21T21:58:12.762Z</start>
+            <end>2026-09-21T21:58:14.101Z</end>
+            <microseconds>1339356</microseconds>
+            <ownMicroseconds>992</ownMicroseconds>
+            <invocationId>8855076</invocationId>
+            <params>
+                <entry key="object">
+                    <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">resource:ef83664c-782d-42ec-a038-000000000001(Amazon Cognito)</paramValue>
+                </entry>
+            </params>
+            <token>1000000000000609589</token>
+            <message>Cannot complete resource schema and capabilities: Unexpected GenericFrameworkException when configuring or initializing connector instance: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+            <partialResults>
+                <operation>com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.completeResource</operation>
+                <status>partial_error</status>
+                <importance>minor</importance>
+                <start>2026-09-21T21:58:12.762Z</start>
+                <end>2026-09-21T21:58:14.101Z</end>
+                <microseconds>1338364</microseconds>
+                <ownMicroseconds>51159</ownMicroseconds>
+                <invocationId>8855077</invocationId>
+                <token>1000000000000609590</token>
+                <message>Cannot complete resource schema and capabilities: Unexpected GenericFrameworkException when configuring or initializing connector instance: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+                <details>com.evolveum.midpoint.util.exception.SystemException: Unexpected GenericFrameworkException when configuring or initializing connector instance: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)
+com.evolveum.midpoint.util.exception.SystemException.unexpected(SystemException.java:47)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.getConfiguredAndInitializedConnectorInstance(ConnectorManager.java:207)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.getConfiguredAndInitializedConnectorInstance(ConnectorManager.java:161)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.fetchAndStoreCapabilities(ResourceCompletionOperation.java:316)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.completeConnectorCapabilities(ResourceCompletionOperation.java:289)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.completeCapabilities(ResourceCompletionOperation.java:272)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.execute(ResourceCompletionOperation.java:262)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.complete(ResourceCompletionOperation.java:196)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.execute(ResourceCompletionOperation.java:132)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceManager.completeAndCacheResource(ResourceManager.java:157)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceManager.getCompletedResource(ResourceManager.java:114)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeNonShadowRepoObject(ProvisioningSearchLikeOperation.java:198)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeNonShadowRepoObjects(ProvisioningSearchLikeOperation.java:170)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.executeSearch(ProvisioningSearchLikeOperation.java:99)
+com.evolveum.midpoint.provisioning.impl.ProvisioningServiceImpl.searchObjects(ProvisioningServiceImpl.java:327)
+com.evolveum.midpoint.provisioning.api.ProvisioningService.searchObjects(ProvisioningService.java:683)
+com.evolveum.midpoint.model.impl.controller.ModelController.searchObjects(ModelController.java:658)
+com.evolveum.midpoint.model.impl.ModelCrudService.searchObjects(ModelCrudService.java:78)
+com.evolveum.midpoint.rest.impl.ModelRestController.searchObjects(ModelRestController.java:653)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+java.base/java.lang.reflect.Method.invoke(Method.java:580)
+org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.apache.wicket.protocol.http.WicketFilter.processRequestCycle(WicketFilter.java:293)
+org.apache.wicket.protocol.http.WicketFilter.processRequest(WicketFilter.java:208)
+org.apache.wicket.protocol.http.WicketFilter.doFilter(WicketFilter.java:307)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+com.evolveum.midpoint.web.util.MidPointProfilingServletFilter.doFilter(MidPointProfilingServletFilter.java:78)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:459)
+com.evolveum.midpoint.authentication.impl.filter.RefuseUnauthenticatedRequestFilter.doFilterInternal(RefuseUnauthenticatedRequestFilter.java:36)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.SequenceAuditFilter.doFilter(SequenceAuditFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:117)
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.FinishAuthenticationFilter.doFilterInternal(FinishAuthenticationFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAnonymousAuthenticationFilter.doFilter(MidpointAnonymousAuthenticationFilter.java:93)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.HttpAuthenticationFilter.doFilterInternal(HttpAuthenticationFilter.java:118)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.RedirectForLoginPagesWithAuthenticationFilter.doFilterInternal(RedirectForLoginPagesWithAuthenticationFilter.java:38)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.runFilters(MidpointAuthFilter.java:256)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.executeAuthenticationFilter(MidpointAuthFilter.java:219)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.doFilterInternal(MidpointAuthFilter.java:145)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.doFilter(MidpointAuthFilter.java:99)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.TransformExceptionFilter.doFilterInternal(TransformExceptionFilter.java:32)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.SequenceAuditFilter.doFilter(SequenceAuditFilter.java:92)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:151)
+org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:129)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+com.evolveum.midpoint.web.boot.TrailingSlashRedirectingFilter.doFilterInternal(TrailingSlashRedirectingFilter.java:60)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+com.evolveum.midpoint.web.boot.NodeIdHeaderValve.invoke(NodeIdHeaderValve.java:41)
+com.evolveum.midpoint.web.boot.TomcatRootValve.invoke(TomcatRootValve.java:61)
+org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+java.base/java.lang.Thread.run(Thread.java:1583)
+</details>
+                <partialResults>
+                    <operation>com.evolveum.midpoint.provisioning.ucf.api.ConnectorInstance.configure</operation>
+                    <status>success</status>
+                    <importance>normal</importance>
+                    <start>2026-09-21T21:58:12.811Z</start>
+                    <end>2026-09-21T21:58:12.816Z</end>
+                    <microseconds>4569</microseconds>
+                    <ownMicroseconds>4569</ownMicroseconds>
+                    <invocationId>8855139</invocationId>
+                    <token>1000000000000609591</token>
+                </partialResults>
+                <partialResults>
+                    <operation>com.evolveum.midpoint.provisioning.ucf.api.ConnectorInstance.initialize</operation>
+                    <status>fatal_error</status>
+                    <importance>normal</importance>
+                    <start>2026-09-21T21:58:12.816Z</start>
+                    <end>2026-09-21T21:58:14.098Z</end>
+                    <microseconds>1282636</microseconds>
+                    <ownMicroseconds>356</ownMicroseconds>
+                    <invocationId>8855140</invocationId>
+                    <context>
+                        <entry key="connector">
+                            <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">connector:1916d0f6-f12b-4c17-8524-1fddcbef03b6(ConnId jp.openstandia.connector.amazonaws.CognitoUserPoolConnector v1.2.0)</paramValue>
+                        </entry>
+                        <entry key="implementationClass">
+                            <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">class com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnectorFactoryConnIdImpl</paramValue>
+                        </entry>
+                    </context>
+                    <token>1000000000000609592</token>
+                    <message>org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+                    <details>com.evolveum.midpoint.provisioning.ucf.api.GenericFrameworkException: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdUtil.processConnIdException(ConnIdUtil.java:247)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdCapabilitiesAndSchemaParser.fetchConnIdSchema(ConnIdCapabilitiesAndSchemaParser.java:193)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdCapabilitiesAndSchemaParser.retrieveResourceCapabilitiesAndSchema(ConnIdCapabilitiesAndSchemaParser.java:88)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnectorInstanceConnIdImpl.retrieveAndParseResourceCapabilitiesAndSchema(ConnectorInstanceConnIdImpl.java:473)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnectorInstanceConnIdImpl.initialize(ConnectorInstanceConnIdImpl.java:384)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.configureAndInitializeConnectorInstance(ConnectorManager.java:369)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.getConfiguredAndInitializedConnectorInstance(ConnectorManager.java:199)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.getConfiguredAndInitializedConnectorInstance(ConnectorManager.java:161)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.fetchAndStoreCapabilities(ResourceCompletionOperation.java:316)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.completeConnectorCapabilities(ResourceCompletionOperation.java:289)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.completeCapabilities(ResourceCompletionOperation.java:272)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.execute(ResourceCompletionOperation.java:262)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.complete(ResourceCompletionOperation.java:196)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.execute(ResourceCompletionOperation.java:132)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceManager.completeAndCacheResource(ResourceManager.java:157)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceManager.getCompletedResource(ResourceManager.java:114)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeNonShadowRepoObject(ProvisioningSearchLikeOperation.java:198)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeNonShadowRepoObjects(ProvisioningSearchLikeOperation.java:170)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.executeSearch(ProvisioningSearchLikeOperation.java:99)
+com.evolveum.midpoint.provisioning.impl.ProvisioningServiceImpl.searchObjects(ProvisioningServiceImpl.java:327)
+com.evolveum.midpoint.provisioning.api.ProvisioningService.searchObjects(ProvisioningService.java:683)
+com.evolveum.midpoint.model.impl.controller.ModelController.searchObjects(ModelController.java:658)
+com.evolveum.midpoint.model.impl.ModelCrudService.searchObjects(ModelCrudService.java:78)
+com.evolveum.midpoint.rest.impl.ModelRestController.searchObjects(ModelRestController.java:653)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+java.base/java.lang.reflect.Method.invoke(Method.java:580)
+org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.apache.wicket.protocol.http.WicketFilter.processRequestCycle(WicketFilter.java:293)
+org.apache.wicket.protocol.http.WicketFilter.processRequest(WicketFilter.java:208)
+org.apache.wicket.protocol.http.WicketFilter.doFilter(WicketFilter.java:307)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+com.evolveum.midpoint.web.util.MidPointProfilingServletFilter.doFilter(MidPointProfilingServletFilter.java:78)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:459)
+com.evolveum.midpoint.authentication.impl.filter.RefuseUnauthenticatedRequestFilter.doFilterInternal(RefuseUnauthenticatedRequestFilter.java:36)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.SequenceAuditFilter.doFilter(SequenceAuditFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:117)
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.FinishAuthenticationFilter.doFilterInternal(FinishAuthenticationFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAnonymousAuthenticationFilter.doFilter(MidpointAnonymousAuthenticationFilter.java:93)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.HttpAuthenticationFilter.doFilterInternal(HttpAuthenticationFilter.java:118)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.RedirectForLoginPagesWithAuthenticationFilter.doFilterInternal(RedirectForLoginPagesWithAuthenticationFilter.java:38)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.runFilters(MidpointAuthFilter.java:256)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.executeAuthenticationFilter(MidpointAuthFilter.java:219)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.doFilterInternal(MidpointAuthFilter.java:145)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.doFilter(MidpointAuthFilter.java:99)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.TransformExceptionFilter.doFilterInternal(TransformExceptionFilter.java:32)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.SequenceAuditFilter.doFilter(SequenceAuditFilter.java:92)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:151)
+org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:129)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+com.evolveum.midpoint.web.boot.TrailingSlashRedirectingFilter.doFilterInternal(TrailingSlashRedirectingFilter.java:60)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+com.evolveum.midpoint.web.boot.NodeIdHeaderValve.invoke(NodeIdHeaderValve.java:41)
+com.evolveum.midpoint.web.boot.TomcatRootValve.invoke(TomcatRootValve.java:61)
+org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+java.base/java.lang.Thread.run(Thread.java:1583)
+</details>
+                    <partialResults>
+                        <operation>org.identityconnectors.framework.api.ConnectorFacade.getSupportedOperations</operation>
+                        <status>success</status>
+                        <importance>normal</importance>
+                        <start>2026-09-21T21:58:12.816Z</start>
+                        <end>2026-09-21T21:58:12.816Z</end>
+                        <microseconds>326</microseconds>
+                        <ownMicroseconds>326</ownMicroseconds>
+                        <invocationId>8855141</invocationId>
+                        <context>
+                            <entry key="connector">
+                                <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">class org.identityconnectors.framework.impl.api.local.LocalConnectorFacadeImpl</paramValue>
+                            </entry>
+                        </context>
+                        <token>1000000000000609593</token>
+                    </partialResults>
+                    <partialResults>
+                        <operation>org.identityconnectors.framework.api.ConnectorFacade.schema</operation>
+                        <status>fatal_error</status>
+                        <importance>normal</importance>
+                        <start>2026-09-21T21:58:12.816Z</start>
+                        <end>2026-09-21T21:58:14.098Z</end>
+                        <microseconds>1281954</microseconds>
+                        <ownMicroseconds>1281954</ownMicroseconds>
+                        <invocationId>8855142</invocationId>
+                        <context>
+                            <entry key="connector">
+                                <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">class org.identityconnectors.framework.impl.api.local.LocalConnectorFacadeImpl</paramValue>
+                            </entry>
+                        </context>
+                        <token>1000000000000609594</token>
+                        <message>org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+                        <details>com.evolveum.midpoint.provisioning.ucf.api.GenericFrameworkException: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdUtil.processConnIdException(ConnIdUtil.java:247)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdCapabilitiesAndSchemaParser.fetchConnIdSchema(ConnIdCapabilitiesAndSchemaParser.java:193)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdCapabilitiesAndSchemaParser.retrieveResourceCapabilitiesAndSchema(ConnIdCapabilitiesAndSchemaParser.java:88)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnectorInstanceConnIdImpl.retrieveAndParseResourceCapabilitiesAndSchema(ConnectorInstanceConnIdImpl.java:473)
+com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnectorInstanceConnIdImpl.initialize(ConnectorInstanceConnIdImpl.java:384)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.configureAndInitializeConnectorInstance(ConnectorManager.java:369)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.getConfiguredAndInitializedConnectorInstance(ConnectorManager.java:199)
+com.evolveum.midpoint.provisioning.impl.resources.ConnectorManager.getConfiguredAndInitializedConnectorInstance(ConnectorManager.java:161)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.fetchAndStoreCapabilities(ResourceCompletionOperation.java:316)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.completeConnectorCapabilities(ResourceCompletionOperation.java:289)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.completeCapabilities(ResourceCompletionOperation.java:272)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation$RealCompletion.execute(ResourceCompletionOperation.java:262)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.complete(ResourceCompletionOperation.java:196)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.execute(ResourceCompletionOperation.java:132)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceManager.completeAndCacheResource(ResourceManager.java:157)
+com.evolveum.midpoint.provisioning.impl.resources.ResourceManager.getCompletedResource(ResourceManager.java:114)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeNonShadowRepoObject(ProvisioningSearchLikeOperation.java:198)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeNonShadowRepoObjects(ProvisioningSearchLikeOperation.java:170)
+com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.executeSearch(ProvisioningSearchLikeOperation.java:99)
+com.evolveum.midpoint.provisioning.impl.ProvisioningServiceImpl.searchObjects(ProvisioningServiceImpl.java:327)
+com.evolveum.midpoint.provisioning.api.ProvisioningService.searchObjects(ProvisioningService.java:683)
+com.evolveum.midpoint.model.impl.controller.ModelController.searchObjects(ModelController.java:658)
+com.evolveum.midpoint.model.impl.ModelCrudService.searchObjects(ModelCrudService.java:78)
+com.evolveum.midpoint.rest.impl.ModelRestController.searchObjects(ModelRestController.java:653)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+java.base/java.lang.reflect.Method.invoke(Method.java:580)
+org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.apache.wicket.protocol.http.WicketFilter.processRequestCycle(WicketFilter.java:293)
+org.apache.wicket.protocol.http.WicketFilter.processRequest(WicketFilter.java:208)
+org.apache.wicket.protocol.http.WicketFilter.doFilter(WicketFilter.java:307)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+com.evolveum.midpoint.web.util.MidPointProfilingServletFilter.doFilter(MidPointProfilingServletFilter.java:78)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:459)
+com.evolveum.midpoint.authentication.impl.filter.RefuseUnauthenticatedRequestFilter.doFilterInternal(RefuseUnauthenticatedRequestFilter.java:36)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.SequenceAuditFilter.doFilter(SequenceAuditFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:117)
+org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:83)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.FinishAuthenticationFilter.doFilterInternal(FinishAuthenticationFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAnonymousAuthenticationFilter.doFilter(MidpointAnonymousAuthenticationFilter.java:93)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.HttpAuthenticationFilter.doFilterInternal(HttpAuthenticationFilter.java:118)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.RedirectForLoginPagesWithAuthenticationFilter.doFilterInternal(RedirectForLoginPagesWithAuthenticationFilter.java:38)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter$VirtualFilterChain.doFilter(MidpointAuthFilter.java:471)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.runFilters(MidpointAuthFilter.java:256)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.executeAuthenticationFilter(MidpointAuthFilter.java:219)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.doFilterInternal(MidpointAuthFilter.java:145)
+com.evolveum.midpoint.authentication.impl.filter.MidpointAuthFilter.doFilter(MidpointAuthFilter.java:99)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.TransformExceptionFilter.doFilterInternal(TransformExceptionFilter.java:32)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+com.evolveum.midpoint.authentication.impl.filter.SequenceAuditFilter.doFilter(SequenceAuditFilter.java:92)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:151)
+org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:129)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+com.evolveum.midpoint.web.boot.TrailingSlashRedirectingFilter.doFilterInternal(TrailingSlashRedirectingFilter.java:60)
+org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+com.evolveum.midpoint.web.boot.NodeIdHeaderValve.invoke(NodeIdHeaderValve.java:41)
+com.evolveum.midpoint.web.boot.TomcatRootValve.invoke(TomcatRootValve.java:61)
+org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+java.base/java.lang.Thread.run(Thread.java:1583)
+</details>
+                    </partialResults>
+                </partialResults>
+            </partialResults>
+        </fetchResult>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <operationalState>
+            <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+            <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+            <timestamp>2026-09-14T14:38:49.374Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalState>
+        <operationalStateHistory id="2">
+            <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+            <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+            <timestamp>2026-09-14T14:38:49.374Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <connectorRef oid="1916d0f6-f12b-4c17-8524-1fddcbef03b6" relation="org:default" type="c:ConnectorType"/>
+        <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+            <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector">
+                <cfg:userPoolID>eu-west-3_Zz1lXvvBM</cfg:userPoolID>
+                <cfg:AWSAccessKeyID>
+                    <t:encryptedData>
+                        <t:encryptionMethod>
+                            <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                        </t:encryptionMethod>
+                        <t:keyInfo>
+                            <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
+                        </t:keyInfo>
+                        <t:cipherData>
+                            <t:cipherValue>XAUXbcr5N9azolbgkduiFDcXxXdNrvvV8Mvg/xxMGdfkjUemgZUc7+WIVJJ+vqSW</t:cipherValue>
+                        </t:cipherData>
+                    </t:encryptedData>
+                </cfg:AWSAccessKeyID>
+                <cfg:AWSSecretAccessKey>
+                    <t:encryptedData>
+                        <t:encryptionMethod>
+                            <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                        </t:encryptionMethod>
+                        <t:keyInfo>
+                            <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
+                        </t:keyInfo>
+                        <t:cipherData>
+                            <t:cipherValue>Gce6CC0HJ/RbY4gRnlFOunbfgDGNOOSU/C/gsTFkW5d4//JwLsuJIGYboUXkaj2ob6AJ+m3u5m3JROxA77Zhng==</t:cipherValue>
+                        </t:cipherData>
+                    </t:encryptedData>
+                </cfg:AWSSecretAccessKey>
+                <cfg:region>eu-west-3</cfg:region>
+            </icfc:configurationProperties>
+        </connectorConfiguration>
+    </apti:object>

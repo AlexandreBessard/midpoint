@@ -1,17 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000701" version="0" >
-    <_metadata id="5">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:59.062Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:59.051Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Object mark</name>
-    <description>Denotes marks for objects and assignments. Replaces legacy policy situations.</description>
-    <assignment id="1">
-        <_metadata id="6">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000701" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="5">
             <storage>
                 <createTimestamp>2026-07-20T09:56:59.062Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -19,70 +7,82 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:59.051Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="7">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:59.051Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
+        <name>Object mark</name>
+        <description>Denotes marks for objects and assignments. Replaces legacy policy situations.</description>
+        <assignment id="1">
+            <_metadata id="6">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:59.062Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:59.051Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="7">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:59.051Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <holderType>MarkType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:59.055Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <holderType>MarkType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:59.055Z</enableTimestamp>
-    </activation>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Object mark</t:orig>
-                <t:norm>object mark</t:norm>
-                <t:translation>
-                    <t:key>ObjectMark.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Object marks</t:orig>
-                <t:norm>object marks</t:norm>
-                <t:translation>
-                    <t:key>ObjectMarks.pluralLabel</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-tag</cssClass>
-                <color>blue</color>
-            </icon>
-        </display>
-        <adminGuiConfiguration>
-            <objectDetails>
-                <panel id="3">
-                    <identifier>shadowMarksList</identifier>
-                    <display>
-                        <label>
-                            <t:orig>Marked shadows</t:orig>
-                            <t:norm>marked shadows</t:norm>
-                            <t:translation>
-                                <t:key>MarkedShadows.label</t:key>
-                            </t:translation>
-                        </label>
-                    </display>
-                    <applicableForOperation>modify</applicableForOperation>
-                    <panelType>markedShadowList</panelType>
-                </panel>
-                <panel id="4">
-                    <identifier>eventMarkInformationPanel</identifier>
-                    <visibility>hidden</visibility>
-                </panel>
-            </objectDetails>
-        </adminGuiConfiguration>
-    </archetypePolicy>
-    <archetypeType>structural</archetypeType>
-</archetype>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Object mark</t:orig>
+                    <t:norm>object mark</t:norm>
+                    <t:translation>
+                        <t:key>ObjectMark.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Object marks</t:orig>
+                    <t:norm>object marks</t:norm>
+                    <t:translation>
+                        <t:key>ObjectMarks.pluralLabel</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-tag</cssClass>
+                    <color>blue</color>
+                </icon>
+            </display>
+            <adminGuiConfiguration>
+                <objectDetails>
+                    <panel id="3">
+                        <identifier>shadowMarksList</identifier>
+                        <display>
+                            <label>
+                                <t:orig>Marked shadows</t:orig>
+                                <t:norm>marked shadows</t:norm>
+                                <t:translation>
+                                    <t:key>MarkedShadows.label</t:key>
+                                </t:translation>
+                            </label>
+                        </display>
+                        <applicableForOperation>modify</applicableForOperation>
+                        <panelType>markedShadowList</panelType>
+                    </panel>
+                    <panel id="4">
+                        <identifier>eventMarkInformationPanel</identifier>
+                        <visibility>hidden</visibility>
+                    </panel>
+                </objectDetails>
+            </adminGuiConfiguration>
+        </archetypePolicy>
+        <archetypeType>structural</archetypeType>
+    </apti:object>

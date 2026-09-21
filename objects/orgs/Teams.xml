@@ -1,19 +1,5 @@
-<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2328b6ae-f30b-4701-a1d7-92fb617c9e59" version="0" >
-    <_metadata id="3">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:57.025Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:57.012Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Teams</name>
-    <description>Root object of all teams.</description>
-    <documentation>(ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
-    <indestructible>true</indestructible>
-    <assignment id="1">
-        <_metadata id="4">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2328b6ae-f30b-4701-a1d7-92fb617c9e59" version="0"  xsi:type="c:OrgType">
+        <_metadata id="3">
             <storage>
                 <createTimestamp>2026-07-20T09:56:57.025Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -21,29 +7,43 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:57.012Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="5">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:57.012Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>assignment-relation-teams</identifier>
+        <name>Teams</name>
+        <description>Root object of all teams.</description>
+        <documentation>(ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
+        <indestructible>true</indestructible>
+        <assignment id="1">
+            <_metadata id="4">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:57.025Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:57.012Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="5">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:57.012Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>assignment-relation-teams</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <description>We want teams here, nothing else.</description>
+                <holderType>OrgType</holderType>
+                <holderArchetypeRef oid="3cc72762-030e-4161-bd9a-5fa9cb4fd935" relation="org:default" type="c:ArchetypeType"/>
+                <relation>org:default</relation>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:57.015Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <description>We want teams here, nothing else.</description>
-            <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="3cc72762-030e-4161-bd9a-5fa9cb4fd935" relation="org:default" type="c:ArchetypeType"/>
-            <relation>org:default</relation>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:57.015Z</enableTimestamp>
-    </activation>
-    <displayOrder>200</displayOrder>
-</org>
+        <displayOrder>200</displayOrder>
+    </apti:object>

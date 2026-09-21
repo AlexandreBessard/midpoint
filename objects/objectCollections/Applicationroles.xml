@@ -1,18 +1,18 @@
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0001-000000000016" version="0" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:55.836Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:55.828Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Application roles</name>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <type>RoleType</type>
-    <filter>
-        <q:text>archetypeRef matches (oid = "00000000-0000-0000-0000-000000000328" and targetType = ArchetypeType)</q:text>
-    </filter>
-</objectCollection>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0001-000000000016" version="0"  xsi:type="c:ObjectCollectionType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:55.836Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:55.828Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Application roles</name>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <type>RoleType</type>
+        <filter>
+            <q:text>archetypeRef matches (oid = "00000000-0000-0000-0000-000000000328" and targetType = ArchetypeType)</q:text>
+        </filter>
+    </apti:object>

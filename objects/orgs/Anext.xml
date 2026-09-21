@@ -1,0 +1,83 @@
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="6a0c253d-a0e6-4c4f-8391-33bc8821adb4" version="0"  xsi:type="c:OrgType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-09-21T08:28:04.018Z</createTimestamp>
+                <creatorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </creatorRef>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-09-21T08:28:03.917Z</requestTimestamp>
+                <requestorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </requestorRef>
+            </process>
+        </_metadata>
+        <name>Anext</name>
+        <tenantRef oid="6a0c253d-a0e6-4c4f-8391-33bc8821adb4" relation="org:default" type="c:OrgType"/>
+        <indestructible>true</indestructible>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-09-21T08:28:03.934Z</enableTimestamp>
+        </activation>
+        <preferredLanguage>fr</preferredLanguage>
+        <locale>fr</locale>
+        <timezone>Europe/Paris</timezone>
+        <displayName>Anext</displayName>
+        <tenant>true</tenant>
+        <mailDomain>
+            <_value>anett.fr</_value>
+            <_metadata id="2">
+                <provenance>
+                    <acquisition id="3">
+                        <actorRef>
+                            <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                            <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                            <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                        </actorRef>
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channel>
+                        <timestamp>2026-09-21T08:28:03.867Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+        </mailDomain>
+        <mailDomain>
+            <_value>kalhyge.fr</_value>
+            <_metadata id="4">
+                <provenance>
+                    <acquisition id="5">
+                        <actorRef>
+                            <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                            <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                            <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                        </actorRef>
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channel>
+                        <timestamp>2026-09-21T08:28:03.867Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+        </mailDomain>
+        <mailDomain>
+            <_value>anext.co</_value>
+            <_metadata id="6">
+                <provenance>
+                    <acquisition id="7">
+                        <actorRef>
+                            <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                            <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                            <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                        </actorRef>
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channel>
+                        <timestamp>2026-09-21T08:28:03.867Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+        </mailDomain>
+    </apti:object>

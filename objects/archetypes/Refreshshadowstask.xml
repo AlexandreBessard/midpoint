@@ -1,16 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000514" version="0" >
-    <_metadata id="15">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:57.724Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:57.712Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Refresh shadows task</name>
-    <assignment id="11">
-        <_metadata id="16">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000514" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="15">
             <storage>
                 <createTimestamp>2026-07-20T09:56:57.724Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -18,109 +7,120 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:57.712Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="17">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:57.711Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
+        <name>Refresh shadows task</name>
+        <assignment id="11">
+            <_metadata id="16">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:57.724Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:57.712Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="17">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:57.711Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="12">
+                <holderType>TaskType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:57.715Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="12">
-            <holderType>TaskType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:57.715Z</enableTimestamp>
-    </activation>
-    <inducement id="13">
-        <identifier>nameMapping</identifier>
-        <focusMappings>
-            <mapping id="14">
-                <strength>weak</strength>
-                <expression>
-                    <script>
-                        <code>
+        <inducement id="13">
+            <identifier>nameMapping</identifier>
+            <focusMappings>
+                <mapping id="14">
+                    <strength>weak</strength>
+                    <expression>
+                        <script>
+                            <code>
                             return source.name
                         </code>
-                    </script>
-                </expression>
-                <target>
-                    <path>name</path>
-                </target>
-            </mapping>
-        </focusMappings>
-    </inducement>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Refresh shadows task</t:orig>
-                <t:norm>refresh shadows task</t:norm>
-                <t:translation>
-                    <t:key>RefreshShadowsTask.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Refresh shadows tasks</t:orig>
-                <t:norm>refresh shadows tasks</t:norm>
-                <t:translation>
-                    <t:key>TaskHandlerSelector.model.shadowRefresh.handler</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-wrench</cssClass>
-                <color>green</color>
-            </icon>
-        </display>
-        <itemConstraint id="1">
-            <path>extension</path>
-            <visibility>vacant</visibility>
-        </itemConstraint>
-        <itemConstraint id="2">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectType</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="3">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectQuery</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="4">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:searchOptions</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="5">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:iterationMethod</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="6">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:useRepositoryDirectly</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="7">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:failedObjectsSelector</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <adminGuiConfiguration>
-            <objectDetails>
-                <type>TaskType</type>
-                <panel id="8">
-                    <identifier>activity</identifier>
-                    <panel id="9">
-                        <identifier>work</identifier>
-                        <container id="10">
-                            <identifier>work-shadowRefresh</identifier>
-                            <path>activity/work/shadowRefresh</path>
-                        </container>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </mapping>
+            </focusMappings>
+        </inducement>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Refresh shadows task</t:orig>
+                    <t:norm>refresh shadows task</t:norm>
+                    <t:translation>
+                        <t:key>RefreshShadowsTask.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Refresh shadows tasks</t:orig>
+                    <t:norm>refresh shadows tasks</t:norm>
+                    <t:translation>
+                        <t:key>TaskHandlerSelector.model.shadowRefresh.handler</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-wrench</cssClass>
+                    <color>green</color>
+                </icon>
+            </display>
+            <itemConstraint id="1">
+                <path>extension</path>
+                <visibility>vacant</visibility>
+            </itemConstraint>
+            <itemConstraint id="2">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectType</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="3">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectQuery</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="4">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:searchOptions</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="5">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:iterationMethod</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="6">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:useRepositoryDirectly</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="7">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:failedObjectsSelector</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <adminGuiConfiguration>
+                <objectDetails>
+                    <type>TaskType</type>
+                    <panel id="8">
+                        <identifier>activity</identifier>
+                        <panel id="9">
+                            <identifier>work</identifier>
+                            <container id="10">
+                                <identifier>work-shadowRefresh</identifier>
+                                <path>activity/work/shadowRefresh</path>
+                            </container>
+                        </panel>
                     </panel>
-                </panel>
-            </objectDetails>
-        </adminGuiConfiguration>
-    </archetypePolicy>
-    <archetypeType>auxiliary</archetypeType>
-</archetype>
+                </objectDetails>
+            </adminGuiConfiguration>
+        </archetypePolicy>
+        <archetypeType>auxiliary</archetypeType>
+    </apti:object>

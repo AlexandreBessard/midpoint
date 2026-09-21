@@ -1,17 +1,5 @@
-<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000817" version="0" >
-    <_metadata id="2">
-        <storage>
-            <createTimestamp>2026-07-20T09:57:00.694Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:57:00.686Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Has assignment</name>
-    <description>Object has illegal, suspicious or interesting assignment.</description>
-    <assignment id="1">
-        <_metadata id="3">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000817" version="0"  xsi:type="c:MarkType">
+        <_metadata id="2">
             <storage>
                 <createTimestamp>2026-07-20T09:57:00.694Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -19,43 +7,55 @@
             <process>
                 <requestTimestamp>2026-07-20T09:57:00.686Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="4">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:57:00.686Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>archetype</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType"/>
-        <activation>
-            <effectiveStatus>enabled</effectiveStatus>
-        </activation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <archetypeRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType"/>
-    <roleMembershipRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType">
-        <_metadata id="5">
-            <storage>
-                <createTimestamp>2026-07-20T09:57:00.692Z</createTimestamp>
-            </storage>
-            <provenance>
-                <assignmentPath>
-                    <sourceRef oid="00000000-0000-0000-0000-000000000817" relation="org:default" type="c:MarkType"/>
-                    <segment id="6">
-                        <segmentOrder>1</segmentOrder>
-                        <assignmentId>1</assignmentId>
-                        <targetRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType"/>
-                        <matchingOrder>true</matchingOrder>
-                    </segment>
-                </assignmentPath>
-            </provenance>
-        </_metadata>
-    </roleMembershipRef>
-    <display>
-        <icon>
-            <cssClass>fa fa-clipboard-question</cssClass>
-        </icon>
-    </display>
-</mark>
+        <name>Has assignment</name>
+        <description>Object has illegal, suspicious or interesting assignment.</description>
+        <assignment id="1">
+            <_metadata id="3">
+                <storage>
+                    <createTimestamp>2026-07-20T09:57:00.694Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:57:00.686Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="4">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:57:00.686Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>archetype</identifier>
+            <targetRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType"/>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <archetypeRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType"/>
+        <roleMembershipRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType">
+            <_metadata id="5">
+                <storage>
+                    <createTimestamp>2026-07-20T09:57:00.692Z</createTimestamp>
+                </storage>
+                <provenance>
+                    <assignmentPath>
+                        <sourceRef oid="00000000-0000-0000-0000-000000000817" relation="org:default" type="c:MarkType"/>
+                        <segment id="6">
+                            <segmentOrder>1</segmentOrder>
+                            <assignmentId>1</assignmentId>
+                            <targetRef oid="00000000-0000-0000-0000-000000000701" relation="org:default" type="c:ArchetypeType"/>
+                            <matchingOrder>true</matchingOrder>
+                        </segment>
+                    </assignmentPath>
+                </provenance>
+            </_metadata>
+        </roleMembershipRef>
+        <display>
+            <icon>
+                <cssClass>fa fa-clipboard-question</cssClass>
+            </icon>
+        </display>
+    </apti:object>

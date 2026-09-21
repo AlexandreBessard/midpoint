@@ -1,59 +1,40 @@
-<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0" version="1" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-09-17T10:27:09.858Z</createTimestamp>
-            <creatorRef>
-                <t:oid>0422229d-9097-4691-92bf-a8276feb1bd9</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </creatorRef>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-09-17T10:27:09.795Z</requestTimestamp>
-            <requestorRef>
-                <t:oid>0422229d-9097-4691-92bf-a8276feb1bd9</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </requestorRef>
-        </process>
-    </_metadata>
-    <name>GAC</name>
-    <description>Ressource CSV d'export vers GAC (gestion de flotte véhicules) - en écriture uniquement, phase de test</description>
-    <lifecycleState>active</lifecycleState>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <operationalState>
-        <lastAvailabilityStatus>up</lastAvailabilityStatus>
-        <message>Status set to UP because resource schema was successfully fetched</message>
-        <timestamp>2026-09-17T10:27:09.966Z</timestamp>
-        <nodeId>DefaultNode</nodeId>
-    </operationalState>
-    <operationalStateHistory id="4">
-        <lastAvailabilityStatus>up</lastAvailabilityStatus>
-        <message>Status set to UP because resource schema was successfully fetched</message>
-        <timestamp>2026-09-17T10:27:09.966Z</timestamp>
-        <nodeId>DefaultNode</nodeId>
-    </operationalStateHistory>
-    <connectorRef oid="e9830727-e7ea-410c-b177-e4474628c87c" relation="org:default" type="c:ConnectorType"/>
-    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
-        <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
-            <cfg:fieldDelimiter>;</cfg:fieldDelimiter>
-            <cfg:filePath>opt/midpoint/var/export/GAC.csv</cfg:filePath>
-            <cfg:nameAttribute>Matricule</cfg:nameAttribute>
-            <cfg:uniqueAttribute>Matricule</cfg:uniqueAttribute>
-        </icfc:configurationProperties>
-    </connectorConfiguration>
-    <schema>
-        <cachingMetadata>
-            <retrievalTimestamp>2026-09-17T10:27:09.966Z</retrievalTimestamp>
-            <serialNumber>e98e4c1ee43c9e2c-66a6b3ae698d8f1e</serialNumber>
-        </cachingMetadata>
-        <generationConstraints>
-            <generateObjectClass>ri:AccountObjectClass</generateObjectClass>
-        </generationConstraints>
-        <definition>
-            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0" version="4"  xsi:type="c:ResourceType">
+        <name>GAC</name>
+        <description>Ressource CSV d'export vers GAC (gestion de flotte véhicules) - en écriture uniquement, phase de test</description>
+        <lifecycleState>active</lifecycleState>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <operationalState>
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status set to UP because resource schema was successfully fetched</message>
+            <timestamp>2026-09-17T10:27:09.966Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalState>
+        <operationalStateHistory id="4">
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status set to UP because resource schema was successfully fetched</message>
+            <timestamp>2026-09-17T10:27:09.966Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <connectorRef oid="e9830727-e7ea-410c-b177-e4474628c87c" relation="org:default" type="c:ConnectorType"/>
+        <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+            <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+                <cfg:fieldDelimiter>;</cfg:fieldDelimiter>
+                <cfg:filePath>opt/midpoint/var/export/GAC.csv</cfg:filePath>
+                <cfg:nameAttribute>Matricule</cfg:nameAttribute>
+                <cfg:uniqueAttribute>Matricule</cfg:uniqueAttribute>
+            </icfc:configurationProperties>
+        </connectorConfiguration>
+        <schema>
+            <cachingMetadata>
+                <retrievalTimestamp>2026-09-17T10:27:09.966Z</retrievalTimestamp>
+                <serialNumber>e98e4c1ee43c9e2c-66a6b3ae698d8f1e</serialNumber>
+            </cachingMetadata>
+            <generationConstraints>
+                <generateObjectClass>ri:AccountObjectClass</generateObjectClass>
+            </generationConstraints>
+            <definition>
+                <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xml:space="preserve">
                 <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
                 <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"/>
                 <xsd:complexType name="AccountObjectClass">
@@ -164,149 +145,149 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:schema>
-        </definition>
-    </schema>
-    <schemaHandling>
-        <objectType id="2">
-            <kind>account</kind>
-            <displayName>Compte GAC</displayName>
-            <delineation>
-                <objectClass>ri:AccountObjectClass</objectClass>
-            </delineation>
-            <focus>
-                <type>c:UserType</type>
-                <archetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
-            </focus>
-            <attribute id="10">
-                <ref>ri:Matricule</ref>
-                <outbound id="11">
-                    <name>Matricule</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>employeeNumber</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="12">
-                <ref>ri:Civilité_x20_x28genre_x29</ref>
-                <outbound id="13">
-                    <name>Civilité (genre)</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>extension/gender</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="14">
-                <ref>ri:Prénom</ref>
-                <outbound id="15">
-                    <name>Prénom</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>givenName</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="16">
-                <ref>ri:Nom</ref>
-                <outbound id="17">
-                    <name>Nom</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>familyName</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="18">
-                <ref>ri:Date_x20de_x20naissance</ref>
-                <outbound id="19">
-                    <name>Date de naissance</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>extension/birthDate</path>
-                    </source>
-                    <expression>
-                        <script>
-                            <code>if (birthDate == null) return null
+            </definition>
+        </schema>
+        <schemaHandling>
+            <objectType id="2">
+                <kind>account</kind>
+                <displayName>Compte GAC</displayName>
+                <delineation>
+                    <objectClass>ri:AccountObjectClass</objectClass>
+                </delineation>
+                <focus>
+                    <type>c:UserType</type>
+                    <archetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
+                </focus>
+                <attribute id="10">
+                    <ref>ri:Matricule</ref>
+                    <outbound id="11">
+                        <name>Matricule</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>employeeNumber</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="12">
+                    <ref>ri:Civilité_x20_x28genre_x29</ref>
+                    <outbound id="13">
+                        <name>Civilité (genre)</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/gender</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="14">
+                    <ref>ri:Prénom</ref>
+                    <outbound id="15">
+                        <name>Prénom</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>givenName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="16">
+                    <ref>ri:Nom</ref>
+                    <outbound id="17">
+                        <name>Nom</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>familyName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="18">
+                    <ref>ri:Date_x20de_x20naissance</ref>
+                    <outbound id="19">
+                        <name>Date de naissance</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/birthDate</path>
+                        </source>
+                        <expression>
+                            <script>
+                                <code>if (birthDate == null) return null
 return String.format("%02d/%02d/%04d", birthDate.day, birthDate.month, birthDate.year)</code>
-                        </script>
-                    </expression>
-                </outbound>
-            </attribute>
-            <attribute id="20">
-                <ref>ri:Lieu_x20de_x20Naissance</ref>
-                <outbound id="21">
-                    <name>Lieu de naissance</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>extension/birthPlace</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="22">
-                <ref>ri:Code_x20postal</ref>
-                <outbound id="23">
-                    <name>Code postal</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>extension/postalCode</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="24">
-                <ref>ri:Ville</ref>
-                <outbound id="25">
-                    <name>Ville</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>locality</path>
-                    </source>
-                </outbound>
-            </attribute>
-            <attribute id="26">
-                <ref>ri:AFFECTATION_x20-_x20Date_x20de_x20début</ref>
-                <outbound id="27">
-                    <name>AFFECTATION - Date de début</name>
-                    <strength>strong</strength>
-                    <source>
-                        <path>extension/startDate</path>
-                    </source>
-                    <expression>
-                        <script>
-                            <code>if (startDate == null) return null
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="20">
+                    <ref>ri:Lieu_x20de_x20Naissance</ref>
+                    <outbound id="21">
+                        <name>Lieu de naissance</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/birthPlace</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="22">
+                    <ref>ri:Code_x20postal</ref>
+                    <outbound id="23">
+                        <name>Code postal</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/postalCode</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="24">
+                    <ref>ri:Ville</ref>
+                    <outbound id="25">
+                        <name>Ville</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>locality</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="26">
+                    <ref>ri:AFFECTATION_x20-_x20Date_x20de_x20début</ref>
+                    <outbound id="27">
+                        <name>AFFECTATION - Date de début</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/startDate</path>
+                        </source>
+                        <expression>
+                            <script>
+                                <code>if (startDate == null) return null
 return String.format("%02d/%02d/%04d", startDate.day, startDate.month, startDate.year)</code>
-                        </script>
-                    </expression>
-                </outbound>
-            </attribute>
-        </objectType>
-    </schemaHandling>
-    <capabilities>
-        <cachingMetadata>
-            <retrievalTimestamp>2026-09-17T10:27:09.951Z</retrievalTimestamp>
-            <serialNumber>fba1b09b64c41dd2-3b36816cdbab7ceb</serialNumber>
-        </cachingMetadata>
-        <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-            <cap:schema/>
-            <cap:discoverConfiguration/>
-            <cap:liveSync/>
-            <cap:create/>
-            <cap:read>
-                <cap:returnDefaultAttributesOption>false</cap:returnDefaultAttributesOption>
-            </cap:read>
-            <cap:update>
-                <cap:addRemoveAttributeValues>true</cap:addRemoveAttributeValues>
-            </cap:update>
-            <cap:delete/>
-            <cap:testConnection/>
-            <cap:script>
-                <cap:host id="2">
-                    <cap:type>resource</cap:type>
-                </cap:host>
-                <cap:host id="3">
-                    <cap:type>connector</cap:type>
-                </cap:host>
-            </cap:script>
-        </native>
-    </capabilities>
-</resource>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+            </objectType>
+        </schemaHandling>
+        <capabilities>
+            <cachingMetadata>
+                <retrievalTimestamp>2026-09-17T10:27:09.951Z</retrievalTimestamp>
+                <serialNumber>fba1b09b64c41dd2-3b36816cdbab7ceb</serialNumber>
+            </cachingMetadata>
+            <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+                <cap:schema/>
+                <cap:discoverConfiguration/>
+                <cap:liveSync/>
+                <cap:create/>
+                <cap:read>
+                    <cap:returnDefaultAttributesOption>false</cap:returnDefaultAttributesOption>
+                </cap:read>
+                <cap:update>
+                    <cap:addRemoveAttributeValues>true</cap:addRemoveAttributeValues>
+                </cap:update>
+                <cap:delete/>
+                <cap:testConnection/>
+                <cap:script>
+                    <cap:host id="2">
+                        <cap:type>resource</cap:type>
+                    </cap:host>
+                    <cap:host id="3">
+                        <cap:type>connector</cap:type>
+                    </cap:host>
+                </cap:script>
+            </native>
+        </capabilities>
+    </apti:object>

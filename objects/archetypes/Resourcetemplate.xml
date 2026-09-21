@@ -1,19 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000703" version="0" >
-    <_metadata id="7">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:59.150Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:59.138Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Resource template</name>
-    <description>
-        Archetype for resource templates.
-    </description>
-    <assignment id="5">
-        <_metadata id="8">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000703" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="7">
             <storage>
                 <createTimestamp>2026-07-20T09:56:59.150Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -21,66 +7,80 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:59.138Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="9">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:59.138Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
+        <name>Resource template</name>
+        <description>
+        Archetype for resource templates.
+    </description>
+        <assignment id="5">
+            <_metadata id="8">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:59.150Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:59.138Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="9">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:59.138Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="6">
+                <holderType>ResourceType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:59.142Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="6">
-            <holderType>ResourceType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:59.142Z</enableTimestamp>
-    </activation>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Resource template</t:orig>
-                <t:norm>resource template</t:norm>
-                <t:translation>
-                    <t:key>ResourceType.template.title</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Resource templates</t:orig>
-                <t:norm>resource templates</t:norm>
-                <t:translation>
-                    <t:key>ResourceType.templates.title</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-file-alt</cssClass>
-            </icon>
-        </display>
-        <adminGuiConfiguration>
-            <objectDetails>
-                <panel id="1">
-                    <identifier>resourceAccounts</identifier>
-                    <visibility>hidden</visibility>
-                </panel>
-                <panel id="2">
-                    <identifier>resourceEntitlements</identifier>
-                    <visibility>hidden</visibility>
-                </panel>
-                <panel id="3">
-                    <identifier>resourceGenerics</identifier>
-                    <visibility>hidden</visibility>
-                </panel>
-                <panel id="4">
-                    <identifier>resourceUncategorized</identifier>
-                    <visibility>hidden</visibility>
-                </panel>
-            </objectDetails>
-        </adminGuiConfiguration>
-    </archetypePolicy>
-</archetype>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Resource template</t:orig>
+                    <t:norm>resource template</t:norm>
+                    <t:translation>
+                        <t:key>ResourceType.template.title</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Resource templates</t:orig>
+                    <t:norm>resource templates</t:norm>
+                    <t:translation>
+                        <t:key>ResourceType.templates.title</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-file-alt</cssClass>
+                </icon>
+            </display>
+            <adminGuiConfiguration>
+                <objectDetails>
+                    <panel id="1">
+                        <identifier>resourceAccounts</identifier>
+                        <visibility>hidden</visibility>
+                    </panel>
+                    <panel id="2">
+                        <identifier>resourceEntitlements</identifier>
+                        <visibility>hidden</visibility>
+                    </panel>
+                    <panel id="3">
+                        <identifier>resourceGenerics</identifier>
+                        <visibility>hidden</visibility>
+                    </panel>
+                    <panel id="4">
+                        <identifier>resourceUncategorized</identifier>
+                        <visibility>hidden</visibility>
+                    </panel>
+                </objectDetails>
+            </adminGuiConfiguration>
+        </archetypePolicy>
+    </apti:object>

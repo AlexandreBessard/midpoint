@@ -1,19 +1,5 @@
-<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="90cc2089-6f00-4fd9-9394-10debdd019eb" version="0" >
-    <_metadata id="3">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:56.981Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:56.966Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Projects</name>
-    <description>Root object of all projects.</description>
-    <documentation>(ISO27001/A.5.8,ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
-    <indestructible>true</indestructible>
-    <assignment id="1">
-        <_metadata id="4">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="90cc2089-6f00-4fd9-9394-10debdd019eb" version="0"  xsi:type="c:OrgType">
+        <_metadata id="3">
             <storage>
                 <createTimestamp>2026-07-20T09:56:56.981Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -21,29 +7,43 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:56.966Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="5">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:56.966Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>assignment-relation-projects</identifier>
+        <name>Projects</name>
+        <description>Root object of all projects.</description>
+        <documentation>(ISO27001/A.5.8,ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
+        <indestructible>true</indestructible>
+        <assignment id="1">
+            <_metadata id="4">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:56.981Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:56.966Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="5">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:56.966Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>assignment-relation-projects</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <description>We want projects here, nothing else.</description>
+                <holderType>OrgType</holderType>
+                <holderArchetypeRef oid="89a34123-1db7-4fc1-a053-6c42b82ef2ab" relation="org:default" type="c:ArchetypeType"/>
+                <relation>org:default</relation>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:56.970Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <description>We want projects here, nothing else.</description>
-            <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="89a34123-1db7-4fc1-a053-6c42b82ef2ab" relation="org:default" type="c:ArchetypeType"/>
-            <relation>org:default</relation>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:56.970Z</enableTimestamp>
-    </activation>
-    <displayOrder>300</displayOrder>
-</org>
+        <displayOrder>300</displayOrder>
+    </apti:object>

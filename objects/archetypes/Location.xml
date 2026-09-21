@@ -1,18 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="54b098b4-f6dc-44dd-8a05-ffd6c2f2c5b5" version="0" >
-    <_metadata id="6">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:54.380Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:54.363Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Location</name>
-    <description>Archetype for locations, such as regions, countries, areas, cities, sites, campuses, buildings, offices, etc.</description>
-    <documentation>(ISO27001/A.5.14,ISO27001/A.5.15,ISO27001/A.5.16,ISO27001/A.7.1,ISO27001/A.7.2,ISO27001/A.7.3,ISO27001/A.7.4,ISO27001/A.7.9,ISO27001/A.8.3)</documentation>
-    <assignment id="1">
-        <_metadata id="7">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="54b098b4-f6dc-44dd-8a05-ffd6c2f2c5b5" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="6">
             <storage>
                 <createTimestamp>2026-07-20T09:56:54.380Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -20,63 +7,76 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:54.363Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="8">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:54.363Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
-        <description>This archetype can be applied to orgs (OrgType).</description>
+        <name>Location</name>
+        <description>Archetype for locations, such as regions, countries, areas, cities, sites, campuses, buildings, offices, etc.</description>
+        <documentation>(ISO27001/A.5.14,ISO27001/A.5.15,ISO27001/A.5.16,ISO27001/A.7.1,ISO27001/A.7.2,ISO27001/A.7.3,ISO27001/A.7.4,ISO27001/A.7.9,ISO27001/A.8.3)</documentation>
+        <assignment id="1">
+            <_metadata id="7">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:54.380Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:54.363Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="8">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:54.363Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <description>This archetype can be applied to orgs (OrgType).</description>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <holderType>OrgType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:54.368Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <holderType>OrgType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:54.368Z</enableTimestamp>
-    </activation>
-    <inducement id="3">
-        <identifier>membership</identifier>
-        <description>Locations are hierarchical and have "members" (users) located in them.</description>
-        <assignmentRelation id="4">
-            <description>User can belong to a location (be located here).</description>
-            <holderType>UserType</holderType>
-            <relation>org:default</relation>
-        </assignmentRelation>
-        <assignmentRelation id="5">
-            <description>Sub-locations. Locations are hierarchical, there can be locations within locations. Offices are located within campuses, which are located within cities, which are located within countries, which are located within regions.</description>
-            <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="54b098b4-f6dc-44dd-8a05-ffd6c2f2c5b5" relation="org:default" type="c:ArchetypeType"/>
-            <relation>org:default</relation>
-        </assignmentRelation>
-    </inducement>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Location</t:orig>
-                <t:norm>location</t:norm>
-                <t:translation>
-                    <t:key>location.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Locations</t:orig>
-                <t:norm>locations</t:norm>
-                <t:translation>
-                    <t:key>location.pluralLabel</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-location-dot</cssClass>
-                <color>#ffc107</color>
-            </icon>
-        </display>
-    </archetypePolicy>
-</archetype>
+        <inducement id="3">
+            <identifier>membership</identifier>
+            <description>Locations are hierarchical and have "members" (users) located in them.</description>
+            <assignmentRelation id="4">
+                <description>User can belong to a location (be located here).</description>
+                <holderType>UserType</holderType>
+                <relation>org:default</relation>
+            </assignmentRelation>
+            <assignmentRelation id="5">
+                <description>Sub-locations. Locations are hierarchical, there can be locations within locations. Offices are located within campuses, which are located within cities, which are located within countries, which are located within regions.</description>
+                <holderType>OrgType</holderType>
+                <holderArchetypeRef oid="54b098b4-f6dc-44dd-8a05-ffd6c2f2c5b5" relation="org:default" type="c:ArchetypeType"/>
+                <relation>org:default</relation>
+            </assignmentRelation>
+        </inducement>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Location</t:orig>
+                    <t:norm>location</t:norm>
+                    <t:translation>
+                        <t:key>location.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Locations</t:orig>
+                    <t:norm>locations</t:norm>
+                    <t:translation>
+                        <t:key>location.pluralLabel</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-location-dot</cssClass>
+                    <color>#ffc107</color>
+                </icon>
+            </display>
+        </archetypePolicy>
+    </apti:object>

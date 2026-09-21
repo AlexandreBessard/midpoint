@@ -1,18 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="89a34123-1db7-4fc1-a053-6c42b82ef2ab" version="0" >
-    <_metadata id="5">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:54.533Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:54.518Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Project</name>
-    <description>Archetype for projects.</description>
-    <documentation>(ISO27001/A.5.8,ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
-    <assignment id="1">
-        <_metadata id="6">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="89a34123-1db7-4fc1-a053-6c42b82ef2ab" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="5">
             <storage>
                 <createTimestamp>2026-07-20T09:56:54.533Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -20,59 +7,72 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:54.518Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="7">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:54.518Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
-        <description>This archetype can be applied to orgs (OrgType).</description>
+        <name>Project</name>
+        <description>Archetype for projects.</description>
+        <documentation>(ISO27001/A.5.8,ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
+        <assignment id="1">
+            <_metadata id="6">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:54.533Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:54.518Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="7">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:54.518Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <description>This archetype can be applied to orgs (OrgType).</description>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <holderType>OrgType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:54.523Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <holderType>OrgType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:54.523Z</enableTimestamp>
-    </activation>
-    <inducement id="3">
-        <identifier>membership</identifier>
-        <description>Projects are flat (no sub-teams), have members and manager. May have owner (sponsor).</description>
-        <assignmentRelation id="4">
-            <description>User can be direct member of project, as well as manager and owner.</description>
-            <holderType>UserType</holderType>
-            <relation>org:default</relation>
-            <relation>org:manager</relation>
-            <relation>org:owner</relation>
-        </assignmentRelation>
-    </inducement>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Project</t:orig>
-                <t:norm>project</t:norm>
-                <t:translation>
-                    <t:key>project.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Projects</t:orig>
-                <t:norm>projects</t:norm>
-                <t:translation>
-                    <t:key>project.pluralLabel</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-chart-gantt</cssClass>
-                <color>#ffc107</color>
-            </icon>
-        </display>
-    </archetypePolicy>
-</archetype>
+        <inducement id="3">
+            <identifier>membership</identifier>
+            <description>Projects are flat (no sub-teams), have members and manager. May have owner (sponsor).</description>
+            <assignmentRelation id="4">
+                <description>User can be direct member of project, as well as manager and owner.</description>
+                <holderType>UserType</holderType>
+                <relation>org:default</relation>
+                <relation>org:manager</relation>
+                <relation>org:owner</relation>
+            </assignmentRelation>
+        </inducement>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Project</t:orig>
+                    <t:norm>project</t:norm>
+                    <t:translation>
+                        <t:key>project.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Projects</t:orig>
+                    <t:norm>projects</t:norm>
+                    <t:translation>
+                        <t:key>project.pluralLabel</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-chart-gantt</cssClass>
+                    <color>#ffc107</color>
+                </icon>
+            </display>
+        </archetypePolicy>
+    </apti:object>
