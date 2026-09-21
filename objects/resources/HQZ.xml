@@ -46,9 +46,9 @@
         <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
             <cfg:fieldDelimiter>;</cfg:fieldDelimiter>
             <cfg:quote>"</cfg:quote>
-            <cfg:filePath>opt/midpoint/var/import/HQZ.csv</cfg:filePath>
-            <cfg:nameAttribute>matri</cfg:nameAttribute>
-            <cfg:uniqueAttribute>matri</cfg:uniqueAttribute>
+            <cfg:filePath>/opt/midpoint/var/import/HQZ.csv</cfg:filePath>
+            <cfg:nameAttribute>id</cfg:nameAttribute>
+            <cfg:uniqueAttribute>id</cfg:uniqueAttribute>
         </icfc:configurationProperties>
     </connectorConfiguration>
     <schema>
@@ -72,18 +72,18 @@
                             <ra:default>true</ra:default>
                             <ra:auxiliary>false</ra:auxiliary>
                             <ra:embedded>false</ra:embedded>
-                            <ra:namingAttribute>ri:matri</ra:namingAttribute>
-                            <ra:displayNameAttribute>ri:matri</ra:displayNameAttribute>
-                            <ra:identifier>ri:matri</ra:identifier>
+                            <ra:namingAttribute>ri:id</ra:namingAttribute>
+                            <ra:displayNameAttribute>ri:id</ra:displayNameAttribute>
+                            <ra:identifier>ri:id</ra:identifier>
                         </xsd:appinfo>
                     </xsd:annotation>
                     <xsd:sequence>
-                        <xsd:element minOccurs="0" name="nompre" type="xsd:string">
+                        <xsd:element name="id" type="xsd:string">
                             <xsd:annotation>
                                 <xsd:appinfo>
-                                    <a:displayOrder>120</a:displayOrder>
-                                    <ra:nativeAttributeName>nompre</ra:nativeAttributeName>
-                                    <ra:frameworkAttributeName>nompre</ra:frameworkAttributeName>
+                                    <a:displayOrder>100</a:displayOrder>
+                                    <ra:nativeAttributeName>id</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
                                     <ra:returnedByDefault>true</ra:returnedByDefault>
                                 </xsd:appinfo>
                             </xsd:annotation>
@@ -91,9 +91,39 @@
                         <xsd:element minOccurs="0" name="usine" type="xsd:string">
                             <xsd:annotation>
                                 <xsd:appinfo>
-                                    <a:displayOrder>130</a:displayOrder>
+                                    <a:displayOrder>110</a:displayOrder>
                                     <ra:nativeAttributeName>usine</ra:nativeAttributeName>
                                     <ra:frameworkAttributeName>usine</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="matri" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>120</a:displayOrder>
+                                    <ra:nativeAttributeName>matri</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>matri</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="nom" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>130</a:displayOrder>
+                                    <ra:nativeAttributeName>nom</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>nom</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="prenom" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>140</a:displayOrder>
+                                    <ra:nativeAttributeName>prenom</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>prenom</ra:frameworkAttributeName>
                                     <ra:returnedByDefault>true</ra:returnedByDefault>
                                 </xsd:appinfo>
                             </xsd:annotation>
@@ -101,29 +131,9 @@
                         <xsd:element minOccurs="0" name="horsect" type="xsd:string">
                             <xsd:annotation>
                                 <xsd:appinfo>
-                                    <a:displayOrder>140</a:displayOrder>
+                                    <a:displayOrder>150</a:displayOrder>
                                     <ra:nativeAttributeName>horsect</ra:nativeAttributeName>
                                     <ra:frameworkAttributeName>horsect</ra:frameworkAttributeName>
-                                    <ra:returnedByDefault>true</ra:returnedByDefault>
-                                </xsd:appinfo>
-                            </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element minOccurs="0" name="seicegid" type="xsd:string">
-                            <xsd:annotation>
-                                <xsd:appinfo>
-                                    <a:displayOrder>150</a:displayOrder>
-                                    <ra:nativeAttributeName>seicegid</ra:nativeAttributeName>
-                                    <ra:frameworkAttributeName>seicegid</ra:frameworkAttributeName>
-                                    <ra:returnedByDefault>true</ra:returnedByDefault>
-                                </xsd:appinfo>
-                            </xsd:annotation>
-                        </xsd:element>
-                        <xsd:element name="matri" type="xsd:string">
-                            <xsd:annotation>
-                                <xsd:appinfo>
-                                    <a:displayOrder>100</a:displayOrder>
-                                    <ra:nativeAttributeName>matri</ra:nativeAttributeName>
-                                    <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
                                     <ra:returnedByDefault>true</ra:returnedByDefault>
                                 </xsd:appinfo>
                             </xsd:annotation>
@@ -142,58 +152,37 @@
             </delineation>
             <focus>
                 <type>c:UserType</type>
-                <archetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
+                <archetypeRef oid="699d972f-5251-4c97-9708-720f2d03ebe4" relation="org:default" type="c:ArchetypeType"/>
             </focus>
             <attribute id="6">
-                <ref>ri:nompre</ref>
+                <ref>ri:prenom</ref>
                 <inbound id="7">
-                    <name>Prénom</name>
+                    <name>PrÃ©nom</name>
                     <strength>weak</strength>
                     <expression>
                         <script>
-                            <code>if (input != null) {
-    def cleanInput = basic.trim(basic.norm(basic.stringify(input)))
-    
-    if (!basic.isEmpty(cleanInput)) {
-        // 1. Supprime le préfixe ZZZ ou INT au début de la chaîne (insensible à la casse)
-        cleanInput = cleanInput.replaceAll(/(?i)^(ZZZ|INT)[\s\-_]*/, '')
-        
-        // 2. Extrait le premier mot (Prénom)
-        def parts = cleanInput.split(/\s+/)
-        def givenName = parts[0]
-        
-        // 3. Majuscule sur chaque début de prénom (ex: jean-marie -&gt; Jean-Marie)
-        return givenName.toLowerCase().replaceAll(/(?i)\b\w/) { it.toUpperCase() }
-    }
-}
-return null</code>
+                            <code>if (input == null) return null
+def s = basic.trim(basic.stringify(input))
+if (basic.isEmpty(s)) return null
+return s.replaceAll(/\s+/, ' ').toLowerCase().replaceAll(/(?&lt;!\p{L})\p{L}/) { it.toUpperCase() }</code>
                         </script>
                     </expression>
                     <target>
                         <path>givenName</path>
                     </target>
                 </inbound>
+            </attribute>
+            <attribute id="20">
+                <ref>ri:nom</ref>
                 <inbound id="8">
                     <name>Nom</name>
                     <strength>weak</strength>
                     <expression>
                         <script>
-                            <code>if (input != null) {
-    def cleanInput = basic.trim(basic.norm(basic.stringify(input)))
-    
-    if (!basic.isEmpty(cleanInput)) {
-        // 1. Supprime le préfixe ZZZ ou INT au début
-        cleanInput = cleanInput.replaceAll(/(?i)^(ZZZ|INT)[\s\-_]*/, '')
-        
-        // 2. Extrait le nom (tout ce qui suit le prénom)
-        def parts = cleanInput.split(/\s+/)
-        if (parts.size() &gt; 1) {
-            def familyName = parts[1..-1].join(' ')
-            return familyName.toUpperCase()
-        }
-    }
-}
-return null</code>
+                            <code>if (input == null) return null
+def s = basic.trim(basic.stringify(input))
+if (basic.isEmpty(s)) return null
+return s.replaceAll(/\s+/, ' ').toUpperCase()</code>
                         </script>
                     </expression>
                     <target>

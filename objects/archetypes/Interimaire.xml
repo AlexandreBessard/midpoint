@@ -1,0 +1,32 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+           oid="699d972f-5251-4c97-9708-720f2d03ebe4">
+    <name>Interimaire</name>
+    <description>Utilisateurs intérimaires, issus d'Horoquartz (HQZ). Sous-type de Person.</description>
+    <assignment>
+        <identifier>holderType</identifier>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <superArchetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
+    <archetypePolicy>
+        <display>
+            <label>
+                <t:orig>Intérimaire</t:orig>
+                <t:norm>interimaire</t:norm>
+            </label>
+            <pluralLabel>
+                <t:orig>Intérimaires</t:orig>
+                <t:norm>interimaires</t:norm>
+            </pluralLabel>
+            <tooltip>Intérimaire</tooltip>
+            <icon>
+                <cssClass>fa fa-user-clock</cssClass>
+                <color>orange</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>
