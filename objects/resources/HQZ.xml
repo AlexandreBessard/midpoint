@@ -192,7 +192,7 @@ return s.replaceAll(/\s+/, ' ').toUpperCase()</code>
                                 </search>
                             </item>
                             <composition>
-                                <weight>1.0</weight>
+                                <weight>0.7</weight>
                             </composition>
                         </items>
                     </correlators>
@@ -217,6 +217,13 @@ return s.replaceAll(/\s+/, ' ').toUpperCase()</code>
                         <situation>unlinked</situation>
                         <actions>
                             <link id="14"/>
+                        </actions>
+                    </reaction>
+                    <reaction id="18">
+                        <name>DisputedUser</name>
+                        <situation>disputed</situation>
+                        <actions>
+                            <createCorrelationCase id="19"/>
                         </actions>
                     </reaction>
                 </synchronization>
