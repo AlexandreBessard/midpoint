@@ -369,6 +369,37 @@ return javax.xml.datatype.DatatypeFactory.newInstance().newXMLGregorianCalendar(
                     <limitations id="87">
                         <minOccurs>1</minOccurs>
                     </limitations>
+                    <inbound id="90">
+                        <name>Code entité</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <script>
+                                <code>if (input == null) return null
+def s = basic.trim(basic.stringify(input))
+return basic.isEmpty(s) ? null : s</code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>extension/entityCode</path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="91">
+                    <ref>ri:LIBELLE_ENTITE</ref>
+                    <inbound id="92">
+                        <name>Libellé entité</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <script>
+                                <code>if (input == null) return null
+def s = basic.trim(basic.stringify(input))
+return basic.isEmpty(s) ? null : s</code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>extension/entityLabel</path>
+                        </target>
+                    </inbound>
                 </attribute>
                 <correlation>
                     <correlators>
