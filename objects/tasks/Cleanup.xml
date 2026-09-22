@@ -1,4 +1,4 @@
-<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000005" version="5600"  xsi:type="c:TaskType">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000005" version="5656"  xsi:type="c:TaskType">
         <_metadata id="2">
             <storage>
                 <createTimestamp>2026-07-20T09:56:58.616Z</createTimestamp>
@@ -54,11 +54,6 @@
             </_metadata>
         </roleMembershipRef>
         <taskIdentifier>1784541418628-53971-1</taskIdentifier>
-        <taskRunRecord id="1966">
-            <taskRunIdentifier>a88c9de2-e761-42a7-9f75-c654b215a045</taskRunIdentifier>
-            <runStartTimestamp>2026-09-21T10:43:29.807Z</runStartTimestamp>
-            <runEndTimestamp>2026-09-21T10:43:30.203Z</runEndTimestamp>
-        </taskRunRecord>
         <taskRunRecord id="1986">
             <taskRunIdentifier>9e466617-c9cf-47b0-a958-1c788356b9a9</taskRunIdentifier>
             <runStartTimestamp>2026-09-21T13:26:54.933Z</runStartTimestamp>
@@ -69,13 +64,18 @@
             <runStartTimestamp>2026-09-21T13:41:00.231Z</runStartTimestamp>
             <runEndTimestamp>2026-09-21T13:41:01.277Z</runEndTimestamp>
         </taskRunRecord>
+        <taskRunRecord id="2026">
+            <taskRunIdentifier>9f454ee4-e766-496e-baa2-e744a6eb3105</taskRunIdentifier>
+            <runStartTimestamp>2026-09-22T13:40:59.807Z</runStartTimestamp>
+            <runEndTimestamp>2026-09-22T13:41:00.085Z</runEndTimestamp>
+        </taskRunRecord>
         <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
         <executionState>runnable</executionState>
         <schedulingState>ready</schedulingState>
         <result incomplete="true"/>
         <resultStatus>success</resultStatus>
-        <lastRunStartTimestamp>2026-09-21T13:41:00.038Z</lastRunStartTimestamp>
-        <lastRunFinishTimestamp>2026-09-21T13:41:01.308Z</lastRunFinishTimestamp>
+        <lastRunStartTimestamp>2026-09-22T13:40:59.767Z</lastRunStartTimestamp>
+        <lastRunFinishTimestamp>2026-09-22T13:41:00.101Z</lastRunFinishTimestamp>
         <progress>0</progress>
         <operationStats>
             <environmentalPerformanceInformation>
@@ -88,9 +88,9 @@
                     <name>SqaleRepositoryService.getObject</name>
                     <invocationCount>16</invocationCount>
                     <executionCount>16</executionCount>
-                    <totalTime>122</totalTime>
-                    <minTime>4</minTime>
-                    <maxTime>13</maxTime>
+                    <totalTime>36</totalTime>
+                    <minTime>1</minTime>
+                    <maxTime>5</maxTime>
                     <totalWastedTime>0</totalWastedTime>
                     <minWastedTime>0</minWastedTime>
                     <maxWastedTime>0</maxWastedTime>
@@ -99,9 +99,9 @@
                     <name>SqaleAuditService.cleanupAuditMaxAge</name>
                     <invocationCount>1</invocationCount>
                     <executionCount>1</executionCount>
-                    <totalTime>22</totalTime>
-                    <minTime>22</minTime>
-                    <maxTime>22</maxTime>
+                    <totalTime>8</totalTime>
+                    <minTime>8</minTime>
+                    <maxTime>8</maxTime>
                     <totalWastedTime>0</totalWastedTime>
                     <minWastedTime>0</minWastedTime>
                     <maxWastedTime>0</maxWastedTime>
@@ -110,9 +110,9 @@
                     <name>SqaleRepositoryService.searchObjects</name>
                     <invocationCount>8</invocationCount>
                     <executionCount>8</executionCount>
-                    <totalTime>23</totalTime>
-                    <minTime>1</minTime>
-                    <maxTime>6</maxTime>
+                    <totalTime>8</totalTime>
+                    <minTime>0</minTime>
+                    <maxTime>3</maxTime>
                     <totalWastedTime>0</totalWastedTime>
                     <minWastedTime>0</minWastedTime>
                     <maxWastedTime>0</maxWastedTime>
@@ -121,9 +121,9 @@
                     <name>SqaleRepositoryService.modifyObjectDynamically</name>
                     <invocationCount>15</invocationCount>
                     <executionCount>15</executionCount>
-                    <totalTime>224</totalTime>
-                    <minTime>10</minTime>
-                    <maxTime>22</maxTime>
+                    <totalTime>79</totalTime>
+                    <minTime>4</minTime>
+                    <maxTime>6</maxTime>
                     <totalWastedTime>0</totalWastedTime>
                     <minWastedTime>0</minWastedTime>
                     <maxWastedTime>0</maxWastedTime>
@@ -132,9 +132,9 @@
                     <name>SqaleRepositoryService.modifyObject</name>
                     <invocationCount>32</invocationCount>
                     <executionCount>32</executionCount>
-                    <totalTime>506</totalTime>
-                    <minTime>9</minTime>
-                    <maxTime>34</maxTime>
+                    <totalTime>145</totalTime>
+                    <minTime>3</minTime>
+                    <maxTime>7</maxTime>
                     <totalWastedTime>0</totalWastedTime>
                     <minWastedTime>0</minWastedTime>
                     <maxWastedTime>0</maxWastedTime>
@@ -150,22 +150,6 @@
                     <notAvailableCount>0</notAvailableCount>
                 </cache>
                 <cache>
-                    <name>com.evolveum.midpoint.repo.cache.global.GlobalVersionCache</name>
-                    <hitCount>1</hitCount>
-                    <weakHitCount>0</weakHitCount>
-                    <missCount>0</missCount>
-                    <passCount>0</passCount>
-                    <notAvailableCount>0</notAvailableCount>
-                </cache>
-                <cache>
-                    <name>com.evolveum.midpoint.repo.cache.local.LocalVersionCache</name>
-                    <hitCount>0</hitCount>
-                    <weakHitCount>0</weakHitCount>
-                    <missCount>0</missCount>
-                    <passCount>0</passCount>
-                    <notAvailableCount>1</notAvailableCount>
-                </cache>
-                <cache>
                     <name>com.evolveum.midpoint.repo.cache.local.LocalObjectCache</name>
                     <hitCount>0</hitCount>
                     <weakHitCount>0</weakHitCount>
@@ -178,158 +162,148 @@
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.refresh</name>
                     <invocationCount>8</invocationCount>
-                    <totalTime>70499</totalTime>
-                    <minTime>4841</minTime>
-                    <maxTime>13936</maxTime>
-                    <ownTime>5105</ownTime>
-                    <minOwnTime>378</minOwnTime>
-                    <maxOwnTime>1626</maxOwnTime>
+                    <totalTime>16363</totalTime>
+                    <minTime>1797</minTime>
+                    <maxTime>2223</maxTime>
+                    <ownTime>661</ownTime>
+                    <minOwnTime>52</minOwnTime>
+                    <maxOwnTime>130</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.getObject</name>
                     <invocationCount>16</invocationCount>
-                    <totalTime>123474</totalTime>
-                    <minTime>4364</minTime>
-                    <maxTime>13432</maxTime>
-                    <ownTime>123474</ownTime>
-                    <minOwnTime>4364</minOwnTime>
-                    <maxOwnTime>13432</maxOwnTime>
+                    <totalTime>36573</totalTime>
+                    <minTime>1745</minTime>
+                    <maxTime>4615</maxTime>
+                    <ownTime>36573</ownTime>
+                    <minOwnTime>1745</minOwnTime>
+                    <maxOwnTime>4615</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.TaskManager.cleanupTasks</name>
                     <invocationCount>1</invocationCount>
-                    <totalTime>15165</totalTime>
-                    <minTime>15165</minTime>
-                    <maxTime>15165</maxTime>
-                    <ownTime>5206</ownTime>
-                    <minOwnTime>5206</minOwnTime>
-                    <maxOwnTime>5206</maxOwnTime>
+                    <totalTime>4093</totalTime>
+                    <minTime>4093</minTime>
+                    <maxTime>4093</maxTime>
+                    <ownTime>633</ownTime>
+                    <minOwnTime>633</minOwnTime>
+                    <maxOwnTime>633</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleAuditService.cleanupAuditMaxAge</name>
                     <invocationCount>1</invocationCount>
-                    <totalTime>22273</totalTime>
-                    <minTime>22273</minTime>
-                    <maxTime>22273</maxTime>
-                    <ownTime>22273</ownTime>
-                    <minOwnTime>22273</minOwnTime>
-                    <maxOwnTime>22273</maxOwnTime>
+                    <totalTime>7799</totalTime>
+                    <minTime>7799</minTime>
+                    <maxTime>7799</maxTime>
+                    <ownTime>7799</ownTime>
+                    <minOwnTime>7799</minOwnTime>
+                    <maxOwnTime>7799</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.notifications.api.NotificationManager.processEvent</name>
                     <invocationCount>7</invocationCount>
-                    <totalTime>1867</totalTime>
-                    <minTime>187</minTime>
-                    <maxTime>478</maxTime>
-                    <ownTime>456</ownTime>
-                    <minOwnTime>52</minOwnTime>
-                    <maxOwnTime>86</maxOwnTime>
+                    <totalTime>234</totalTime>
+                    <minTime>29</minTime>
+                    <maxTime>42</maxTime>
+                    <ownTime>94</ownTime>
+                    <minOwnTime>10</minOwnTime>
+                    <maxOwnTime>21</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.createTaskInstance</name>
                     <invocationCount>50</invocationCount>
-                    <totalTime>1187</totalTime>
-                    <minTime>12</minTime>
-                    <maxTime>79</maxTime>
-                    <ownTime>1187</ownTime>
-                    <minOwnTime>12</minOwnTime>
-                    <maxOwnTime>79</maxOwnTime>
+                    <totalTime>136</totalTime>
+                    <minTime>1</minTime>
+                    <maxTime>11</maxTime>
+                    <ownTime>136</ownTime>
+                    <minOwnTime>1</minOwnTime>
+                    <maxOwnTime>11</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.searchObjects</name>
                     <invocationCount>8</invocationCount>
-                    <totalTime>23955</totalTime>
-                    <minTime>1168</minTime>
-                    <maxTime>6746</maxTime>
-                    <ownTime>23955</ownTime>
-                    <minOwnTime>1168</minOwnTime>
-                    <maxOwnTime>6746</maxOwnTime>
-                </operation>
-                <operation>
-                    <name>com.evolveum.midpoint.repo.cache.RepositoryCache.getVersion</name>
-                    <invocationCount>1</invocationCount>
-                    <totalTime>653</totalTime>
-                    <minTime>653</minTime>
-                    <maxTime>653</maxTime>
-                    <ownTime>653</ownTime>
-                    <minOwnTime>653</minOwnTime>
-                    <maxOwnTime>653</maxOwnTime>
+                    <totalTime>7751</totalTime>
+                    <minTime>525</minTime>
+                    <maxTime>3426</maxTime>
+                    <ownTime>7751</ownTime>
+                    <minOwnTime>525</minOwnTime>
+                    <maxOwnTime>3426</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.modifyObject</name>
                     <invocationCount>32</invocationCount>
-                    <totalTime>508327</totalTime>
-                    <minTime>9131</minTime>
-                    <maxTime>33413</maxTime>
-                    <ownTime>508327</ownTime>
-                    <minOwnTime>9131</minOwnTime>
-                    <maxOwnTime>33413</maxOwnTime>
+                    <totalTime>143438</totalTime>
+                    <minTime>3038</minTime>
+                    <maxTime>7345</maxTime>
+                    <ownTime>143438</ownTime>
+                    <minOwnTime>3038</minOwnTime>
+                    <maxOwnTime>7345</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.common.activity.run.LocalActivityRun.runLocally</name>
                     <invocationCount>7</invocationCount>
-                    <totalTime>886371</totalTime>
-                    <minTime>117</minTime>
-                    <maxTime>830652</maxTime>
-                    <ownTime>82445</ownTime>
-                    <minOwnTime>117</minOwnTime>
-                    <maxOwnTime>64817</maxOwnTime>
+                    <totalTime>245553</totalTime>
+                    <minTime>41</minTime>
+                    <maxTime>233018</maxTime>
+                    <ownTime>11459</ownTime>
+                    <minOwnTime>41</minOwnTime>
+                    <maxOwnTime>10816</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.listSubtasks</name>
                     <invocationCount>7</invocationCount>
-                    <totalTime>18581</totalTime>
-                    <minTime>1327</minTime>
-                    <maxTime>6877</maxTime>
-                    <ownTime>1199</ownTime>
-                    <minOwnTime>131</minOwnTime>
-                    <maxOwnTime>256</maxOwnTime>
+                    <totalTime>4576</totalTime>
+                    <minTime>547</minTime>
+                    <maxTime>718</maxTime>
+                    <ownTime>251</ownTime>
+                    <minOwnTime>22</minOwnTime>
+                    <maxOwnTime>52</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.cache.RepositoryCache.getObject</name>
                     <invocationCount>7</invocationCount>
-                    <totalTime>1411</totalTime>
-                    <minTime>135</minTime>
-                    <maxTime>420</maxTime>
-                    <ownTime>1411</ownTime>
-                    <minOwnTime>135</minOwnTime>
-                    <maxOwnTime>420</maxOwnTime>
+                    <totalTime>140</totalTime>
+                    <minTime>19</minTime>
+                    <maxTime>21</maxTime>
+                    <ownTime>140</ownTime>
+                    <minOwnTime>19</minOwnTime>
+                    <maxOwnTime>21</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.TaskManager.cleanupTasks.statistics</name>
                     <invocationCount>1</invocationCount>
-                    <totalTime>3386</totalTime>
-                    <minTime>3386</minTime>
-                    <maxTime>3386</maxTime>
-                    <ownTime>3386</ownTime>
-                    <minOwnTime>3386</minOwnTime>
-                    <maxOwnTime>3386</maxOwnTime>
+                    <totalTime>34</totalTime>
+                    <minTime>34</minTime>
+                    <maxTime>34</maxTime>
+                    <ownTime>34</ownTime>
+                    <minOwnTime>34</minOwnTime>
+                    <maxOwnTime>34</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.quartzimpl.TaskManagerQuartzImpl.getTask</name>
                     <invocationCount>7</invocationCount>
-                    <totalTime>70795</totalTime>
-                    <minTime>6449</minTime>
-                    <maxTime>15302</maxTime>
-                    <ownTime>3579</ownTime>
-                    <minOwnTime>421</minOwnTime>
-                    <maxOwnTime>622</maxOwnTime>
+                    <totalTime>21595</totalTime>
+                    <minTime>2434</minTime>
+                    <maxTime>3476</maxTime>
+                    <ownTime>707</ownTime>
+                    <minOwnTime>87</minOwnTime>
+                    <maxOwnTime>114</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.modifyObjectDynamically</name>
                     <invocationCount>15</invocationCount>
-                    <totalTime>222904</totalTime>
-                    <minTime>9995</minTime>
-                    <maxTime>22457</maxTime>
-                    <ownTime>222904</ownTime>
-                    <minOwnTime>9995</minOwnTime>
-                    <maxOwnTime>22457</maxOwnTime>
+                    <totalTime>77730</totalTime>
+                    <minTime>3903</minTime>
+                    <maxTime>6137</maxTime>
+                    <ownTime>77730</ownTime>
+                    <minOwnTime>3903</minOwnTime>
+                    <maxOwnTime>6137</maxOwnTime>
                 </operation>
             </operationsPerformanceInformation>
-            <cachingConfiguration>Caching configuration for thread midPointScheduler_Worker-1 on 2026-09-21T13:41:01.291Z:
+            <cachingConfiguration>Caching configuration for thread midPointScheduler_Worker-5 on 2026-09-22T13:41:00.092Z:
 
 Profiles: []</cachingConfiguration>
-            <timestamp>2026-09-21T13:41:01.291Z</timestamp>
+            <timestamp>2026-09-22T13:41:00.092Z</timestamp>
         </operationStats>
         <binding>loose</binding>
         <schedule>
@@ -345,124 +319,124 @@ Profiles: []</cachingConfiguration>
                 <executionAttempt>1</executionAttempt>
                 <realizationState>complete</realizationState>
                 <resultStatus>success</resultStatus>
-                <realizationStartTimestamp>2026-09-21T13:41:00.333Z</realizationStartTimestamp>
-                <realizationEndTimestamp>2026-09-21T13:41:01.250Z</realizationEndTimestamp>
-                <runStartTimestamp>2026-09-21T13:41:00.333Z</runStartTimestamp>
-                <runEndTimestamp>2026-09-21T13:41:01.250Z</runEndTimestamp>
+                <realizationStartTimestamp>2026-09-22T13:40:59.830Z</realizationStartTimestamp>
+                <realizationEndTimestamp>2026-09-22T13:41:00.073Z</realizationEndTimestamp>
+                <runStartTimestamp>2026-09-22T13:40:59.830Z</runStartTimestamp>
+                <runEndTimestamp>2026-09-22T13:41:00.073Z</runEndTimestamp>
                 <workState/>
                 <persistence>singleRealization</persistence>
-                <activity id="1988">
+                <activity id="2008">
                     <identifier>auditRecords</identifier>
                     <executionAttempt>1</executionAttempt>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>
-                    <realizationStartTimestamp>2026-09-21T13:41:00.737Z</realizationStartTimestamp>
-                    <realizationEndTimestamp>2026-09-21T13:41:00.826Z</realizationEndTimestamp>
-                    <runStartTimestamp>2026-09-21T13:41:00.737Z</runStartTimestamp>
-                    <runEndTimestamp>2026-09-21T13:41:00.826Z</runEndTimestamp>
+                    <realizationStartTimestamp>2026-09-22T13:40:59.902Z</realizationStartTimestamp>
+                    <realizationEndTimestamp>2026-09-22T13:40:59.921Z</realizationEndTimestamp>
+                    <runStartTimestamp>2026-09-22T13:40:59.902Z</runStartTimestamp>
+                    <runEndTimestamp>2026-09-22T13:40:59.921Z</runEndTimestamp>
                     <statistics>
                         <itemProcessing>
-                            <run id="1995">
-                                <startTimestamp>2026-09-21T13:41:00.737Z</startTimestamp>
-                                <endTimestamp>2026-09-21T13:41:00.826Z</endTimestamp>
+                            <run id="2015">
+                                <startTimestamp>2026-09-22T13:40:59.902Z</startTimestamp>
+                                <endTimestamp>2026-09-22T13:40:59.921Z</endTimestamp>
                             </run>
                         </itemProcessing>
                     </statistics>
                     <persistence>singleRealization</persistence>
                 </activity>
-                <activity id="1989">
+                <activity id="2009">
                     <identifier>closedTasks</identifier>
                     <executionAttempt>1</executionAttempt>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>
-                    <realizationStartTimestamp>2026-09-21T13:41:00.881Z</realizationStartTimestamp>
-                    <realizationEndTimestamp>2026-09-21T13:41:00.931Z</realizationEndTimestamp>
-                    <runStartTimestamp>2026-09-21T13:41:00.881Z</runStartTimestamp>
-                    <runEndTimestamp>2026-09-21T13:41:00.931Z</runEndTimestamp>
+                    <realizationStartTimestamp>2026-09-22T13:40:59.935Z</realizationStartTimestamp>
+                    <realizationEndTimestamp>2026-09-22T13:40:59.953Z</realizationEndTimestamp>
+                    <runStartTimestamp>2026-09-22T13:40:59.935Z</runStartTimestamp>
+                    <runEndTimestamp>2026-09-22T13:40:59.953Z</runEndTimestamp>
                     <progress/>
                     <statistics>
                         <itemProcessing>
-                            <run id="1997">
-                                <startTimestamp>2026-09-21T13:41:00.881Z</startTimestamp>
-                                <endTimestamp>2026-09-21T13:41:00.931Z</endTimestamp>
+                            <run id="2017">
+                                <startTimestamp>2026-09-22T13:40:59.935Z</startTimestamp>
+                                <endTimestamp>2026-09-22T13:40:59.953Z</endTimestamp>
                             </run>
                         </itemProcessing>
                     </statistics>
                     <persistence>singleRealization</persistence>
                 </activity>
-                <activity id="1990">
+                <activity id="2010">
                     <identifier>closedCases</identifier>
                     <executionAttempt>1</executionAttempt>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>
-                    <realizationStartTimestamp>2026-09-21T13:41:00.960Z</realizationStartTimestamp>
-                    <realizationEndTimestamp>2026-09-21T13:41:00.995Z</realizationEndTimestamp>
-                    <runStartTimestamp>2026-09-21T13:41:00.960Z</runStartTimestamp>
-                    <runEndTimestamp>2026-09-21T13:41:00.995Z</runEndTimestamp>
+                    <realizationStartTimestamp>2026-09-22T13:40:59.963Z</realizationStartTimestamp>
+                    <realizationEndTimestamp>2026-09-22T13:40:59.978Z</realizationEndTimestamp>
+                    <runStartTimestamp>2026-09-22T13:40:59.963Z</runStartTimestamp>
+                    <runEndTimestamp>2026-09-22T13:40:59.978Z</runEndTimestamp>
                     <progress/>
                     <statistics>
                         <itemProcessing>
-                            <run id="1999">
-                                <startTimestamp>2026-09-21T13:41:00.960Z</startTimestamp>
-                                <endTimestamp>2026-09-21T13:41:00.995Z</endTimestamp>
+                            <run id="2019">
+                                <startTimestamp>2026-09-22T13:40:59.963Z</startTimestamp>
+                                <endTimestamp>2026-09-22T13:40:59.978Z</endTimestamp>
                             </run>
                         </itemProcessing>
                     </statistics>
                     <persistence>singleRealization</persistence>
                 </activity>
-                <activity id="1991">
+                <activity id="2011">
                     <identifier>deadNodes</identifier>
                     <executionAttempt>1</executionAttempt>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>
-                    <realizationStartTimestamp>2026-09-21T13:41:01.038Z</realizationStartTimestamp>
-                    <realizationEndTimestamp>2026-09-21T13:41:01.077Z</realizationEndTimestamp>
-                    <runStartTimestamp>2026-09-21T13:41:01.038Z</runStartTimestamp>
-                    <runEndTimestamp>2026-09-21T13:41:01.077Z</runEndTimestamp>
+                    <realizationStartTimestamp>2026-09-22T13:40:59.989Z</realizationStartTimestamp>
+                    <realizationEndTimestamp>2026-09-22T13:41:00.005Z</realizationEndTimestamp>
+                    <runStartTimestamp>2026-09-22T13:40:59.989Z</runStartTimestamp>
+                    <runEndTimestamp>2026-09-22T13:41:00.005Z</runEndTimestamp>
                     <progress/>
                     <statistics>
                         <itemProcessing>
-                            <run id="2001">
-                                <startTimestamp>2026-09-21T13:41:01.038Z</startTimestamp>
-                                <endTimestamp>2026-09-21T13:41:01.077Z</endTimestamp>
+                            <run id="2021">
+                                <startTimestamp>2026-09-22T13:40:59.989Z</startTimestamp>
+                                <endTimestamp>2026-09-22T13:41:00.005Z</endTimestamp>
                             </run>
                         </itemProcessing>
                     </statistics>
                     <persistence>singleRealization</persistence>
                 </activity>
-                <activity id="1992">
+                <activity id="2012">
                     <identifier>outputReports</identifier>
                     <executionAttempt>1</executionAttempt>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>
-                    <realizationStartTimestamp>2026-09-21T13:41:01.109Z</realizationStartTimestamp>
-                    <realizationEndTimestamp>2026-09-21T13:41:01.149Z</realizationEndTimestamp>
-                    <runStartTimestamp>2026-09-21T13:41:01.109Z</runStartTimestamp>
-                    <runEndTimestamp>2026-09-21T13:41:01.149Z</runEndTimestamp>
+                    <realizationStartTimestamp>2026-09-22T13:41:00.017Z</realizationStartTimestamp>
+                    <realizationEndTimestamp>2026-09-22T13:41:00.033Z</realizationEndTimestamp>
+                    <runStartTimestamp>2026-09-22T13:41:00.017Z</runStartTimestamp>
+                    <runEndTimestamp>2026-09-22T13:41:00.033Z</runEndTimestamp>
                     <statistics>
                         <itemProcessing>
-                            <run id="2003">
-                                <startTimestamp>2026-09-21T13:41:01.109Z</startTimestamp>
-                                <endTimestamp>2026-09-21T13:41:01.149Z</endTimestamp>
+                            <run id="2023">
+                                <startTimestamp>2026-09-22T13:41:00.017Z</startTimestamp>
+                                <endTimestamp>2026-09-22T13:41:00.033Z</endTimestamp>
                             </run>
                         </itemProcessing>
                     </statistics>
                     <persistence>singleRealization</persistence>
                 </activity>
-                <activity id="1993">
+                <activity id="2013">
                     <identifier>closedCertificationCampaigns</identifier>
                     <executionAttempt>1</executionAttempt>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>
-                    <realizationStartTimestamp>2026-09-21T13:41:01.180Z</realizationStartTimestamp>
-                    <realizationEndTimestamp>2026-09-21T13:41:01.219Z</realizationEndTimestamp>
-                    <runStartTimestamp>2026-09-21T13:41:01.180Z</runStartTimestamp>
-                    <runEndTimestamp>2026-09-21T13:41:01.219Z</runEndTimestamp>
+                    <realizationStartTimestamp>2026-09-22T13:41:00.046Z</realizationStartTimestamp>
+                    <realizationEndTimestamp>2026-09-22T13:41:00.061Z</realizationEndTimestamp>
+                    <runStartTimestamp>2026-09-22T13:41:00.046Z</runStartTimestamp>
+                    <runEndTimestamp>2026-09-22T13:41:00.061Z</runEndTimestamp>
                     <statistics>
                         <itemProcessing>
-                            <run id="2005">
-                                <startTimestamp>2026-09-21T13:41:01.180Z</startTimestamp>
-                                <endTimestamp>2026-09-21T13:41:01.219Z</endTimestamp>
+                            <run id="2025">
+                                <startTimestamp>2026-09-22T13:41:00.046Z</startTimestamp>
+                                <endTimestamp>2026-09-22T13:41:00.061Z</endTimestamp>
                             </run>
                         </itemProcessing>
                     </statistics>
@@ -471,7 +445,7 @@ Profiles: []</cachingConfiguration>
             </activity>
             <tree>
                 <realizationState>complete</realizationState>
-                <taskRunIdentifier>7f13b36a-ec60-4a1a-a536-5c962f1fa0f7</taskRunIdentifier>
+                <taskRunIdentifier>9f454ee4-e766-496e-baa2-e744a6eb3105</taskRunIdentifier>
                 <activity>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>

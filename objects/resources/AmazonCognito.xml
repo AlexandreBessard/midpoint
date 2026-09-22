@@ -30,28 +30,28 @@
             <operation>com.evolveum.midpoint.provisioning.impl.operations.ProvisioningSearchLikeOperation.completeObject</operation>
             <status>partial_error</status>
             <importance>minor</importance>
-            <start>2026-09-21T21:58:12.762Z</start>
-            <end>2026-09-21T21:58:14.101Z</end>
-            <microseconds>1339356</microseconds>
-            <ownMicroseconds>992</ownMicroseconds>
-            <invocationId>8855076</invocationId>
+            <start>2026-09-22T19:29:44.938Z</start>
+            <end>2026-09-22T19:29:45.614Z</end>
+            <microseconds>675751</microseconds>
+            <ownMicroseconds>2664</ownMicroseconds>
+            <invocationId>8961150</invocationId>
             <params>
                 <entry key="object">
                     <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">resource:ef83664c-782d-42ec-a038-000000000001(Amazon Cognito)</paramValue>
                 </entry>
             </params>
-            <token>1000000000000609589</token>
+            <token>1000000000000648555</token>
             <message>Cannot complete resource schema and capabilities: Unexpected GenericFrameworkException when configuring or initializing connector instance: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
             <partialResults>
                 <operation>com.evolveum.midpoint.provisioning.impl.resources.ResourceCompletionOperation.completeResource</operation>
                 <status>partial_error</status>
                 <importance>minor</importance>
-                <start>2026-09-21T21:58:12.762Z</start>
-                <end>2026-09-21T21:58:14.101Z</end>
-                <microseconds>1338364</microseconds>
-                <ownMicroseconds>51159</ownMicroseconds>
-                <invocationId>8855077</invocationId>
-                <token>1000000000000609590</token>
+                <start>2026-09-22T19:29:44.939Z</start>
+                <end>2026-09-22T19:29:45.612Z</end>
+                <microseconds>673087</microseconds>
+                <ownMicroseconds>76148</ownMicroseconds>
+                <invocationId>8961151</invocationId>
+                <token>1000000000000648556</token>
                 <message>Cannot complete resource schema and capabilities: Unexpected GenericFrameworkException when configuring or initializing connector instance: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
                 <details>com.evolveum.midpoint.util.exception.SystemException: Unexpected GenericFrameworkException when configuring or initializing connector instance: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)
 com.evolveum.midpoint.util.exception.SystemException.unexpected(SystemException.java:47)
@@ -213,22 +213,22 @@ java.base/java.lang.Thread.run(Thread.java:1583)
                     <operation>com.evolveum.midpoint.provisioning.ucf.api.ConnectorInstance.configure</operation>
                     <status>success</status>
                     <importance>normal</importance>
-                    <start>2026-09-21T21:58:12.811Z</start>
-                    <end>2026-09-21T21:58:12.816Z</end>
-                    <microseconds>4569</microseconds>
-                    <ownMicroseconds>4569</ownMicroseconds>
-                    <invocationId>8855139</invocationId>
-                    <token>1000000000000609591</token>
+                    <start>2026-09-22T19:29:45.015Z</start>
+                    <end>2026-09-22T19:29:45.020Z</end>
+                    <microseconds>5093</microseconds>
+                    <ownMicroseconds>5093</ownMicroseconds>
+                    <invocationId>8961160</invocationId>
+                    <token>1000000000000648557</token>
                 </partialResults>
                 <partialResults>
                     <operation>com.evolveum.midpoint.provisioning.ucf.api.ConnectorInstance.initialize</operation>
                     <status>fatal_error</status>
                     <importance>normal</importance>
-                    <start>2026-09-21T21:58:12.816Z</start>
-                    <end>2026-09-21T21:58:14.098Z</end>
-                    <microseconds>1282636</microseconds>
-                    <ownMicroseconds>356</ownMicroseconds>
-                    <invocationId>8855140</invocationId>
+                    <start>2026-09-22T19:29:45.020Z</start>
+                    <end>2026-09-22T19:29:45.612Z</end>
+                    <microseconds>591846</microseconds>
+                    <ownMicroseconds>363</ownMicroseconds>
+                    <invocationId>8961161</invocationId>
                     <context>
                         <entry key="connector">
                             <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">connector:1916d0f6-f12b-4c17-8524-1fddcbef03b6(ConnId jp.openstandia.connector.amazonaws.CognitoUserPoolConnector v1.2.0)</paramValue>
@@ -237,7 +237,7 @@ java.base/java.lang.Thread.run(Thread.java:1583)
                             <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">class com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnectorFactoryConnIdImpl</paramValue>
                         </entry>
                     </context>
-                    <token>1000000000000609592</token>
+                    <token>1000000000000648558</token>
                     <message>org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
                     <details>com.evolveum.midpoint.provisioning.ucf.api.GenericFrameworkException: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)
 com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdUtil.processConnIdException(ConnIdUtil.java:247)
@@ -404,33 +404,33 @@ java.base/java.lang.Thread.run(Thread.java:1583)
                         <operation>org.identityconnectors.framework.api.ConnectorFacade.getSupportedOperations</operation>
                         <status>success</status>
                         <importance>normal</importance>
-                        <start>2026-09-21T21:58:12.816Z</start>
-                        <end>2026-09-21T21:58:12.816Z</end>
-                        <microseconds>326</microseconds>
-                        <ownMicroseconds>326</ownMicroseconds>
-                        <invocationId>8855141</invocationId>
+                        <start>2026-09-22T19:29:45.020Z</start>
+                        <end>2026-09-22T19:29:45.020Z</end>
+                        <microseconds>115</microseconds>
+                        <ownMicroseconds>115</ownMicroseconds>
+                        <invocationId>8961162</invocationId>
                         <context>
                             <entry key="connector">
                                 <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">class org.identityconnectors.framework.impl.api.local.LocalConnectorFacadeImpl</paramValue>
                             </entry>
                         </context>
-                        <token>1000000000000609593</token>
+                        <token>1000000000000648559</token>
                     </partialResults>
                     <partialResults>
                         <operation>org.identityconnectors.framework.api.ConnectorFacade.schema</operation>
                         <status>fatal_error</status>
                         <importance>normal</importance>
-                        <start>2026-09-21T21:58:12.816Z</start>
-                        <end>2026-09-21T21:58:14.098Z</end>
-                        <microseconds>1281954</microseconds>
-                        <ownMicroseconds>1281954</ownMicroseconds>
-                        <invocationId>8855142</invocationId>
+                        <start>2026-09-22T19:29:45.020Z</start>
+                        <end>2026-09-22T19:29:45.612Z</end>
+                        <microseconds>591368</microseconds>
+                        <ownMicroseconds>591368</ownMicroseconds>
+                        <invocationId>8961163</invocationId>
                         <context>
                             <entry key="connector">
                                 <paramValue xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:string">class org.identityconnectors.framework.impl.api.local.LocalConnectorFacadeImpl</paramValue>
                             </entry>
                         </context>
-                        <token>1000000000000609594</token>
+                        <token>1000000000000648560</token>
                         <message>org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
                         <details>com.evolveum.midpoint.provisioning.ucf.api.GenericFrameworkException: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)
 com.evolveum.midpoint.provisioning.ucf.impl.connid.ConnIdUtil.processConnIdException(ConnIdUtil.java:247)

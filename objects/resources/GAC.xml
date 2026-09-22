@@ -1,4 +1,4 @@
-<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0" version="4"  xsi:type="c:ResourceType">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0" version="11"  xsi:type="c:ResourceType">
         <name>GAC</name>
         <description>Ressource CSV d'export vers GAC (gestion de flotte véhicules) - en écriture uniquement, phase de test</description>
         <lifecycleState>active</lifecycleState>
@@ -6,14 +6,26 @@
         <iterationToken/>
         <operationalState>
             <lastAvailabilityStatus>up</lastAvailabilityStatus>
-            <message>Status set to UP because resource schema was successfully fetched</message>
-            <timestamp>2026-09-17T10:27:09.966Z</timestamp>
+            <message>Status changed from BROKEN to UP because resource test was successful</message>
+            <timestamp>2026-09-22T11:49:19.380Z</timestamp>
             <nodeId>DefaultNode</nodeId>
         </operationalState>
         <operationalStateHistory id="4">
             <lastAvailabilityStatus>up</lastAvailabilityStatus>
             <message>Status set to UP because resource schema was successfully fetched</message>
             <timestamp>2026-09-17T10:27:09.966Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <operationalStateHistory id="49">
+            <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+            <message>Status changed from UP to BROKEN because test resource GAC failed while processing schema refinements: Definition of attribute 'Lieu_x20de_x20Naissance' not found in object class '{http://midpoint.evolveum.com/xml/ns/public/resource/instance-3}AccountObjectClass' nor auxiliary object classes for 'ROTD+(ACCOUNT:default={.../resource/instance-3}AccountObjectClass)' as defined in attribute 'Lieu_x20de_x20Naissance' definition in object type ACCOUNT/null (Compte GAC) definition in resource:db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0(GAC) (or some of its ancestors) @schemaHandling/objectType/2/attribute/44</message>
+            <timestamp>2026-09-22T11:41:33.809Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <operationalStateHistory id="50">
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status changed from BROKEN to UP because resource test was successful</message>
+            <timestamp>2026-09-22T11:49:19.380Z</timestamp>
             <nodeId>DefaultNode</nodeId>
         </operationalStateHistory>
         <connectorRef oid="e9830727-e7ea-410c-b177-e4474628c87c" relation="org:default" type="c:ConnectorType"/>
