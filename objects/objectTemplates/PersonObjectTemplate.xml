@@ -191,13 +191,13 @@ return ActivationStatusType.ENABLED</code>
         </mapping>
         <mapping id="3">
             <name>generate-id-midpoint</name>
-            <description>Génère un nombre aléatoire à 8 chiffres prefixé avec ID-</description>
+            <description>Génère un numéro unique à partir de la séquence UserPersonalNumberSequence, prefixé avec ID-</description>
             <strength>weak</strength>
             <expression>
                 <script>
                     <code>
-                     def randomNum = new Random().nextInt(90000000) + 10000000
-                     return "ID-" + randomNum
+                     def seqNum = midpoint.getSequenceCounter("10000000-0000-0000-0000-000000000123")
+                     return "ID-" + String.format("%08d", seqNum)
             </code>
                 </script>
             </expression>
