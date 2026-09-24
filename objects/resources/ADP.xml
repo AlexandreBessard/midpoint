@@ -308,6 +308,14 @@ return ActivationStatusType.ENABLED</code>
                             <link id="11"/>
                         </actions>
                     </reaction>
+                    <reaction id="30">
+                        <name>DisputedUser</name>
+                        <description>Corrélation ambiguë ou de confiance &lt;100% (ex: correspondance nom/prénom non exacte) : ouvre un cas de corrélation pour confirmation manuelle plutôt que de lier automatiquement.</description>
+                        <situation>disputed</situation>
+                        <actions>
+                            <createCorrelationCase id="31"/>
+                        </actions>
+                    </reaction>
                 </synchronization>
             </objectType>
         </schemaHandling>
