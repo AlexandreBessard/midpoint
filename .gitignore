@@ -16,6 +16,9 @@ target/
 scratches/
 credentials.kdbx
 
+### Docker secrets ###
+.env
+
 ### Sensitive / disposable data (not config) ###
 
 # Raw HR feed extracts containing employee PII - not versioned
