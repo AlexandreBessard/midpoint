@@ -1,0 +1,51 @@
+services:
+
+  midpoint_data:
+    image: postgres:16-alpine
+
+    environment:
+      POSTGRES_USER: midpoint
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: midpoint
+
+    volumes:
+      - midpoint_data:/var/lib/postgresql/data
+
+    networks:
+      - midpoint
+
+  midpoint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      - midpoint_data
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      MP_SET_midpoint_repository_jdbcUsername: midpoint
+      MP_SET_midpoint_repository_jdbcPassword: ${POSTGRES_PASSWORD}
+      MP_SET_midpoint_repository_jdbcUrl: jdbc:postgresql://midpoint_data:5432/midpoint
+      MP_SET_midpoint_repository_database: postgresql
+      MP_UNSET_midpoint_repository_hibernateHbm2ddl: "1"
+      MP_NO_ENV_COMPAT: "1"
+
+    volumes:
+      - midpoint_home:/opt/midpoint/var
+
+    command:
+      - /opt/midpoint/bin/midpoint.sh
+      - container
+
+    networks:
+      - midpoint
+
+volumes:
+  midpoint_data:
+  midpoint_home:
+
+networks:
+  midpoint:
