@@ -1,20 +1,4 @@
-<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000380" version="15"  xsi:type="c:ObjectTemplateType">
-        <_metadata id="3">
-            <storage>
-                <createTimestamp>2026-07-20T09:56:56.932Z</createTimestamp>
-                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-                <modifyTimestamp>2026-09-04T16:26:47.221Z</modifyTimestamp>
-                <modifierRef>
-                    <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
-                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-                </modifierRef>
-                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
-            </storage>
-            <process>
-                <requestTimestamp>2026-07-20T09:56:56.924Z</requestTimestamp>
-            </process>
-        </_metadata>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000380" version="16"  xsi:type="c:ObjectTemplateType">
         <name>Person Object Template</name>
         <description>Object template for Person users, contains mappings to generate fullName and username. Please enable appropriate mappings as needed.</description>
         <operationExecution id="4">
