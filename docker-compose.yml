@@ -40,6 +40,33 @@ services:
       - /opt/midpoint/bin/midpoint.sh
       - container
 
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:8080/midpoint/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+
+    networks:
+      - midpoint
+
+  midpoint_import:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      midpoint:
+        condition: service_healthy
+
+    volumes:
+      - midpoint_home:/opt/midpoint/var
+
+    command:
+      - /opt/midpoint/import-config.sh
+
+    restart: "no"
+
     networks:
       - midpoint
 
