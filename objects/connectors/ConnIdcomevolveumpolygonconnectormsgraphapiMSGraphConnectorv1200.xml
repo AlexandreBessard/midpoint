@@ -1,0 +1,236 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="9833f177-145e-4004-a39b-ee07c22bc225" version="84" >
+    <name>ConnId com.evolveum.polygon.connector.msgraphapi.MSGraphConnector v1.2.0.0</name>
+    <displayName>MSGraphConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
+    <connectorType>com.evolveum.polygon.connector.msgraphapi.MSGraphConnector</connectorType>
+    <connectorVersion>1.2.0.0</connectorVersion>
+    <connectorBundle>com.evolveum.polygon.connector-msgraph</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-msgraph/com.evolveum.polygon.connector.msgraphapi.MSGraphConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:qn634="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-msgraph/com.evolveum.polygon.connector.msgraphapi.MSGraphConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-msgraph/com.evolveum.polygon.connector.msgraphapi.MSGraphConnector">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/types-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" ref="qn634:connectorPoolConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>qn634:ConnectorPoolConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:producerBufferSize"/>
+                        <xsd:element minOccurs="0" ref="icfc:timeouts">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:TimeoutsType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:resultsHandlerConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:ResultsHandlerConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:legacySchema"/>
+                        <xsd:element ref="icfc:configurationProperties">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>tns:ConfigurationPropertiesType</a:type>
+                                    <a:container/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="ConfigurationPropertiesType">
+                    <xsd:sequence>
+                        <xsd:element name="clientId" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Client Id</a:displayName>
+                                    <a:displayOrder>1</a:displayOrder>
+                                    <a:help>The Application ID that the Application Registration Portal (apps.dev.microsoft.com) assigned to your app.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="clientSecret" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Client Secret</a:displayName>
+                                    <a:displayOrder>2</a:displayOrder>
+                                    <a:help>The Application Secret that you generated for your app in the app registration portal.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="tenantId" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Tenant Id</a:displayName>
+                                    <a:displayOrder>3</a:displayOrder>
+                                    <a:help>Allows only users with work/school accounts from a particular Azure Active Directory tenant to sign into the application. Either the friendly domain name of the Azure AD tenant or the tenants guid identifier can be used. Example: 8eaef023-2b34-4da1-9baa-8bc8c9d6a490 or contoso.onmicrosoft.com</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="validateWithFailoverTrust" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Validate With Failover Truststore</a:displayName>
+                                    <a:displayOrder>4</a:displayOrder>
+                                    <a:help>If set to true, connector will use the failover truststore to validate CA certificates as a primary trust store. Default value is true.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="pathToFailoverTrustStore" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Path To Failover Truststore</a:displayName>
+                                    <a:displayOrder>5</a:displayOrder>
+                                    <a:help>Path to truststore database which is going to be used with CA certificate validation as a failover. Default value is the path to JVM native trust store.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="proxyHost" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Proxy Hostname</a:displayName>
+                                    <a:displayOrder>6</a:displayOrder>
+                                    <a:help>Hostname of the HTTPS proxy to use to connect to cloud services. If used, ProxyPort needs to be configured as well.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="proxyPort" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Proxy Port Number</a:displayName>
+                                    <a:displayOrder>7</a:displayOrder>
+                                    <a:help>Port number of the HTTPS proxy to use to connect to cloud services. For this setting to take any effect, ProxyHost needs to be configured as well.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="disabledPlans" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Disabled License Plans</a:displayName>
+                                    <a:displayOrder>8</a:displayOrder>
+                                    <a:help>List of the SkuId: ServicePlanId,[ServicePlanId2...]. These service plan will be disabled during assignment of the each license. Friendly names are not supported. Default: (empty)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="inviteGuests" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Invite Guests</a:displayName>
+                                    <a:displayOrder>9</a:displayOrder>
+                                    <a:help>Whether to allow creation of guest accounts by inviting users from outside the tenant (based on e-mail address only).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="sendInviteMail" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Send Invite Mail</a:displayName>
+                                    <a:displayOrder>10</a:displayOrder>
+                                    <a:help>Whether to send an email invitation to guest users.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="inviteRedirectUrl" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Invite Redirect URL</a:displayName>
+                                    <a:displayOrder>11</a:displayOrder>
+                                    <a:help>Specify a URL that an invited user should be redirected to once he claims his invitation. Mandatory if InviteGuests is true.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="inviteMessage" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Invite Message</a:displayName>
+                                    <a:displayOrder>12</a:displayOrder>
+                                    <a:help>Custom message to send in an invite. Requires InviteRedirectURL</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="throttlingRetryCount" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Throttling Maximum Retry Count</a:displayName>
+                                    <a:displayOrder>13</a:displayOrder>
+                                    <a:help>Max retry count in case of an request impacted by throttling. Default 3.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="pageSize" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Page Size</a:displayName>
+                                    <a:displayOrder>14</a:displayOrder>
+                                    <a:help>The number of entries to bring back per page in the call to the Graph API. The default is 100 with a maximum 0f 999.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="throttlingRetryWait" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Throttling Maximum Wait Time</a:displayName>
+                                    <a:displayOrder>15</a:displayOrder>
+                                    <a:help>Max time period in between requests impacted by throttling. Define as number of seconds. Default 10</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="certificateBasedAuthentication" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Certificate Based Authentication</a:displayName>
+                                    <a:displayOrder>16</a:displayOrder>
+                                    <a:help>If set to true connector uses certificate-based authentication.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="certificatePath" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Certificate Path</a:displayName>
+                                    <a:displayOrder>17</a:displayOrder>
+                                    <a:help>Path to public key (.crt format).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="privateKeyPath" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>PrivateKey Path</a:displayName>
+                                    <a:displayOrder>18</a:displayOrder>
+                                    <a:help>Path to private key (.der or .pem format).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="treatNetIdAsAlreadyExists" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Treat InvalidNetIdError As AlreadyExist</a:displayName>
+                                    <a:displayOrder>19</a:displayOrder>
+                                    <a:help>If set to true connector will treat Property netId is invalid as valid alreadyExists exception.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

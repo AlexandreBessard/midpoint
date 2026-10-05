@@ -1,4 +1,4 @@
-<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2a965eb7-03f8-430d-8534-aeb567cb8ca8" version="38"  xsi:type="c:ResourceType">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2a965eb7-03f8-430d-8534-aeb567cb8ca8" version="39"  xsi:type="c:ResourceType">
         <_metadata id="1">
             <storage>
                 <createTimestamp>2026-08-06T10:55:47.143Z</createTimestamp>
@@ -8,7 +8,7 @@
                     <t:type>c:UserType</t:type>
                 </creatorRef>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
-                <modifyTimestamp>2026-09-21T13:50:17.178Z</modifyTimestamp>
+                <modifyTimestamp>2026-09-25T11:13:52.105Z</modifyTimestamp>
                 <modifierRef>
                     <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
                     <t:relation>org:default</t:relation>
@@ -83,7 +83,7 @@
                     </t:encryptedData>
                 </cfg:clientSecret>
                 <cfg:tenantId>9cf56ac2-0128-42e7-8a1d-a09f79b104f0</cfg:tenantId>
-                <cfg:validateWithFailoverTrust>true</cfg:validateWithFailoverTrust>
+                <cfg:validateWithFailoverTrust>false</cfg:validateWithFailoverTrust>
                 <cfg:pathToFailoverTrustStore>/etc/ssl/certs/java/cacerts</cfg:pathToFailoverTrustStore>
                 <cfg:throttlingRetryCount>3</cfg:throttlingRetryCount>
                 <cfg:pageSize>100</cfg:pageSize>

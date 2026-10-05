@@ -1,0 +1,128 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="d1678279-b7fb-4f3d-a48a-028ddaf3ab37" version="4" >
+    <name>ConnId com.atricore.iam.midpoint.connector.aws.AWSConnector v1.1.2-SNAPSHOT</name>
+    <displayName>AWSConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
+    <connectorType>com.atricore.iam.midpoint.connector.aws.AWSConnector</connectorType>
+    <connectorVersion>1.1.2-SNAPSHOT</connectorVersion>
+    <connectorBundle>com.atricore.iam.evolveum.connector.connector-aws</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.atricore.iam.evolveum.connector.connector-aws/com.atricore.iam.midpoint.connector.aws.AWSConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:qn598="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.atricore.iam.evolveum.connector.connector-aws/com.atricore.iam.midpoint.connector.aws.AWSConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.atricore.iam.evolveum.connector.connector-aws/com.atricore.iam.midpoint.connector.aws.AWSConnector">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/types-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" ref="qn598:connectorPoolConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>qn598:ConnectorPoolConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:producerBufferSize"/>
+                        <xsd:element minOccurs="0" ref="icfc:timeouts">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:TimeoutsType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:resultsHandlerConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:ResultsHandlerConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:legacySchema"/>
+                        <xsd:element ref="icfc:configurationProperties">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>tns:ConfigurationPropertiesType</a:type>
+                                    <a:container/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="ConfigurationPropertiesType">
+                    <xsd:sequence>
+                        <xsd:element name="awsAccessKeyId" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>awsAccessKeyId.display</a:displayName>
+                                    <a:displayOrder>1</a:displayOrder>
+                                    <a:help>awsAccessKeyId.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="awsSecretAccessKey" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>awsSecretAccessKey.display</a:displayName>
+                                    <a:displayOrder>2</a:displayOrder>
+                                    <a:help>awsSecretAccessKey.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="awsRegion" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>awsRegion.display</a:displayName>
+                                    <a:displayOrder>3</a:displayOrder>
+                                    <a:help>awsRegion.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="allowCache" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Allow Cache</a:displayName>
+                                    <a:displayOrder>4</a:displayOrder>
+                                    <a:help>Cache AWS policy object</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="maxCacheTTL" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Max Cache TTL (in millis)</a:displayName>
+                                    <a:displayOrder>5</a:displayOrder>
+                                    <a:help>Max Cache TTL (Time To Live) in millis.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="ignoreCacheAfterUpdateTTL" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>getIgnoreCacheAfterUpdateTTL.display</a:displayName>
+                                    <a:displayOrder>6</a:displayOrder>
+                                    <a:help>getIgnoreCacheAfterUpdateTTL.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="endpointOverride" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>endpointOverride.display</a:displayName>
+                                    <a:displayOrder>7</a:displayOrder>
+                                    <a:help>endpointOverride.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

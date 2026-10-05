@@ -1,4 +1,4 @@
-<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000007" version="416391"  xsi:type="c:TaskType">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000007" version="485408"  xsi:type="c:TaskType">
         <_metadata id="3">
             <storage>
                 <createTimestamp>2026-07-20T09:56:58.812Z</createTimestamp>
@@ -95,29 +95,29 @@
             </_metadata>
         </roleMembershipRef>
         <taskIdentifier>1784541418812-53971-1</taskIdentifier>
-        <taskRunRecord id="183255">
-            <taskRunIdentifier>17d04ffa-ec73-4d91-b8a6-23873c7a9f37</taskRunIdentifier>
-            <runStartTimestamp>2026-09-24T14:10:59.781Z</runStartTimestamp>
-            <runEndTimestamp>2026-09-24T14:11:00.958Z</runEndTimestamp>
+        <taskRunRecord id="214634">
+            <taskRunIdentifier>9232f25d-0b50-427c-81b8-1bddb5684c23</taskRunIdentifier>
+            <runStartTimestamp>2026-10-05T11:32:51.084Z</runStartTimestamp>
+            <runEndTimestamp>2026-10-05T11:32:51.803Z</runEndTimestamp>
         </taskRunRecord>
-        <taskRunRecord id="183265">
-            <taskRunIdentifier>13b2537e-602a-41c6-8b13-6456e31ee1c9</taskRunIdentifier>
-            <runStartTimestamp>2026-09-24T14:15:59.782Z</runStartTimestamp>
-            <runEndTimestamp>2026-09-24T14:16:00.935Z</runEndTimestamp>
+        <taskRunRecord id="214644">
+            <taskRunIdentifier>9e468c2e-b796-48a5-9d9e-7793625e04ee</taskRunIdentifier>
+            <runStartTimestamp>2026-10-05T11:37:51.129Z</runStartTimestamp>
+            <runEndTimestamp>2026-10-05T11:37:52.330Z</runEndTimestamp>
         </taskRunRecord>
-        <taskRunRecord id="183275">
-            <taskRunIdentifier>0d2d5ee5-1747-4e68-9291-3a4eaf3d4687</taskRunIdentifier>
-            <runStartTimestamp>2026-09-24T14:20:59.774Z</runStartTimestamp>
-            <runEndTimestamp>2026-09-24T14:21:00.965Z</runEndTimestamp>
+        <taskRunRecord id="214654">
+            <taskRunIdentifier>dfbc9585-1c8b-423a-aaaf-4bfd48bef45f</taskRunIdentifier>
+            <runStartTimestamp>2026-10-05T11:42:51.086Z</runStartTimestamp>
+            <runEndTimestamp>2026-10-05T11:42:51.832Z</runEndTimestamp>
         </taskRunRecord>
         <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
         <executionState>runnable</executionState>
         <schedulingState>ready</schedulingState>
         <result incomplete="true"/>
         <resultStatus>success</resultStatus>
-        <lastRunStartTimestamp>2026-09-24T14:20:59.743Z</lastRunStartTimestamp>
-        <lastRunFinishTimestamp>2026-09-24T14:21:00.976Z</lastRunFinishTimestamp>
-        <progress>18</progress>
+        <lastRunStartTimestamp>2026-10-05T11:42:51.050Z</lastRunStartTimestamp>
+        <lastRunFinishTimestamp>2026-10-05T11:42:51.843Z</lastRunFinishTimestamp>
+        <progress>23</progress>
         <operationStats>
             <environmentalPerformanceInformation>
                 <provisioningStatistics/>
@@ -127,9 +127,9 @@
             <repositoryPerformanceInformation>
                 <operation>
                     <name>SqaleRepositoryService.getObject</name>
-                    <invocationCount>132835</invocationCount>
-                    <executionCount>132835</executionCount>
-                    <totalTime>428282</totalTime>
+                    <invocationCount>154810</invocationCount>
+                    <executionCount>154810</executionCount>
+                    <totalTime>502310</totalTime>
                     <minTime>2</minTime>
                     <maxTime>62</maxTime>
                     <totalWastedTime>0</totalWastedTime>
@@ -138,9 +138,9 @@
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.searchObjects</name>
-                    <invocationCount>37953</invocationCount>
-                    <executionCount>37953</executionCount>
-                    <totalTime>44800</totalTime>
+                    <invocationCount>44232</invocationCount>
+                    <executionCount>44232</executionCount>
+                    <totalTime>52548</totalTime>
                     <minTime>0</minTime>
                     <maxTime>19</maxTime>
                     <totalWastedTime>0</totalWastedTime>
@@ -149,9 +149,9 @@
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.modifyObject</name>
-                    <invocationCount>246618</invocationCount>
-                    <executionCount>246618</executionCount>
-                    <totalTime>1537778</totalTime>
+                    <invocationCount>287407</invocationCount>
+                    <executionCount>287407</executionCount>
+                    <totalTime>1779417</totalTime>
                     <minTime>0</minTime>
                     <maxTime>22062</maxTime>
                     <totalWastedTime>0</totalWastedTime>
@@ -160,9 +160,9 @@
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.searchObjectsIterative</name>
-                    <invocationCount>18968</invocationCount>
-                    <executionCount>18968</executionCount>
-                    <totalTime>25</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <executionCount>22105</executionCount>
+                    <totalTime>26</totalTime>
                     <minTime>0</minTime>
                     <maxTime>1</maxTime>
                     <totalWastedTime>0</totalWastedTime>
@@ -171,9 +171,9 @@
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.searchObjectsIterativePage</name>
-                    <invocationCount>18968</invocationCount>
-                    <executionCount>18968</executionCount>
-                    <totalTime>7820922</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <executionCount>22105</executionCount>
+                    <totalTime>10861404</totalTime>
                     <minTime>7</minTime>
                     <maxTime>1571</maxTime>
                     <totalWastedTime>0</totalWastedTime>
@@ -182,9 +182,9 @@
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.modifyObjectDynamically</name>
-                    <invocationCount>75872</invocationCount>
-                    <executionCount>75872</executionCount>
-                    <totalTime>486372</totalTime>
+                    <invocationCount>88420</invocationCount>
+                    <executionCount>88420</executionCount>
+                    <totalTime>565778</totalTime>
                     <minTime>3</minTime>
                     <maxTime>8672</maxTime>
                     <totalWastedTime>0</totalWastedTime>
@@ -193,19 +193,19 @@
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.deleteObject</name>
-                    <invocationCount>18</invocationCount>
-                    <executionCount>18</executionCount>
-                    <totalTime>1113</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <executionCount>23</executionCount>
+                    <totalTime>1452</totalTime>
                     <minTime>16</minTime>
-                    <maxTime>85</maxTime>
+                    <maxTime>101</maxTime>
                     <totalWastedTime>0</totalWastedTime>
                     <minWastedTime>0</minWastedTime>
                     <maxWastedTime>0</maxWastedTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.getVersion</name>
-                    <invocationCount>8</invocationCount>
-                    <executionCount>8</executionCount>
+                    <invocationCount>9</invocationCount>
+                    <executionCount>9</executionCount>
                     <totalTime>5</totalTime>
                     <minTime>0</minTime>
                     <maxTime>1</maxTime>
@@ -217,9 +217,9 @@
             <cachesPerformanceInformation>
                 <cache>
                     <name>com.evolveum.midpoint.repo.cache.global.GlobalObjectCache</name>
-                    <hitCount>18956</hitCount>
-                    <weakHitCount>8</weakHitCount>
-                    <missCount>4</missCount>
+                    <hitCount>22091</hitCount>
+                    <weakHitCount>9</weakHitCount>
+                    <missCount>5</missCount>
                     <passCount>0</passCount>
                     <notAvailableCount>0</notAvailableCount>
                 </cache>
@@ -229,7 +229,7 @@
                     <weakHitCount>0</weakHitCount>
                     <missCount>0</missCount>
                     <passCount>0</passCount>
-                    <notAvailableCount>18968</notAvailableCount>
+                    <notAvailableCount>22105</notAvailableCount>
                 </cache>
                 <cache>
                     <name>com.evolveum.midpoint.repo.cache.local.LocalObjectCache</name>
@@ -237,14 +237,14 @@
                     <weakHitCount>0</weakHitCount>
                     <missCount>0</missCount>
                     <passCount>0</passCount>
-                    <notAvailableCount>18968</notAvailableCount>
+                    <notAvailableCount>22105</notAvailableCount>
                 </cache>
                 <cache>
                     <name>com.evolveum.midpoint.repo.cache.global.GlobalQueryCache</name>
                     <hitCount>0</hitCount>
                     <weakHitCount>0</weakHitCount>
                     <missCount>0</missCount>
-                    <passCount>18968</passCount>
+                    <passCount>22105</passCount>
                     <notAvailableCount>0</notAvailableCount>
                 </cache>
                 <cache>
@@ -259,269 +259,269 @@
             <operationsPerformanceInformation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.refresh</name>
-                    <invocationCount>56905</invocationCount>
-                    <totalTime>169928889</totalTime>
+                    <invocationCount>66316</invocationCount>
+                    <totalTime>198453338</totalTime>
                     <minTime>2016</minTime>
                     <maxTime>52858</maxTime>
-                    <ownTime>3514704</ownTime>
+                    <ownTime>4115266</ownTime>
                     <minOwnTime>26</minOwnTime>
-                    <maxOwnTime>19316</maxOwnTime>
+                    <maxOwnTime>25242</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.cache.RepositoryCache.invalidateCacheEntries</name>
-                    <invocationCount>18985</invocationCount>
-                    <totalTime>1619912</totalTime>
+                    <invocationCount>22127</invocationCount>
+                    <totalTime>1977701</totalTime>
                     <minTime>15</minTime>
                     <maxTime>6321</maxTime>
-                    <ownTime>1619912</ownTime>
+                    <ownTime>1977701</ownTime>
                     <minOwnTime>15</minOwnTime>
                     <maxOwnTime>6321</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.getObject</name>
-                    <invocationCount>132835</invocationCount>
-                    <totalTime>428297769</totalTime>
+                    <invocationCount>154810</invocationCount>
+                    <totalTime>502077542</totalTime>
                     <minTime>1985</minTime>
                     <maxTime>62516</maxTime>
-                    <ownTime>428297769</ownTime>
+                    <ownTime>502077542</ownTime>
                     <minOwnTime>1985</minOwnTime>
                     <maxOwnTime>62516</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.notifications.api.NotificationManager.processEvent</name>
-                    <invocationCount>18968</invocationCount>
-                    <totalTime>819858</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <totalTime>957690</totalTime>
                     <minTime>20</minTime>
                     <maxTime>8581</maxTime>
-                    <ownTime>281702</ownTime>
+                    <ownTime>329996</ownTime>
                     <minOwnTime>8</minOwnTime>
                     <maxOwnTime>1939</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.createTaskInstance</name>
-                    <invocationCount>37972</invocationCount>
-                    <totalTime>264213</totalTime>
+                    <invocationCount>44256</invocationCount>
+                    <totalTime>306284</totalTime>
                     <minTime>2</minTime>
                     <maxTime>1277</maxTime>
-                    <ownTime>264213</ownTime>
+                    <ownTime>306284</ownTime>
                     <minOwnTime>2</minOwnTime>
                     <maxOwnTime>1277</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.searchObjects</name>
-                    <invocationCount>37953</invocationCount>
-                    <totalTime>45450715</totalTime>
+                    <invocationCount>44232</invocationCount>
+                    <totalTime>53247679</totalTime>
                     <minTime>341</minTime>
                     <maxTime>19071</maxTime>
-                    <ownTime>45450715</ownTime>
+                    <ownTime>53247679</ownTime>
                     <minOwnTime>341</minOwnTime>
                     <maxOwnTime>19071</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.modifyObject</name>
-                    <invocationCount>246618</invocationCount>
-                    <totalTime>1538640672</totalTime>
+                    <invocationCount>287407</invocationCount>
+                    <totalTime>1781137824</totalTime>
                     <minTime>552</minTime>
                     <maxTime>22062028</maxTime>
-                    <ownTime>1538640672</ownTime>
+                    <ownTime>1781137824</ownTime>
                     <minOwnTime>552</minOwnTime>
                     <maxOwnTime>22062028</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.common.activity.run.LocalActivityRun.runLocally</name>
-                    <invocationCount>18968</invocationCount>
-                    <totalTime>8848598242</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <totalTime>12060160909</totalTime>
                     <minTime>44804</minTime>
                     <maxTime>16186653</maxTime>
-                    <ownTime>33582006</ownTime>
+                    <ownTime>39006234</ownTime>
                     <minOwnTime>951</minOwnTime>
                     <maxOwnTime>97131</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.cache.RepositoryCache.modifyObject</name>
-                    <invocationCount>18985</invocationCount>
-                    <totalTime>125180816</totalTime>
+                    <invocationCount>22127</invocationCount>
+                    <totalTime>145868493</totalTime>
                     <minTime>625</minTime>
                     <maxTime>2509609</maxTime>
-                    <ownTime>540878</ownTime>
+                    <ownTime>648401</ownTime>
                     <minOwnTime>8</minOwnTime>
                     <maxOwnTime>1227</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.searchObjectsIterative</name>
-                    <invocationCount>18968</invocationCount>
-                    <totalTime>7823562857</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <totalTime>10864659096</totalTime>
                     <minTime>7164</minTime>
                     <maxTime>1571479</maxTime>
-                    <ownTime>7822111463</ownTime>
+                    <ownTime>10862793163</ownTime>
                     <minOwnTime>7164</minOwnTime>
                     <maxOwnTime>1571479</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.listSubtasks</name>
-                    <invocationCount>37935</invocationCount>
-                    <totalTime>46969353</totalTime>
+                    <invocationCount>44209</invocationCount>
+                    <totalTime>55024722</totalTime>
                     <minTime>361</minTime>
                     <maxTime>19111</maxTime>
-                    <ownTime>1528690</ownTime>
+                    <ownTime>1790112</ownTime>
                     <minOwnTime>13</minOwnTime>
-                    <maxOwnTime>2646</maxOwnTime>
+                    <maxOwnTime>5882</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.cache.RepositoryCache.getObject</name>
-                    <invocationCount>18968</invocationCount>
-                    <totalTime>538156</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <totalTime>627694</totalTime>
                     <minTime>11</minTime>
                     <maxTime>8560</maxTime>
-                    <ownTime>507104</ownTime>
+                    <ownTime>589058</ownTime>
                     <minOwnTime>11</minOwnTime>
                     <maxOwnTime>915</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.quartzimpl.TaskManagerQuartzImpl.getTask</name>
-                    <invocationCount>18968</invocationCount>
-                    <totalTime>78687959</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <totalTime>90809151</totalTime>
                     <minTime>2590</minTime>
                     <maxTime>6169621</maxTime>
-                    <ownTime>8874328</ownTime>
+                    <ownTime>9344484</ownTime>
                     <minOwnTime>67</minOwnTime>
                     <maxOwnTime>6164909</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.modifyObjectDynamically</name>
-                    <invocationCount>75872</invocationCount>
-                    <totalTime>485461370</totalTime>
+                    <invocationCount>88420</invocationCount>
+                    <totalTime>564853663</totalTime>
                     <minTime>3946</minTime>
                     <maxTime>8672073</maxTime>
-                    <ownTime>485461370</ownTime>
+                    <ownTime>564853663</ownTime>
                     <minOwnTime>3946</minOwnTime>
                     <maxOwnTime>8672073</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.cache.RepositoryCache.searchObjectsIterative</name>
-                    <invocationCount>18968</invocationCount>
-                    <totalTime>7824777780</totalTime>
+                    <invocationCount>22105</invocationCount>
+                    <totalTime>10866081556</totalTime>
                     <minTime>7216</minTime>
                     <maxTime>1575150</maxTime>
-                    <ownTime>1214923</ownTime>
+                    <ownTime>1422460</ownTime>
                     <minOwnTime>23</minOwnTime>
                     <maxOwnTime>8954</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.model.impl.ModelObjectResolver.handleObjectFound</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1450076</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1864381</totalTime>
                     <minTime>25348</minTime>
-                    <maxTime>104042</maxTime>
-                    <ownTime>593</ownTime>
+                    <maxTime>118193</maxTime>
+                    <ownTime>700</ownTime>
                     <minOwnTime>6</minOwnTime>
                     <maxOwnTime>81</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.common.activity.run.processing.ProcessingCoordinator.submitItem</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1449483</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1863681</totalTime>
                     <minTime>25306</minTime>
-                    <maxTime>104017</maxTime>
-                    <ownTime>787</ownTime>
+                    <maxTime>118171</maxTime>
+                    <ownTime>1021</ownTime>
                     <minOwnTime>9</minOwnTime>
                     <maxOwnTime>96</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.common.util.OperationExecutionWriter.write</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>490</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>718</totalTime>
                     <minTime>8</minTime>
                     <maxTime>94</maxTime>
-                    <ownTime>490</ownTime>
+                    <ownTime>718</ownTime>
                     <minOwnTime>8</minOwnTime>
                     <maxOwnTime>94</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.quartzimpl.quartz.LocalScheduler.deleteTaskFromQuartz</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>543</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>661</totalTime>
                     <minTime>19</minTime>
                     <maxTime>48</maxTime>
-                    <ownTime>543</ownTime>
+                    <ownTime>661</ownTime>
                     <minOwnTime>19</minOwnTime>
                     <maxOwnTime>48</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.Task.listSubtasksDeeply</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>10872</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>14173</totalTime>
                     <minTime>378</minTime>
                     <maxTime>828</maxTime>
-                    <ownTime>820</ownTime>
+                    <ownTime>1104</ownTime>
                     <minOwnTime>29</minOwnTime>
                     <maxOwnTime>116</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.common.activity.run.processing.ItemProcessingGatekeeper.handle</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1319068</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1707004</totalTime>
                     <minTime>24766</minTime>
-                    <maxTime>95544</maxTime>
-                    <ownTime>40565</ownTime>
+                    <maxTime>110482</maxTime>
+                    <ownTime>48084</ownTime>
                     <minOwnTime>860</minOwnTime>
                     <maxOwnTime>11268</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.repo.common.activity.run.processing.ItemProcessingGatekeeper.process</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1448696</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1862660</totalTime>
                     <minTime>25288</minTime>
-                    <maxTime>103983</maxTime>
-                    <ownTime>24139</ownTime>
+                    <maxTime>118096</maxTime>
+                    <ownTime>29956</ownTime>
                     <minOwnTime>277</minOwnTime>
                     <maxOwnTime>3317</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.handleObjectFound</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1451394</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1865933</totalTime>
                     <minTime>25413</minTime>
-                    <maxTime>104120</maxTime>
-                    <ownTime>1318</ownTime>
-                    <minOwnTime>25</minOwnTime>
+                    <maxTime>118236</maxTime>
+                    <ownTime>1552</ownTime>
+                    <minOwnTime>24</minOwnTime>
                     <maxOwnTime>143</maxOwnTime>
                 </operation>
                 <operation>
                     <name>com.evolveum.midpoint.task.api.TaskManager.deleteTaskTree</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1220205</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1586942</totalTime>
                     <minTime>20928</minTime>
-                    <maxTime>90791</maxTime>
-                    <ownTime>3325</ownTime>
-                    <minOwnTime>120</minOwnTime>
+                    <maxTime>106344</maxTime>
+                    <ownTime>4048</ownTime>
+                    <minOwnTime>109</minOwnTime>
                     <maxOwnTime>361</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.deleteObject</name>
-                    <invocationCount>18</invocationCount>
-                    <totalTime>1109908</totalTime>
+                    <invocationCount>23</invocationCount>
+                    <totalTime>1447886</totalTime>
                     <minTime>15278</minTime>
-                    <maxTime>84629</maxTime>
-                    <ownTime>1109908</ownTime>
+                    <maxTime>100474</maxTime>
+                    <ownTime>1447886</ownTime>
                     <minOwnTime>15278</minOwnTime>
-                    <maxOwnTime>84629</maxOwnTime>
+                    <maxOwnTime>100474</maxOwnTime>
                 </operation>
                 <operation>
                     <name>SqaleRepositoryService.getVersion</name>
-                    <invocationCount>8</invocationCount>
-                    <totalTime>5059</totalTime>
+                    <invocationCount>9</invocationCount>
+                    <totalTime>5490</totalTime>
                     <minTime>321</minTime>
                     <maxTime>739</maxTime>
-                    <ownTime>5059</ownTime>
+                    <ownTime>5490</ownTime>
                     <minOwnTime>321</minOwnTime>
                     <maxOwnTime>739</maxOwnTime>
                 </operation>
             </operationsPerformanceInformation>
-            <cachingConfiguration>Caching configuration for thread midPointScheduler_Worker-2 on 2026-09-24T14:21:00.970Z:
+            <cachingConfiguration>Caching configuration for thread midPointScheduler_Worker-10 on 2026-10-05T11:42:51.837Z:
 
 Profiles: []</cachingConfiguration>
-            <timestamp>2026-09-24T14:21:00.970Z</timestamp>
+            <timestamp>2026-10-05T11:42:51.837Z</timestamp>
         </operationStats>
         <binding>loose</binding>
         <schedule>
@@ -537,33 +537,33 @@ Profiles: []</cachingConfiguration>
                 <executionAttempt>1</executionAttempt>
                 <realizationState>complete</realizationState>
                 <resultStatus>success</resultStatus>
-                <realizationStartTimestamp>2026-09-24T14:20:59.785Z</realizationStartTimestamp>
-                <realizationEndTimestamp>2026-09-24T14:21:00.948Z</realizationEndTimestamp>
-                <runStartTimestamp>2026-09-24T14:20:59.785Z</runStartTimestamp>
-                <runEndTimestamp>2026-09-24T14:21:00.948Z</runEndTimestamp>
+                <realizationStartTimestamp>2026-10-05T11:42:51.097Z</realizationStartTimestamp>
+                <realizationEndTimestamp>2026-10-05T11:42:51.815Z</realizationEndTimestamp>
+                <runStartTimestamp>2026-10-05T11:42:51.097Z</runStartTimestamp>
+                <runEndTimestamp>2026-10-05T11:42:51.815Z</runEndTimestamp>
                 <progress>
-                    <committed id="183273">
+                    <committed id="214652">
                         <outcome>
                             <outcome>success</outcome>
                         </outcome>
-                        <count>18</count>
+                        <count>23</count>
                     </committed>
                 </progress>
                 <statistics>
                     <itemProcessing>
-                        <processed id="183274">
+                        <processed id="214653">
                             <outcome>
                                 <outcome>success</outcome>
                             </outcome>
-                            <count>18</count>
-                            <duration>1320.8300000000002</duration>
+                            <count>23</count>
+                            <duration>1709.4100000000003</duration>
                             <lastItem>
-                                <name>Reload objects on resource:eb1490a5-8529-4a71-8f99-42843dffcfd1(CEGID)</name>
+                                <name>Reload objects on resource:ef83664c-782d-42ec-a038-000000000001(Amazon Cognito)</name>
                                 <type>c:TaskType</type>
-                                <oid>30bced42-2f6a-44fe-90f3-820e7441f549</oid>
-                                <startTimestamp>2026-09-21T20:26:00.650Z</startTimestamp>
-                                <endTimestamp>2026-09-21T20:26:00.675Z</endTimestamp>
-                                <operationId>14101</operationId>
+                                <oid>0449ca52-cd75-45cb-a1e9-973eae472b68</oid>
+                                <startTimestamp>2026-09-30T08:27:51.909Z</startTimestamp>
+                                <endTimestamp>2026-09-30T08:27:52.020Z</endTimestamp>
+                                <operationId>74</operationId>
                             </lastItem>
                         </processed>
                     </itemProcessing>
@@ -572,26 +572,26 @@ Profiles: []</cachingConfiguration>
                             <objectType>c:TaskType</objectType>
                             <operation>modify</operation>
                             <totalSuccessCount>0</totalSuccessCount>
-                            <totalFailureCount>18</totalFailureCount>
-                            <lastFailureObjectName>Reload objects on resource:eb1490a5-8529-4a71-8f99-42843dffcfd1(CEGID)</lastFailureObjectName>
-                            <lastFailureObjectOid>30bced42-2f6a-44fe-90f3-820e7441f549</lastFailureObjectOid>
-                            <lastFailureExceptionMessage>Object of type 'TaskType' with OID '30bced42-2f6a-44fe-90f3-820e7441f549' was not found.</lastFailureExceptionMessage>
-                            <lastFailureTimestamp>2026-09-21T20:26:00.675Z</lastFailureTimestamp>
+                            <totalFailureCount>23</totalFailureCount>
+                            <lastFailureObjectName>Reload objects on resource:ef83664c-782d-42ec-a038-000000000001(Amazon Cognito)</lastFailureObjectName>
+                            <lastFailureObjectOid>0449ca52-cd75-45cb-a1e9-973eae472b68</lastFailureObjectOid>
+                            <lastFailureExceptionMessage>Object of type 'TaskType' with OID '0449ca52-cd75-45cb-a1e9-973eae472b68' was not found.</lastFailureExceptionMessage>
+                            <lastFailureTimestamp>2026-09-30T08:27:52.020Z</lastFailureTimestamp>
                         </objectActionsEntry>
                         <resultingObjectActionsEntry>
                             <objectType>c:TaskType</objectType>
                             <operation>modify</operation>
                             <totalSuccessCount>0</totalSuccessCount>
-                            <totalFailureCount>18</totalFailureCount>
-                            <lastFailureObjectName>Reload objects on resource:eb1490a5-8529-4a71-8f99-42843dffcfd1(CEGID)</lastFailureObjectName>
-                            <lastFailureObjectOid>30bced42-2f6a-44fe-90f3-820e7441f549</lastFailureObjectOid>
-                            <lastFailureExceptionMessage>Object of type 'TaskType' with OID '30bced42-2f6a-44fe-90f3-820e7441f549' was not found.</lastFailureExceptionMessage>
-                            <lastFailureTimestamp>2026-09-21T20:26:00.675Z</lastFailureTimestamp>
+                            <totalFailureCount>23</totalFailureCount>
+                            <lastFailureObjectName>Reload objects on resource:ef83664c-782d-42ec-a038-000000000001(Amazon Cognito)</lastFailureObjectName>
+                            <lastFailureObjectOid>0449ca52-cd75-45cb-a1e9-973eae472b68</lastFailureObjectOid>
+                            <lastFailureExceptionMessage>Object of type 'TaskType' with OID '0449ca52-cd75-45cb-a1e9-973eae472b68' was not found.</lastFailureExceptionMessage>
+                            <lastFailureTimestamp>2026-09-30T08:27:52.020Z</lastFailureTimestamp>
                         </resultingObjectActionsEntry>
                     </actionsExecuted>
                 </statistics>
                 <bucketing>
-                    <bucket id="183269">
+                    <bucket id="214648">
                         <sequentialNumber>1</sequentialNumber>
                         <state>complete</state>
                         <content xsi:type="c:NullWorkBucketContentType"/>
@@ -600,13 +600,13 @@ Profiles: []</cachingConfiguration>
                     <workComplete>true</workComplete>
                 </bucketing>
                 <workState xsi:type="c:ScanWorkStateType">
-                    <lastScanTimestamp>2026-09-24T14:20:59.802Z</lastScanTimestamp>
+                    <lastScanTimestamp>2026-10-05T11:42:51.112Z</lastScanTimestamp>
                 </workState>
                 <persistence>perpetual</persistence>
             </activity>
             <tree>
                 <realizationState>complete</realizationState>
-                <taskRunIdentifier>0d2d5ee5-1747-4e68-9291-3a4eaf3d4687</taskRunIdentifier>
+                <taskRunIdentifier>dfbc9585-1c8b-423a-aaaf-4bfd48bef45f</taskRunIdentifier>
                 <activity>
                     <realizationState>complete</realizationState>
                     <resultStatus>success</resultStatus>

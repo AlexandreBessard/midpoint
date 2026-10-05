@@ -1,0 +1,33 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2b8a5220-339a-44e2-b3e9-499ff06abaa1" version="90" >
+    <name>Built-in AsyncUpdateConnector v1.0.0</name>
+    <displayName>AsyncUpdateConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1</framework>
+    <connectorType>AsyncUpdateConnector</connectorType>
+    <connectorVersion>1.0.0</connectorVersion>
+    <connectorBundle>com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.update</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.update/AsyncUpdateConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:qn876="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.update/AsyncUpdateConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.update/AsyncUpdateConnector">
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/common/common-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element name="errorHandlingAction" type="qn876:AsyncUpdateErrorHandlingActionType"/>
+                        <xsd:element name="processTracingConfiguration" type="qn876:ActivityTracingDefinitionType"/>
+                        <xsd:element name="sources" type="qn876:AsyncUpdateSourcesType"/>
+                        <xsd:element name="transformExpression" type="qn876:ExpressionType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

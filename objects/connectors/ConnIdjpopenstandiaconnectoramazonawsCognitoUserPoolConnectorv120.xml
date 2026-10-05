@@ -1,0 +1,182 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="1916d0f6-f12b-4c17-8524-1fddcbef03b6" version="80" >
+    <name>ConnId jp.openstandia.connector.amazonaws.CognitoUserPoolConnector v1.2.0</name>
+    <displayName>CognitoUserPoolConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
+    <connectorType>jp.openstandia.connector.amazonaws.CognitoUserPoolConnector</connectorType>
+    <connectorVersion>1.2.0</connectorVersion>
+    <connectorBundle>jp.openstandia.connector-amazon-cognito-user-pool</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:qn450="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/types-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" ref="qn450:connectorPoolConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>qn450:ConnectorPoolConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:producerBufferSize"/>
+                        <xsd:element minOccurs="0" ref="icfc:timeouts">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:TimeoutsType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:resultsHandlerConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:ResultsHandlerConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:legacySchema"/>
+                        <xsd:element ref="icfc:configurationProperties">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>tns:ConfigurationPropertiesType</a:type>
+                                    <a:container/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="ConfigurationPropertiesType">
+                    <xsd:sequence>
+                        <xsd:element name="userPoolID" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>User Pool ID</a:displayName>
+                                    <a:displayOrder>1</a:displayOrder>
+                                    <a:help>User Pool ID which is connected from this connector.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="AWSAccessKeyID" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>AWS Access Key ID</a:displayName>
+                                    <a:displayOrder>2</a:displayOrder>
+                                    <a:help>Set your AWS Access Key ID to connect Amazon Cognito. This option will be used when you want to deploy this connector in on-premises environment or to use testing purpose.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="AWSSecretAccessKey" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>AWS Secret Access Key</a:displayName>
+                                    <a:displayOrder>3</a:displayOrder>
+                                    <a:help>Set your AWS Secret Access Key to connect Amazon Cognito. This option will be used when you want to deploy this connector in on-premises environment or to use testing purpose.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="region" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Region</a:displayName>
+                                    <a:displayOrder>4</a:displayOrder>
+                                    <a:help>Region</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="assumeRoleArn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Assume Role Arn</a:displayName>
+                                    <a:displayOrder>5</a:displayOrder>
+                                    <a:help>Assume Role Arn</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="assumeRoleExternalId" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Assume Role External Id</a:displayName>
+                                    <a:displayOrder>6</a:displayOrder>
+                                    <a:help>Assume Role External Id</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="assumeRoleDurationSeconds" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Assume Role Duration Seconds</a:displayName>
+                                    <a:displayOrder>7</a:displayOrder>
+                                    <a:help>Assume Role Duration Seconds (Default: 3600 seconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyHost" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy Host</a:displayName>
+                                    <a:displayOrder>8</a:displayOrder>
+                                    <a:help>Hostname for the HTTP Proxy</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyPort" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy Port</a:displayName>
+                                    <a:displayOrder>9</a:displayOrder>
+                                    <a:help>Port for the HTTP Proxy</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyUser" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy User</a:displayName>
+                                    <a:displayOrder>10</a:displayOrder>
+                                    <a:help>Username for the HTTP Proxy Authentication</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyPassword" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy Password</a:displayName>
+                                    <a:displayOrder>11</a:displayOrder>
+                                    <a:help>Password for the HTTP Proxy Authentication</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="suppressInvitationMessageEnabled" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Suppress Invitation Message</a:displayName>
+                                    <a:displayOrder>12</a:displayOrder>
+                                    <a:help>If enabled, suppress sending invitation message when creating the user. Default: true</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="endpointOverride" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Endpoint Override</a:displayName>
+                                    <a:displayOrder>13</a:displayOrder>
+                                    <a:help>Override the URL of the Amazon Cognito endpoint (e.g. mock server URL).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

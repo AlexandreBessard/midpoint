@@ -1,0 +1,335 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="cce02cb7-bf36-4824-a84f-6fd70b94482c" version="90" >
+    <name>ConnId org.identityconnectors.databasetable.DatabaseTableConnector v1.5.3.0</name>
+    <displayName>DatabaseTableConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
+    <connectorType>org.identityconnectors.databasetable.DatabaseTableConnector</connectorType>
+    <connectorVersion>1.5.3.0</connectorVersion>
+    <connectorBundle>com.evolveum.polygon.connector-databasetable</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-databasetable/org.identityconnectors.databasetable.DatabaseTableConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:qn410="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-databasetable/org.identityconnectors.databasetable.DatabaseTableConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-databasetable/org.identityconnectors.databasetable.DatabaseTableConnector">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/types-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" ref="qn410:connectorPoolConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>qn410:ConnectorPoolConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:producerBufferSize"/>
+                        <xsd:element minOccurs="0" ref="icfc:timeouts">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:TimeoutsType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:resultsHandlerConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:ResultsHandlerConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:legacySchema"/>
+                        <xsd:element ref="icfc:configurationProperties">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>tns:ConfigurationPropertiesType</a:type>
+                                    <a:container/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="ConfigurationPropertiesType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" name="quoting" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Name Quoting</a:displayName>
+                                    <a:displayOrder>1</a:displayOrder>
+                                    <a:help>Select whether database column names for this resource should be quoted, and the quoting characters. By default, database column names are not quoted (None). For other selections (Single, Double, Back, or Brackets), column names will appear between single quotes, double quotes, back quotes, or brackets in the SQL generated to access the database.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="host" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Host</a:displayName>
+                                    <a:displayOrder>2</a:displayOrder>
+                                    <a:help>Enter the name of the host where the database is running.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="port" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>TCP Port</a:displayName>
+                                    <a:displayOrder>3</a:displayOrder>
+                                    <a:help>Enter the port number the database server is listening on.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="user" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>User</a:displayName>
+                                    <a:displayOrder>4</a:displayOrder>
+                                    <a:help>Enter the name of the mandatory Database user with permission to account table.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="password" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>User Password</a:displayName>
+                                    <a:displayOrder>5</a:displayOrder>
+                                    <a:help>Enter a user account that has permission to access accounts table.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="database" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Database</a:displayName>
+                                    <a:displayOrder>6</a:displayOrder>
+                                    <a:help>Enter the name of the database on the database server that contains the table.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="table" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Table</a:displayName>
+                                    <a:displayOrder>7</a:displayOrder>
+                                    <a:help>Enter the name of the table in the database that contains the accounts.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="keyColumn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Key Column</a:displayName>
+                                    <a:displayOrder>8</a:displayOrder>
+                                    <a:help>This mandatory column value will be used as the unique identifier for rows in the table.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="passwordColumn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Password Column</a:displayName>
+                                    <a:displayOrder>9</a:displayOrder>
+                                    <a:help>Enter the name of the column in the table that will hold the password values. If empty, no validation on resource and passwords are activated.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="jdbcDriver" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>JDBC Driver</a:displayName>
+                                    <a:displayOrder>10</a:displayOrder>
+                                    <a:help>Specify the JDBC Driver class name. Oracle is oracle.jdbc.driver.OracleDriver. MySQL is org.gjt.mm.mysql.Driver. Could be empty if datasource is provided.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="jdbcUrlTemplate" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>JDBC Connection URL</a:displayName>
+                                    <a:displayOrder>11</a:displayOrder>
+                                    <a:help>Specify the JDBC Driver Connection URL. Oracle template is jdbc:oracle:thin:@[host]:[port(1521)]:[DB]. MySQL template is jdbc:mysql://[host]:[port(3306)]/[db], for more info, read the JDBC driver documentation. Could be empty if datasource is provided.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="enableEmptyString" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Enable writing empty string</a:displayName>
+                                    <a:displayOrder>12</a:displayOrder>
+                                    <a:help>Select to enable support for writing an empty strings, instead of a NULL value, in character based columns defined as not-null in the table schema. This option does not influence the way strings are written for Oracle based tables. By default empty strings are written as a NULL value.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="rethrowAllSQLExceptions" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Rethrow all SQLExceptions</a:displayName>
+                                    <a:displayOrder>13</a:displayOrder>
+                                    <a:help>If this is not checked, SQL statements which throw SQLExceptions with a 0 ErrorCode will be have the exception caught and suppressed. Check it to have exceptions with 0 ErrorCodes rethrown.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="nativeTimestamps" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Native Timestamps </a:displayName>
+                                    <a:displayOrder>14</a:displayOrder>
+                                    <a:help>Select to retrieve Timestamp data type of the columns in java.sql.Timestamp format from the database table.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="allNative" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>All native</a:displayName>
+                                    <a:displayOrder>15</a:displayOrder>
+                                    <a:help>Select to retrieve all data type of the columns in a native format from the database table.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="validConnectionQuery" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Validate Connection Query</a:displayName>
+                                    <a:displayOrder>16</a:displayOrder>
+                                    <a:help>There can be specified the check connection alive query. If empty, default implementation will test it using drivers internal test method or fallback to switch on/off the autocommit if the driver doesnt support own test. Some select 1 from dummy table could be more efficient.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="validConnectionTimeout" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Validate Connection Timeout</a:displayName>
+                                    <a:displayOrder>17</a:displayOrder>
+                                    <a:help>Timeout in seconds for connection validation using drivers own validation method. Its used only if "validate connection query" is empty. Default is 5 seconds.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="changeLogColumn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Change Log Column (Sync)</a:displayName>
+                                    <a:displayOrder>18</a:displayOrder>
+                                    <a:help>The change log column store the latest change time. Providing this value the Sync capabilities are activated.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="syncOrderColumn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Sync Order Column</a:displayName>
+                                    <a:displayOrder>19</a:displayOrder>
+                                    <a:help>If Change Log Column is set, you may optionally specify column used for ORDER BY construct applied on sync data. If not specified, Change Log Column is used for the order.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="syncOrderAsc" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Sync Order Asc</a:displayName>
+                                    <a:displayOrder>20</a:displayOrder>
+                                    <a:help>If Change Log Column is set, you may optionally specify ascending (true) or descending (false) ORDER. If not specified, ascending is the default order.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="datasource" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Datasource Path</a:displayName>
+                                    <a:displayOrder>21</a:displayOrder>
+                                    <a:help>Enter the JDBC Data Source Name/Path to connect to the Oracle server. If specified, connector will only try to connect using Datasource and ignore other resource parameters specified.The example value is: jdbc/SampleDataSourceName or java:comp/env/jdbc/SampleDataSourceName for MySQL</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="jndiProperties" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Initial JNDI Properties</a:displayName>
+                                    <a:displayOrder>22</a:displayOrder>
+                                    <a:help>Could be empty or enter the JDBC JNDI Initial context factory, context provider in a format: key = value.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="suppressPassword" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Suppress Password</a:displayName>
+                                    <a:displayOrder>23</a:displayOrder>
+                                    <a:help>If set to true then the password will not be returned. Never. Even though it is explicitly requested. If set to false then the password will be returned if it is explicitly requested.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="alreadyExistMessages" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Already exists messages</a:displayName>
+                                    <a:displayOrder>24</a:displayOrder>
+                                    <a:help>Comma separated list of messages that will be used to create AlreadyException if theyre found in SQLException message during create operation.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="SQLStateExceptionHandling" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>SQL state exception handling</a:displayName>
+                                    <a:displayOrder>25</a:displayOrder>
+                                    <a:help>Handling of some of the sql exceptions via the SQL state error codes.By default this is false and other exception handling methods are used, e.g. "Already exists messages".</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="SQLStateAlreadyExists" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Already exists SQL state codes</a:displayName>
+                                    <a:displayOrder>26</a:displayOrder>
+                                    <a:help>Collection of values representing SQL state codes which can be interpreted to create an AlreadyExistsException. E.g Exception issued in case of an unique constrain violation.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="SQLStateConnectionFailed" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Connection Failed SQL state codes</a:displayName>
+                                    <a:displayOrder>27</a:displayOrder>
+                                    <a:help>Collection of values representing SQL state codes which can be interpreted to create an Connection Failed exception.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="SQLStateInvalidAttributeValue" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Invalid Attribute Value SQL state codes</a:displayName>
+                                    <a:displayOrder>28</a:displayOrder>
+                                    <a:help>Collection of values representing SQL state codes which can be interpreted to create an Invalid Attribute Value exception.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="SQLStateConfigurationException" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Configuration Exception SQL state codes</a:displayName>
+                                    <a:displayOrder>29</a:displayOrder>
+                                    <a:help>Collection of values representing SQL state codes which can be interpreted to create an Configuration exception.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="lastLoginDateColumn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Last Login Date Column</a:displayName>
+                                    <a:displayOrder>30</a:displayOrder>
+                                    <a:help>Enter the name of the column in the table that will hold the last login date values. If empty, last login date capability is disabled.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

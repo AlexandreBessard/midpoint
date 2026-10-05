@@ -1,0 +1,803 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="5f428b5a-3782-44f8-9af6-f9336c479868" version="90" >
+    <name>ConnId com.evolveum.polygon.connector.ldap.ad.AdLdapConnector v3.9.2</name>
+    <displayName>AdLdapConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
+    <connectorType>com.evolveum.polygon.connector.ldap.ad.AdLdapConnector</connectorType>
+    <connectorVersion>3.9.2</connectorVersion>
+    <connectorBundle>com.evolveum.polygon.connector-ldap</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.ad.AdLdapConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:qn715="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.ad.AdLdapConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.ad.AdLdapConnector">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/types-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" ref="qn715:connectorPoolConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>qn715:ConnectorPoolConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:producerBufferSize"/>
+                        <xsd:element minOccurs="0" ref="icfc:timeouts">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:TimeoutsType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:resultsHandlerConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:ResultsHandlerConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:legacySchema"/>
+                        <xsd:element ref="icfc:configurationProperties">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>tns:ConfigurationPropertiesType</a:type>
+                                    <a:container/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="ConfigurationPropertiesType">
+                    <xsd:sequence>
+                        <xsd:element name="host" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Host</a:displayName>
+                                    <a:displayOrder>1</a:displayOrder>
+                                    <a:help>The name or IP address of the LDAP server host.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="port" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Port number</a:displayName>
+                                    <a:displayOrder>2</a:displayOrder>
+                                    <a:help>LDAP server port number.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="connectionSecurity" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Connection security</a:displayName>
+                                    <a:displayOrder>3</a:displayOrder>
+                                    <a:help>Method to use to secure connection to the LDAP server. Values: "ssl", "starttls"</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="sslProtocol" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>SSL protocol</a:displayName>
+                                    <a:displayOrder>4</a:displayOrder>
+                                    <a:help>The standard name of the SSL protocol. This name is used to instantiate javax.net.ssl.SSLContext. See the SSLContext section in the Java Cryptography Architecture Standard Algorithm Name Documentation. E.g. SSL, SSLv2, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="enabledSecurityProtocols" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Enabled security protocols</a:displayName>
+                                    <a:displayOrder>5</a:displayOrder>
+                                    <a:help>Set of security protocols that are acceptable for protocol negotiation. This name is used to set up SSLEngine. See the SSLContext section in the Java Cryptography Architecture Standard Algorithm Name Documentation. E.g. SSL, SSLv2, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="enabledCipherSuites" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Enabled cipher suites</a:displayName>
+                                    <a:displayOrder>6</a:displayOrder>
+                                    <a:help/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="authenticationType" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Authentication type</a:displayName>
+                                    <a:displayOrder>7</a:displayOrder>
+                                    <a:help>The authentication mechanism to use. Values: "simple", "SASL-GSSAPI"</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="bindDn" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Bind DN</a:displayName>
+                                    <a:displayOrder>8</a:displayOrder>
+                                    <a:help>The DN to use when binding to the LDAP server</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="bindPassword" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Bind password</a:displayName>
+                                    <a:displayOrder>9</a:displayOrder>
+                                    <a:help>Password to use when binding to the LDAP server</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="timeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Global timeout</a:displayName>
+                                    <a:displayOrder>10</a:displayOrder>
+                                    <a:help>This timeout will be used for all operations as default (in milliseconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="connectTimeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Connect timeout</a:displayName>
+                                    <a:displayOrder>11</a:displayOrder>
+                                    <a:help>The timeout will be used for connect and bind operations. If not specified, global timeout will be used instead. For compatibility reasons, if connectTimeout is the only timeout value specified, it will be used as global timeout. (in milliseconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="writeOperationTimeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Write operation timeout</a:displayName>
+                                    <a:displayOrder>12</a:displayOrder>
+                                    <a:help>The timeout will be used for LDAP write operations such as add, modify and delete. If not specified, global timeout will be used instead. (in milliseconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="readOperationTimeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Read operation timeout</a:displayName>
+                                    <a:displayOrder>13</a:displayOrder>
+                                    <a:help>The timeout will be used for read LDAP operations such as search and compare. If not specified, global timeout will be used instead. (in milliseconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="closeTimeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Close timeout</a:displayName>
+                                    <a:displayOrder>14</a:displayOrder>
+                                    <a:help>The timeout will be used for unbind and connection close. If not specified, global timeout will be used instead. (in milliseconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="sendTimeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Send timeout</a:displayName>
+                                    <a:displayOrder>15</a:displayOrder>
+                                    <a:help>The timeout will be used for I/O (TCP) writes. If not specified, global timeout will be used instead. (in milliseconds)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="checkAliveTimeout" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>CheckAlive timeout</a:displayName>
+                                    <a:displayOrder>16</a:displayOrder>
+                                    <a:help>Timeout for connection liveliness test (checkAlive connector operation, in milliseconds).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="checkAliveRootDse" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>CheckAlive root DSE</a:displayName>
+                                    <a:displayOrder>17</a:displayOrder>
+                                    <a:help>checkAliveRootDse.help=Fetch root DSE as part of connection liveliness test. OBSOLETE. This option no longer works. It is ignored. Since 3.4, the connector pretends that the liveness check always passes, handling connection failures during operations as needed.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="tcpKeepAlive" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>TCP keepalive</a:displayName>
+                                    <a:displayOrder>18</a:displayOrder>
+                                    <a:help>Enable use of TCP keepalives on LDAP connections.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="maximumNumberOfAttempts" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Maximum number of attempts</a:displayName>
+                                    <a:displayOrder>19</a:displayOrder>
+                                    <a:help>Maximum number of attempts to retrieve the entry or to re-try the operation. This number is applicable in replicated topology when handling connection failures and re-trying on another server, when following referrals and in similar situations.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="baseContext" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Base context</a:displayName>
+                                    <a:displayOrder>20</a:displayOrder>
+                                    <a:help>The base DN used when no explicit base DN is specified</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="servers" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Servers</a:displayName>
+                                    <a:displayOrder>21</a:displayOrder>
+                                    <a:help>Structured definition of a server in the directory topology. It contains attribute-value pairs that define each individual server. The names of configuration properties can be used, separated by equal signs and semicolons, such as this: baseContext=dc=sub,dc=example,dc=com; host=sub.example.com; port=389  The server will be selected for each operation according to the baseContext that is specified in server definition. The most specific DN match will be used. If there are more multiple servers specified for the same baseContext then one of them will be selected randomly. The server which does not specify any baseContext is considered to be the default and that server will be used if the DN cannot be matched. This is equivalent to the server which is specified by ordinary configuration properties.  The configuration properties that are not explicitly specified in the server configuration line are taken from the ordinary configuration.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="referralStrategy" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Referral strategy</a:displayName>
+                                    <a:displayOrder>22</a:displayOrder>
+                                    <a:help>The referral handling strategy. OBSOLETE. THIS OPTION IS NO LONGER SUPPORTED. It will be ignored.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="passwordAttribute" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Password attribute</a:displayName>
+                                    <a:displayOrder>23</a:displayOrder>
+                                    <a:help>Name of the LDAP attribute that is used to store account password</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="passwordHashAlgorithm" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Password hash algorithm</a:displayName>
+                                    <a:displayOrder>24</a:displayOrder>
+                                    <a:help>Hash the passwords with a specified algorithm before they are sent to the server.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="passwordReadStrategy" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Password read strategy</a:displayName>
+                                    <a:displayOrder>25</a:displayOrder>
+                                    <a:help>Strategy for reading the password. LDAP schema itself cannot reliably indicate whether a password is readable or not. Therefore there this can be configured. Possible values: "unreadable": Password is not readable, it is never returned by the connector. This is the default. "incompleteRead": If password is returned by the LDAP server then connector will remove the value. Connector will indicate that the value is incomplete. Therefore IDM system can learn that there is password without knowing the password value. "readable": If password is returned by the LDAP server then it is passed to the IDM system in the same form as it was returned.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="pagingStrategy" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Paging strategy</a:displayName>
+                                    <a:displayOrder>26</a:displayOrder>
+                                    <a:help>Strategy used to send search requests that require paging. Usually specified preference over mechanisms such as VLV or simple paged results. Values: "none", "auto", "spr", "vlv"</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="pagingBlockSize" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Paging block size</a:displayName>
+                                    <a:displayOrder>27</a:displayOrder>
+                                    <a:help>Number of entries in one paging block. Used as a default value when page size is not explicitly specified in the request.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="vlvSortAttribute" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>VLV sort attribute</a:displayName>
+                                    <a:displayOrder>28</a:displayOrder>
+                                    <a:help>Name of LDAP attribute used to sort the results if VLV is used for paging and no explicit sorting attribute is specified in the request. It may also contain a comma-separated list of attribute names. The first attribute that is found in the applicable object class definition will be used for sorting.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="vlvSortOrderingRule" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>VLV ordering rule</a:displayName>
+                                    <a:displayOrder>29</a:displayOrder>
+                                    <a:help>LDAP ordering rule to use in VLV requests. Some LDAP servers require explicit specification of ordering rule.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="uidAttribute" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Primary identifier attribute</a:displayName>
+                                    <a:displayOrder>30</a:displayOrder>
+                                    <a:help>Name of LDAP attribute to use as a primary identifier. This will be used as ConnId __UID__ attribute. The default is entryUUID which is the best choice for modern LDAP servers. Value of "dn" can be used here to use entry DN as a primary identifier.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="operationalAttributes" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Operational attributes</a:displayName>
+                                    <a:displayOrder>31</a:displayOrder>
+                                    <a:help>Names of significant LDAP operational attributes. Connector will try to return these attributes in each entry.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="readSchema" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Read schema</a:displayName>
+                                    <a:displayOrder>32</a:displayOrder>
+                                    <a:help>If set to true (which is the default) then the connector will try to read LDAP schema.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="schemaQuirksMode" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Schema quirks mode</a:displayName>
+                                    <a:displayOrder>33</a:displayOrder>
+                                    <a:help>Some LDAP servers use strange or non-standard variations of schema definition. The quirks mode is used to tolerate these variations and use as much of the schema definition as possible.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="allowUnknownAttributes" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Allow unknown attributes</a:displayName>
+                                    <a:displayOrder>34</a:displayOrder>
+                                    <a:help>Accept also attributes that are not defined in schema. Single-value string is assumed as the attribute type.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="usePermissiveModify" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Use permissive modify</a:displayName>
+                                    <a:displayOrder>35</a:displayOrder>
+                                    <a:help>Use permissive modify LDAP control for modify operations. Possible values: "never", "auto", "always". Default value: auto</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="useTreeDelete" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Use tree delete</a:displayName>
+                                    <a:displayOrder>36</a:displayOrder>
+                                    <a:help>Usage of the LDAP tree deletion control. Possible values: "never", "auto" (if the tree delete control is supported), "always". Default value: never</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="synchronizationStrategy" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Synchronization strategy</a:displayName>
+                                    <a:displayOrder>37</a:displayOrder>
+                                    <a:help>Strategy to use for almost-real-time synchronization. Values: "none", "auto", "sunChangeLog", "modifyTimestamp", "openLdapAccessLog"</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="baseContextToSynchronize" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>baseContextToSynchronize.display</a:displayName>
+                                    <a:displayOrder>38</a:displayOrder>
+                                    <a:help>baseContextToSynchronize.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="objectClassesToSynchronize" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Object classes to synchronize</a:displayName>
+                                    <a:displayOrder>39</a:displayOrder>
+                                    <a:help>List of object classes that will be accepted during synchronization. If set to empty then all object classes will be accepted.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="attributesToSynchronize" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Attributes to synchronize</a:displayName>
+                                    <a:displayOrder>40</a:displayOrder>
+                                    <a:help>List of attributes that will be passed during synchronization. If set to empty then all non-operational attributes will be passed.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="modifiersNamesToFilterOut" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Modifiers names to filter out</a:displayName>
+                                    <a:displayOrder>41</a:displayOrder>
+                                    <a:help>List of modifiers DNs that will NOT be accepted during synchronization.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="changeLogBlockSize" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Changelog block size</a:displayName>
+                                    <a:displayOrder>42</a:displayOrder>
+                                    <a:help>Number of change log entries to fetch in a single request.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="changeNumberAttribute" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Change number attribute</a:displayName>
+                                    <a:displayOrder>43</a:displayOrder>
+                                    <a:help>"Change number" attribute - unique indentifier of the change in the change log.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="useUnsafeNameHint" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Use unsafe name hint</a:displayName>
+                                    <a:displayOrder>44</a:displayOrder>
+                                    <a:help>Entry DN can be provided to the connector as a "name hint". Connector will use the name hint whenever it can use it safely. But there are some cases when the name hint cannot be used safely. There are mostly modify and delete operations when in a rare case a wrong object can be modified or deleted. The connector will not use the name hint in these cases by default. It will make explicit search to make sure that everything is fair and square before attempting the operation. However this comes at the expense of performance. If this switch is set to true then the connector will try to use the name hint even if it is not completely safe. This may mean significant perfomacne boost for modify and delete operations.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="testMode" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>testMode.display</a:displayName>
+                                    <a:displayOrder>45</a:displayOrder>
+                                    <a:help>testMode.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="enableExtraTests" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Enable extra tests</a:displayName>
+                                    <a:displayOrder>46</a:displayOrder>
+                                    <a:help>Enable extra tests during the test connection operations. Those tests may take longer and they may make more LDAP requests. These tests try to test some tricky situations and border conditions and they are generally useful only for connector developers or when diagnosing connector bugs.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="timestampPresentation" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Timestamp presentation</a:displayName>
+                                    <a:displayOrder>47</a:displayOrder>
+                                    <a:help>Timestamp presentation mode. This controls the way how connector presents the timestamps to the client. It can present them as unix epoch (number of seconds since 1970) or the timestamps can be presented in LDAP-native string form (ISO 8601). Possible values: "unixEpoch", "string", default value: "unixEpoch"</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="includeObjectClassFilter" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Include objectClass filter</a:displayName>
+                                    <a:displayOrder>48</a:displayOrder>
+                                    <a:help>Enables inclusion of explicit object class filter in all searches. Normally the connector would derive search filter only based on the attributes specified in the query. E.g. (&amp;(uid=foo)(cn=bar)). If includeObjectClassFilter is set to true, then also explicit filter for objectclass will be included. E.g (&amp;(objectClass=inetOrgPerson)(uid=foo)(cn=bar))</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="alternativeObjectClassDetection" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Alternative object class detection</a:displayName>
+                                    <a:displayOrder>49</a:displayOrder>
+                                    <a:help>Enabled more tolerant algorithm to detect which object class is structural and which is auxiliary.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="structuralObjectClassesToAuxiliary" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Structural object classes to auxiliary</a:displayName>
+                                    <a:displayOrder>50</a:displayOrder>
+                                    <a:help>If set to true, adds all additional structural object classes without children to the auxiliary object classes list on the connector.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="runAsStrategy" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>runAsStrategy.display</a:displayName>
+                                    <a:displayOrder>51</a:displayOrder>
+                                    <a:help>runAsStrategy.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="additionalSearchFilter" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Additional search filter</a:displayName>
+                                    <a:displayOrder>52</a:displayOrder>
+                                    <a:help>Search filter that will be added to all search operations that the connector does.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="defaultSearchScope" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Default search scope</a:displayName>
+                                    <a:displayOrder>53</a:displayOrder>
+                                    <a:help>Default search scope used for ordinary searches. Possible values: "sub", "one". Default value: sub</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="allowUntrustedSsl" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Allow untrusted SSL/TLS</a:displayName>
+                                    <a:displayOrder>54</a:displayOrder>
+                                    <a:help>If set to false (which is default and recommended), connector checks server certificate validity in SSL/TLS mode against system default truststore (e.g. Java cacerts). If set to true, connector does not check server certificate validity - do not use this option in the production environment.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="useUnbind" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Use unbind</a:displayName>
+                                    <a:displayOrder>55</a:displayOrder>
+                                    <a:help>If set to true, then the connector will explicitly invoke LDAP unbind operation before connection is closed. Default value: false.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="switchBackInterval" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Switch-back interval</a:displayName>
+                                    <a:displayOrder>56</a:displayOrder>
+                                    <a:help>Interval (in milliseconds) for which the connector fails over to secondary server, in case the primary fails. The connector will use the secondary server during this interval. When the interval is over, the connector will try to use the primary server again.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="filterOutMemberOfValues" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Filter memberOf</a:displayName>
+                                    <a:displayOrder>57</a:displayOrder>
+                                    <a:help>If set to true, connector will return only values of memberOf attribute that ends with specified sequences from "MemberOf Allowed Suffixes". If set to false, no filtering will occur and all values will be returned. Default value: false</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="memberOfAllowedValues" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>MemberOf Allowed Suffixes</a:displayName>
+                                    <a:displayOrder>58</a:displayOrder>
+                                    <a:help>List of allowed value for memberOf attribute to be returned, only values ending with specified will be returned. If no value defined, "Base context" will be used for filtering. This will be processed only when "Filter memberOf" set to true</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="forceTreeDeleteObjectClasses" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Force objectClass tree deletion</a:displayName>
+                                    <a:displayOrder>59</a:displayOrder>
+                                    <a:help>Forces a tree deletion for specified objectClasses. This overrides the "Use tree delete" configuration for these objectClasses.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="groupObjectClasses" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Group object classes</a:displayName>
+                                    <a:displayOrder>60</a:displayOrder>
+                                    <a:help>Names of object classes representing objects which can be used as a grouping mechanism. Parameter is used solely in configuration discovery. Default "groupOfNames".</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="managedAssociationPairs" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Managed association pairs</a:displayName>
+                                    <a:displayOrder>61</a:displayOrder>
+                                    <a:help>List of "subject objectClass name"+subject parameter -# "object objectClass name" + object parameter. The convention of the imputed value is significant for the connector po parse out the association subject and object pairs and their parameters. Example "user"+memberOf -# "group"+uniqueMember. EXPERIMENTAL. Not completely tested yet.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="encodeStringOnNormalizationFailure" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Encode string on normalization failure</a:displayName>
+                                    <a:displayOrder>62</a:displayOrder>
+                                    <a:help>In case of using string values containing special characters (often ones with unassigned unicode code points) i.e. some characters in "DIN 91379", the connector will attempt in encoding the value (resulting in ldif "double colon notation"). Default false.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="attributesNotReturnedByDefault" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Attributes not returned by default</a:displayName>
+                                    <a:displayOrder>63</a:displayOrder>
+                                    <a:help>Attributes from the standard set of attributes which should not be returned by default in object searches, but requested explicitly, i.e. member.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="auxiliaryObjectClasses" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Auxiliary object class list</a:displayName>
+                                    <a:displayOrder>64</a:displayOrder>
+                                    <a:help>A list of auxiliary objectClasses which will be used in search request to fetch the proper non-structural objectClass attributes, this attribute should be used if "Attributes not returned by default" attribute is being used in the configuration. Value convention is (without the "") StructuralObjectCLassName:AuxiliaryObjectClassName,AuxiliaryObjectClassName. E.g. inetOrgPerson:posixAccount,foo.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="logSchemaErrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>logSchemaErrors.display</a:displayName>
+                                    <a:displayOrder>65</a:displayOrder>
+                                    <a:help>logSchemaErrors.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="userObjectClass" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>User object class</a:displayName>
+                                    <a:displayOrder>66</a:displayOrder>
+                                    <a:help>Object class to use for user accounts.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="groupObjectClass" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Group object class</a:displayName>
+                                    <a:displayOrder>67</a:displayOrder>
+                                    <a:help>Object class to use for groups.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="groupObjectMemberAttribute" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Group member attribute</a:displayName>
+                                    <a:displayOrder>68</a:displayOrder>
+                                    <a:help>Group member attribute name.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element maxOccurs="unbounded" minOccurs="0" name="globalCatalogServers" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Global catalog servers</a:displayName>
+                                    <a:displayOrder>69</a:displayOrder>
+                                    <a:help>Specification of global catalog servers. If left empty then the connector will try to determine the host and port automatically. The definition has the same format as "servers" definition.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="globalCatalogStrategy" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Global catalog strategy</a:displayName>
+                                    <a:displayOrder>70</a:displayOrder>
+                                    <a:help>Strategy of global catalog usage. none: Do not use global catalog explicitly. The global catalog will only be used when following the referrals. resolve: The global catalog will be used to resolve DNs. Only the attributes that are stored in global catalog will be returned when object is retrieved. This provides incomplete data, but it avoids additional round-trip to an authoritative server. read:  The global catalog will be used to resolve DNs. Only the attribute that are stored in global catalog will be returned when object is retrieved. This provides incomplete data, but it avoids additional round-trip to an authoritative server.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="allowBruteForceSearch" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Allow brute force search</a:displayName>
+                                    <a:displayOrder>71</a:displayOrder>
+                                    <a:help>If set to true then the connector will try to search all defined servers for an entry if all other attempts fail.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="rawUserAccountControlAttribute" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Raw userAccountControl</a:displayName>
+                                    <a:displayOrder>72</a:displayOrder>
+                                    <a:help>If set to false then the connector will interpret the content of userAccountControl attribute and will decompose it to pseudo-attributes for enabled state, lockout, etc. If set to true then the connector will NOT do any interpretation and the userAccountControl will be exposed as a simple attribute.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="rawUserParametersAttribute" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Raw userParameters</a:displayName>
+                                    <a:displayOrder>73</a:displayOrder>
+                                    <a:help>If set to false then the connector will interpret the content of userParameters attribute and will decompose it to pseudo-attributes like CtxWFHomeDir, CtxWFProfilePath etc. If set to true then the connector will NOT do any interpretation and the userParameters attribute will be exposed as a simple binary attribute.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="userParametersThrowException" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>userParameters throw Exception</a:displayName>
+                                    <a:displayOrder>74</a:displayOrder>
+                                    <a:help>Only parsed if rawUserParametersAttribute is true. If this is set to true any error with reading or writing the userParameters attribute of a user will lead to an Exception. If set to false only a warning message is logged but no Exception is thrown.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="nativeAdSchema" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Native AD schema</a:displayName>
+                                    <a:displayOrder>75</a:displayOrder>
+                                    <a:help>If set to true, then the connector will use native AD schema definition. If set to false, connector will use LDAP-like schema definition exposed by the AD server. Default value: false. EXPERIMENTAL. There may be subtle differences between LDAP schema and AD schema. Not completely tested yet.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="tweakSchema" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Tweak schema</a:displayName>
+                                    <a:displayOrder>76</a:displayOrder>
+                                    <a:help>Extend the declared AD schema with tweaks that allow practical usage of the schema. AD will generally allow any attribute to be set to any object regardless for the schema. This is often used is practice. E.g. declared AD schema for users and groups does not include samAccountName attribute. But that attribute is needed for users and groups to work correctly. If this configuration property is set to true (which is the default) then the connector will artificially add these attributes to the schema.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="includeObjectCategoryFilter" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Include object category filter</a:displayName>
+                                    <a:displayOrder>77</a:displayOrder>
+                                    <a:help>Enables inclusion of explicit object category filter in all searches. Normally the connector would derive search filter only based on the attributes specified in the query. E.g. (&amp;(uid=foo)(cn=bar)). If includeObjectClassFilter is set to true, then also explicit filter for objectClass and objectCategory will be included. E.g (&amp;(objectClass=inetOrgPerson)(objectCategory=CN=Person,CN=Schema,CN=Configuration,DC=example,DC=com)(uid=foo)(cn=bar)). Only works if includeObjectClassFilter is enabled and native AD schema is used. Default value: false. EXPERIMENTAL. Not completely tested yet.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="addDefaultObjectCategory" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Add default object category</a:displayName>
+                                    <a:displayOrder>78</a:displayOrder>
+                                    <a:help>If set to true then the connector will automatically add default object category to all created objects. Object category is automatically determined from schema. Only works if native AD schema is enabled. Default value: false. EXPERIMENTAL. Not completely tested yet.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="forcePasswordChangeAtNextLogon" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Force password change at next log-on</a:displayName>
+                                    <a:displayOrder>79</a:displayOrder>
+                                    <a:help>If set to true then the connector will force password change at next log-on every time when the password is changed. If set to false (default) the password change at next log-on will not be forced.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="allowFSPProcessing" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Allow FSP processing</a:displayName>
+                                    <a:displayOrder>80</a:displayOrder>
+                                    <a:help>If set to true then the connector will process FSP(Foreign Security Principal).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="sendDirSyncSecurityFlag" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Send LDAP_DIRSYNC_OBJECT_SECURITY flag</a:displayName>
+                                    <a:displayOrder>81</a:displayOrder>
+                                    <a:help>If set to true, send the flag LDAP_DIRSYNC_OBJECT_SECURITY in the request control for the Active Directory sync request.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="lastLoginDateAttribute" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>lastLoginDateAttribute.display</a:displayName>
+                                    <a:displayOrder>82</a:displayOrder>
+                                    <a:help>lastLoginDateAttribute.help</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>
