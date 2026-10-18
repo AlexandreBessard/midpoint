@@ -83,11 +83,34 @@ data "aws_iam_policy_document" "github_actions_assume_role" {
       values   = ["sts.amazonaws.com"]
     }
 
-    # Scoped to pushes on main only - not PRs, not other branches, not forks.
+    # AWS requires every trust policy for this provider to scope `sub` (or
+    # job_workflow_ref) to something other than "all" - a repository/ref-only
+    # policy is rejected with MalformedPolicyDocument. GitHub's sub claim now
+    # embeds immutable owner/repo IDs (repo:OWNER@OWNER_ID/REPO@REPO_ID:ref:...)
+    # instead of the plain "repo:owner/repo:ref:..." this used to be - confirmed
+    # by decoding the actual token in CI (sub was
+    # "repo:AlexandreBessard@31587248/midpoint@1424507427:ref:refs/heads/main").
+    # Wildcard just the numeric IDs, which aren't worth hardcoding here.
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repository}:ref:refs/heads/main"]
+      values   = ["repo:${split("/", var.github_repository)[0]}@*/${split("/", var.github_repository)[1]}@*:ref:refs/heads/main"]
+    }
+
+    # Belt-and-suspenders on top of the sub pattern above: repository/ref are
+    # separate top-level claims in the token, unaffected by the owner/repo ID
+    # suffixes and any future changes to the sub format.
+    condition {
+      test     = "StringEquals"
+      variable = "token.actions.githubusercontent.com:repository"
+      values   = [var.github_repository]
+    }
+
+    # Scoped to pushes on main only - not PRs, not other branches, not forks.
+    condition {
+      test     = "StringLike"
+      variable = "token.actions.githubusercontent.com:ref"
+      values   = ["refs/heads/main"]
     }
   }
 }
