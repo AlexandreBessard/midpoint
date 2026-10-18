@@ -19,7 +19,28 @@ output "docker_build_push_commands" {
 }
 
 output "ecs_cluster_name" {
-  value = aws_ecs_cluster.this.name
+  description = "Set as the ECS_CLUSTER GitHub repo variable, used by release.yml's run_import/restart_midpoint jobs."
+  value       = aws_ecs_cluster.this.name
+}
+
+output "midpoint_service_name" {
+  description = "Set as the MIDPOINT_SERVICE GitHub repo variable."
+  value       = aws_ecs_service.midpoint.name
+}
+
+output "import_task_definition_family" {
+  description = "Set as the IMPORT_TASK_DEF_FAMILY GitHub repo variable."
+  value       = aws_ecs_task_definition.import.family
+}
+
+output "import_subnets" {
+  description = "Set as the IMPORT_SUBNETS GitHub repo variable (comma-separated, no spaces - interpolated directly into an awsvpcConfiguration string)."
+  value       = join(",", local.subnet_ids)
+}
+
+output "import_security_group" {
+  description = "Set as the SG_IMPORT GitHub repo variable."
+  value       = aws_security_group.import.id
 }
 
 output "rds_endpoint" {

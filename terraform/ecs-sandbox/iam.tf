@@ -150,3 +150,57 @@ resource "aws_iam_role_policy" "github_actions_ecr_push" {
   role   = aws_iam_role.github_actions_deploy.id
   policy = data.aws_iam_policy_document.github_actions_ecr_push.json
 }
+
+# Lets release.yml's run_import/restart_midpoint jobs run the one-off import
+# task and force-redeploy the midpoint service - mirrors run_import/
+# restart_midpoint from .gitlab-ci.yml, minus register_task_defs (this
+# sandbox's task definitions float on the :latest image tag - var.image_tag -
+# rather than being re-registered per build, so there's nothing to register).
+data "aws_iam_policy_document" "github_actions_ecs_deploy" {
+  statement {
+    actions = [
+      "ecs:DescribeTasks",
+      "ecs:DescribeServices",
+    ]
+    resources = ["*"] # ECS describe actions don't support resource-level restriction
+  }
+
+  statement {
+    actions   = ["ecs:RunTask"]
+    resources = ["${aws_ecs_task_definition.import.arn_without_revision}:*"]
+
+    condition {
+      test     = "ArnEquals"
+      variable = "ecs:cluster"
+      values   = [aws_ecs_cluster.this.arn]
+    }
+  }
+
+  statement {
+    actions   = ["ecs:UpdateService"]
+    resources = [aws_ecs_service.midpoint.id]
+  }
+
+  # RunTask uses the import task's execution/task roles - the caller needs
+  # PassRole for both, scoped to the ECS tasks service to prevent reuse
+  # elsewhere.
+  statement {
+    actions = ["iam:PassRole"]
+    resources = [
+      aws_iam_role.execution.arn,
+      aws_iam_role.import_task.arn,
+    ]
+
+    condition {
+      test     = "StringEquals"
+      variable = "iam:PassedToService"
+      values   = ["ecs-tasks.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role_policy" "github_actions_ecs_deploy" {
+  name   = "ecs-import-and-restart"
+  role   = aws_iam_role.github_actions_deploy.id
+  policy = data.aws_iam_policy_document.github_actions_ecs_deploy.json
+}

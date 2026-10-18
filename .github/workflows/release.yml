@@ -1,9 +1,14 @@
 name: Build and push midPoint image
 
-# Mirrors build_image from .gitlab-ci.yml, ported to GitHub Actions: on every
-# push to main that touches the image's actual content, build it and push it
-# to ECR tagged with the short commit SHA (plus :latest). Does not run the
-# import/deploy/verify chain - that stays manual for now (see DEVOPS.md).
+# Ports build_image, plan_import, run_import and restart_midpoint from
+# .gitlab-ci.yml to GitHub Actions: on every push to main that touches the
+# image's actual content, build+push it to ECR (commit SHA + latest), import
+# only the objects/ subfolders that actually changed since the previous
+# commit (DEVOPS.md S4/S10 - each folder costs a fresh-JVM ninja.sh
+# invocation, ~65-75s, so a full 18-folder import is skipped whenever a
+# partial one is safe), then force-redeploy midpoint so it picks up the
+# change (ninja.sh writes straight to Postgres, never through midpoint's own
+# API - see DEVOPS.md S4/S7). No separate "verify" job yet - see DEVOPS.md.
 
 on:
   push:
@@ -59,3 +64,115 @@ jobs:
           tags: |
             ${{ env.ECR_REPOSITORY_URL }}:${{ steps.vars.outputs.sha_short }}
             ${{ env.ECR_REPOSITORY_URL }}:latest
+
+  # Figures out which objects/ subfolders actually changed since the previous
+  # commit, so run_import can skip the rest (each one costs a fresh-JVM
+  # ninja.sh invocation, ~65-75s - see DEVOPS.md S10). Falls back to a full
+  # import (empty IMPORT_TYPES) whenever it can't be sure a partial one is
+  # safe: no previous commit to diff against (new branch, or not a push
+  # event - e.g. workflow_dispatch), or Dockerfile/the import scripts
+  # themselves changed (those affect how every type is imported, not just
+  # one). Mirrors plan_import from .gitlab-ci.yml.
+  plan_import:
+    runs-on: ubuntu-latest
+    outputs:
+      import_types: ${{ steps.plan.outputs.import_types }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history needed to diff against the previous commit
+
+      - name: Compute IMPORT_TYPES from changed paths
+        id: plan
+        run: |
+          IMPORT_TYPES=""
+          BEFORE="${{ github.event.before }}"
+
+          if [ "${{ github.event_name }}" != "push" ] || [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "Not a push event, or no previous commit to diff against - full import."
+          else
+            CHANGED=$(git diff --name-only "$BEFORE" "${{ github.sha }}" -- Dockerfile import-config.sh import-config-ecs.sh objects/ 2>/dev/null || true)
+
+            if echo "$CHANGED" | grep -qE '^(Dockerfile|import-config(-ecs)?\.sh)$'; then
+              echo "Dockerfile or import scripts changed - full import."
+            else
+              TYPES=$(echo "$CHANGED" | grep '^objects/' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+              if [ -n "$TYPES" ]; then
+                IMPORT_TYPES="$TYPES"
+                echo "Changed object types: $IMPORT_TYPES"
+              else
+                echo "Could not determine changed object types from diff - falling back to full import."
+              fi
+            fi
+          fi
+
+          echo "import_types=$IMPORT_TYPES" >> "$GITHUB_OUTPUT"
+
+  run_import:
+    runs-on: ubuntu-latest
+    needs: [build_image, plan_import]
+    timeout-minutes: 40 # a full 18-folder import measured ~22min in the sandbox (DEVOPS.md S10)
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Run import task and wait for it to stop
+        run: |
+          IMPORT_TYPES="${{ needs.plan_import.outputs.import_types }}"
+          OVERRIDES_ARG=""
+          if [ -n "$IMPORT_TYPES" ]; then
+            echo "Incremental import - types: $IMPORT_TYPES"
+            printf '{"containerOverrides":[{"name":"midpoint-import","environment":[{"name":"IMPORT_TYPES","value":"%s"}]}]}' \
+              "$IMPORT_TYPES" > /tmp/import-overrides.json
+            OVERRIDES_ARG="--overrides file:///tmp/import-overrides.json"
+          else
+            echo "Full import (all object types)"
+          fi
+
+          TASK_ARN=$(aws ecs run-task \
+            --cluster "${{ vars.ECS_CLUSTER }}" \
+            --task-definition "${{ vars.IMPORT_TASK_DEF_FAMILY }}" \
+            --launch-type FARGATE \
+            --network-configuration "awsvpcConfiguration={subnets=[${{ vars.IMPORT_SUBNETS }}],securityGroups=[${{ vars.SG_IMPORT }}],assignPublicIp=ENABLED}" \
+            $OVERRIDES_ARG \
+            --query 'tasks[0].taskArn' --output text)
+          echo "Import task: $TASK_ARN"
+
+          # Not `aws ecs wait tasks-stopped`: its ~10min max-attempts window
+          # is shorter than a full import (~22min observed in the sandbox) -
+          # confirmed by hitting exactly this limit by hand earlier.
+          while :; do
+            STATUS=$(aws ecs describe-tasks --cluster "${{ vars.ECS_CLUSTER }}" --tasks "$TASK_ARN" \
+              --query 'tasks[0].lastStatus' --output text)
+            echo "status: $STATUS"
+            [ "$STATUS" = "STOPPED" ] && break
+            sleep 15
+          done
+
+          EXIT_CODE=$(aws ecs describe-tasks --cluster "${{ vars.ECS_CLUSTER }}" --tasks "$TASK_ARN" \
+            --query 'tasks[0].containers[0].exitCode' --output text)
+          echo "Import exit code: $EXIT_CODE"
+          [ "$EXIT_CODE" = "0" ] || { echo "Import failed, see CloudWatch Logs"; exit 1; }
+
+  restart_midpoint:
+    runs-on: ubuntu-latest
+    needs: run_import
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Force new deployment and wait for stability
+        run: |
+          # ninja.sh writes straight to RDS, never through midpoint's own API
+          # (DEVOPS.md S4) - the running service has no idea the config
+          # changed until it's restarted.
+          aws ecs update-service --cluster "${{ vars.ECS_CLUSTER }}" --service "${{ vars.MIDPOINT_SERVICE }}" \
+            --force-new-deployment
+          aws ecs wait services-stable --cluster "${{ vars.ECS_CLUSTER }}" --services "${{ vars.MIDPOINT_SERVICE }}"
