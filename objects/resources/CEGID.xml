@@ -60,7 +60,11 @@
             <timestamp>2026-09-02T18:13:08.188Z</timestamp>
             <nodeId>DefaultNode</nodeId>
         </operationalStateHistory>
-        <connectorRef oid="e9830727-e7ea-410c-b177-e4474628c87c" relation="org:default" type="c:ConnectorType"/>
+        <connectorRef type="c:ConnectorType">
+            <filter>
+                <q:text>connectorType = "com.evolveum.polygon.connector.csv.CsvConnector"</q:text>
+            </filter>
+        </connectorRef>
         <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
             <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
                 <cfg:fieldDelimiter>;</cfg:fieldDelimiter>
