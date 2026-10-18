@@ -1,0 +1,67 @@
+{
+  "family": "midpoint",
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "${MIDPOINT_CPU}",
+  "memory": "${MIDPOINT_MEMORY}",
+  "executionRoleArn": "${EXECUTION_ROLE_ARN}",
+  "taskRoleArn": "${MIDPOINT_TASK_ROLE_ARN}",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "volumes": [
+    {
+      "name": "midpoint-home",
+      "efsVolumeConfiguration": {
+        "fileSystemId": "${EFS_FILE_SYSTEM_ID}",
+        "transitEncryption": "ENABLED",
+        "authorizationConfig": {
+          "accessPointId": "${EFS_ACCESS_POINT_ID}",
+          "iam": "DISABLED"
+        }
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "midpoint",
+      "image": "${ECR_REPOSITORY_URL}:${IMAGE_TAG}",
+      "essential": true,
+      "portMappings": [
+        { "containerPort": 8080, "protocol": "tcp" }
+      ],
+      "environment": [
+        { "name": "MP_SET_midpoint_repository_jdbcUsername", "value": "midpoint" },
+        { "name": "MP_SET_midpoint_repository_jdbcUrl", "value": "jdbc:postgresql://${RDS_ENDPOINT}:5432/midpoint" },
+        { "name": "MP_SET_midpoint_repository_database", "value": "postgresql" },
+        { "name": "MP_UNSET_midpoint_repository_hibernateHbm2ddl", "value": "1" },
+        { "name": "MP_NO_ENV_COMPAT", "value": "1" },
+        { "name": "MP_MEM_MAX", "value": "${MIDPOINT_JVM_MAX_HEAP}" },
+        { "name": "MP_MEM_INIT", "value": "${MIDPOINT_JVM_INIT_HEAP}" }
+      ],
+      "secrets": [
+        { "name": "MP_SET_midpoint_repository_jdbcPassword", "valueFrom": "${RDS_PASSWORD_SECRET_ARN}" },
+        { "name": "MP_SET_midpoint_administrator_initialPassword", "valueFrom": "${ADMIN_PASSWORD_SECRET_ARN}" }
+      ],
+      "mountPoints": [
+        { "sourceVolume": "midpoint-home", "containerPath": "/opt/midpoint/var", "readOnly": false }
+      ],
+      "healthCheck": {
+        "command": ["CMD-SHELL", "wget --spider -q http://localhost:8080/midpoint/actuator/health || exit 1"],
+        "interval": 15,
+        "timeout": 5,
+        "retries": 10,
+        "startPeriod": 90
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "${LOG_GROUP_MIDPOINT}",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "midpoint"
+        }
+      }
+    }
+  ]
+}

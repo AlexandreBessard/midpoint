@@ -1,0 +1,236 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="cb42fb3f-5f1c-416e-8f8e-b5d40eecfd30" version="80" >
+    <name>ConnId jp.openstandia.connector.keycloak.KeycloakConnector v2.0.0</name>
+    <displayName>KeycloakConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
+    <connectorType>jp.openstandia.connector.keycloak.KeycloakConnector</connectorType>
+    <connectorVersion>2.0.0</connectorVersion>
+    <connectorBundle>jp.openstandia.connector.connector-keycloak</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector.connector-keycloak/jp.openstandia.connector.keycloak.KeycloakConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:qn675="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector.connector-keycloak/jp.openstandia.connector.keycloak.KeycloakConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector.connector-keycloak/jp.openstandia.connector.keycloak.KeycloakConnector">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/types-3"/>
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element minOccurs="0" ref="qn675:connectorPoolConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>qn675:ConnectorPoolConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:producerBufferSize"/>
+                        <xsd:element minOccurs="0" ref="icfc:timeouts">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:TimeoutsType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:resultsHandlerConfiguration">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>icfc:ResultsHandlerConfigurationType</a:type>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" ref="icfc:legacySchema"/>
+                        <xsd:element ref="icfc:configurationProperties">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:type>tns:ConfigurationPropertiesType</a:type>
+                                    <a:container/>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:complexType name="ConfigurationPropertiesType">
+                    <xsd:sequence>
+                        <xsd:element name="serverUrl" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Keycloak Server URL</a:displayName>
+                                    <a:displayOrder>1</a:displayOrder>
+                                    <a:help>Base URL of the Keycloak server. May include a context path. Examples: https://iam.example.com  or  https://iam.example.com/iam  Do NOT append /auth (legacy Keycloak &lt; 17) or any realm/admin suffix. A trailing slash is accepted and will be stripped automatically.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="username" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Username</a:displayName>
+                                    <a:displayOrder>2</a:displayOrder>
+                                    <a:help>Set the username to connect the keycloak server. This option will be used when you want to use grant_type=password mode.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="password" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Password</a:displayName>
+                                    <a:displayOrder>3</a:displayOrder>
+                                    <a:help>Set the password to connect the keycloak server. This option will be used when you want to use grant_type=password mode.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="clientId" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Client ID</a:displayName>
+                                    <a:displayOrder>4</a:displayOrder>
+                                    <a:help>Set the client ID to connect the keycloak server.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="clientSecret" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Client Secret</a:displayName>
+                                    <a:displayOrder>5</a:displayOrder>
+                                    <a:help>Set the client secret to connect the keycloak server. This option will be used when you want to use grant_type=client_credentials mode.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="realmName" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Realm Name</a:displayName>
+                                    <a:displayOrder>6</a:displayOrder>
+                                    <a:help>Realm name which is used for the client authentication.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="targetRealmName" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Target Realm Name</a:displayName>
+                                    <a:displayOrder>7</a:displayOrder>
+                                    <a:help>Target realm name which is used for the connector operations.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="userAttributes" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>User Attributes</a:displayName>
+                                    <a:displayOrder>8</a:displayOrder>
+                                    <a:help>Keycloak user attributes (comma-separated). Use :multivalued suffix for multiple value.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="groupAttributes" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Group Attributes</a:displayName>
+                                    <a:displayOrder>9</a:displayOrder>
+                                    <a:help>Keycloak group attributes (comma-separated). Use :multivalued suffix for multiple value.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="clientAttributes" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Client Attributes</a:displayName>
+                                    <a:displayOrder>10</a:displayOrder>
+                                    <a:help>Keycloak client attributes (comma-separated).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="realmRoleAttributes" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Realm Role Attributes</a:displayName>
+                                    <a:displayOrder>11</a:displayOrder>
+                                    <a:help>Keycloak realm role attributes (comma-separated).</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="queryPageSize" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Query Page Size</a:displayName>
+                                    <a:displayOrder>12</a:displayOrder>
+                                    <a:help>Page size of search query in the connector. Default is 100.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="passwordResetAPIEnabled" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>Enable Password Reset API for update password</a:displayName>
+                                    <a:displayOrder>13</a:displayOrder>
+                                    <a:help>If yes, the connector uses password reset API instead of create/update user API. Pros. The raw password isn't recorded in the Keycloak admin event. Cons. The operation for update password is executed separately.</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpConnectTimeoutInMilliseconds" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Connect Timeout (in milliseconds)</a:displayName>
+                                    <a:displayOrder>14</a:displayOrder>
+                                    <a:help>Connection timeout when connecting to the Keycloak server. (Default: 10000)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpReadTimeoutInMilliseconds" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Read Timeout (in milliseconds)</a:displayName>
+                                    <a:displayOrder>15</a:displayOrder>
+                                    <a:help>Read timeout when fetching data from the Keycloak server. (Default: 30000)</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyHost" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy Host</a:displayName>
+                                    <a:displayOrder>16</a:displayOrder>
+                                    <a:help>Hostname for the HTTP Proxy</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyPort" type="xsd:int">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy Port</a:displayName>
+                                    <a:displayOrder>17</a:displayOrder>
+                                    <a:help>Port for the HTTP Proxy</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyUser" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy User</a:displayName>
+                                    <a:displayOrder>18</a:displayOrder>
+                                    <a:help>Username for the HTTP Proxy Authentication</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="httpProxyPassword" type="t:ProtectedStringType">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayName>HTTP Proxy Password</a:displayName>
+                                    <a:displayOrder>19</a:displayOrder>
+                                    <a:help>Password for the HTTP Proxy Authentication</a:help>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

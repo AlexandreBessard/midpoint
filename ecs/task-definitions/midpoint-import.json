@@ -1,0 +1,36 @@
+{
+  "family": "midpoint-import",
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "${IMPORT_CPU}",
+  "memory": "${IMPORT_MEMORY}",
+  "executionRoleArn": "${EXECUTION_ROLE_ARN}",
+  "taskRoleArn": "${IMPORT_TASK_ROLE_ARN}",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "containerDefinitions": [
+    {
+      "name": "midpoint-import",
+      "image": "${ECR_REPOSITORY_URL}:${IMAGE_TAG}",
+      "essential": true,
+      "command": ["/opt/midpoint/import-config-ecs.sh"],
+      "environment": [
+        { "name": "MIDPOINT_JDBC_URL", "value": "jdbc:postgresql://${RDS_ENDPOINT}:5432/midpoint" },
+        { "name": "MIDPOINT_JDBC_USERNAME", "value": "midpoint" }
+      ],
+      "secrets": [
+        { "name": "MIDPOINT_JDBC_PASSWORD", "valueFrom": "${RDS_PASSWORD_SECRET_ARN}" }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "${LOG_GROUP_IMPORT}",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "import"
+        }
+      }
+    }
+  ]
+}

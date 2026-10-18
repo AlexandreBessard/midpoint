@@ -1,16 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000528" version="0" >
-    <_metadata id="3">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:58.179Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:58.167Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Utility task</name>
-    <assignment id="1">
-        <_metadata id="4">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000528" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="3">
             <storage>
                 <createTimestamp>2026-07-20T09:56:58.179Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -18,47 +7,58 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:58.167Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="5">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:58.167Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
+        <name>Utility task</name>
+        <assignment id="1">
+            <_metadata id="4">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:58.179Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:58.167Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="5">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:58.167Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <holderType>TaskType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:58.171Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <holderType>TaskType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:58.171Z</enableTimestamp>
-    </activation>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Utility task</t:orig>
-                <t:norm>utility task</t:norm>
-                <t:translation>
-                    <t:key>UtilityTask.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Utility tasks</t:orig>
-                <t:norm>utility tasks</t:norm>
-                <t:translation>
-                    <t:key>UtilityTasks.title</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-wrench</cssClass>
-                <color>green</color>
-            </icon>
-        </display>
-    </archetypePolicy>
-</archetype>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Utility task</t:orig>
+                    <t:norm>utility task</t:norm>
+                    <t:translation>
+                        <t:key>UtilityTask.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Utility tasks</t:orig>
+                    <t:norm>utility tasks</t:norm>
+                    <t:translation>
+                        <t:key>UtilityTasks.title</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-wrench</cssClass>
+                    <color>green</color>
+                </icon>
+            </display>
+        </archetypePolicy>
+    </apti:object>

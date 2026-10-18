@@ -1,74 +1,74 @@
-<securityPolicy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000120" version="0" >
-    <_metadata id="9">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:51.455Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:51.441Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Default Security Policy</name>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <authentication>
-        <modules>
-            <loginForm id="1">
-                <identifier>loginForm</identifier>
-            </loginForm>
-            <httpBasic id="2">
-                <identifier>httpBasic</identifier>
-            </httpBasic>
-        </modules>
-        <sequence id="3">
-            <identifier>admin-gui-default</identifier>
-            <displayName>Default gui sequence</displayName>
-            <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channelId>
-                <default>true</default>
-                <urlSuffix>gui-default</urlSuffix>
-            </channel>
-            <module id="6">
-                <identifier>loginForm</identifier>
-                <order>1</order>
-                <necessity>sufficient</necessity>
-            </module>
-        </sequence>
-        <sequence id="4">
-            <identifier>rest-default</identifier>
-            <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</channelId>
-                <default>true</default>
-                <urlSuffix>rest-default</urlSuffix>
-            </channel>
-            <module id="7">
-                <identifier>httpBasic</identifier>
-                <order>1</order>
-                <necessity>sufficient</necessity>
-            </module>
-        </sequence>
-        <sequence id="5">
-            <identifier>actuator-default</identifier>
-            <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#actuator</channelId>
-                <default>true</default>
-                <urlSuffix>actuator-default</urlSuffix>
-            </channel>
-            <module id="8">
-                <identifier>httpBasic</identifier>
-                <order>1</order>
-                <necessity>sufficient</necessity>
-            </module>
-        </sequence>
-        <ignoredLocalPath>/actuator/health</ignoredLocalPath>
-    </authentication>
-    <credentials>
-        <password>
-            <minOccurs>0</minOccurs>
-            <lockoutMaxFailedAttempts>3</lockoutMaxFailedAttempts>
-            <lockoutFailedAttemptsDuration>PT3M</lockoutFailedAttemptsDuration>
-            <lockoutDuration>PT15M</lockoutDuration>
-            <valuePolicyRef oid="00000000-0000-0000-0000-000000000003" relation="org:default" type="c:ValuePolicyType"/>
-        </password>
-    </credentials>
-</securityPolicy>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000120" version="0"  xsi:type="c:SecurityPolicyType">
+        <_metadata id="9">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:51.455Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:51.441Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Default Security Policy</name>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <authentication>
+            <modules>
+                <loginForm id="1">
+                    <identifier>loginForm</identifier>
+                </loginForm>
+                <httpBasic id="2">
+                    <identifier>httpBasic</identifier>
+                </httpBasic>
+            </modules>
+            <sequence id="3">
+                <identifier>admin-gui-default</identifier>
+                <displayName>Default gui sequence</displayName>
+                <channel>
+                    <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channelId>
+                    <default>true</default>
+                    <urlSuffix>gui-default</urlSuffix>
+                </channel>
+                <module id="6">
+                    <identifier>loginForm</identifier>
+                    <order>1</order>
+                    <necessity>sufficient</necessity>
+                </module>
+            </sequence>
+            <sequence id="4">
+                <identifier>rest-default</identifier>
+                <channel>
+                    <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</channelId>
+                    <default>true</default>
+                    <urlSuffix>rest-default</urlSuffix>
+                </channel>
+                <module id="7">
+                    <identifier>httpBasic</identifier>
+                    <order>1</order>
+                    <necessity>sufficient</necessity>
+                </module>
+            </sequence>
+            <sequence id="5">
+                <identifier>actuator-default</identifier>
+                <channel>
+                    <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#actuator</channelId>
+                    <default>true</default>
+                    <urlSuffix>actuator-default</urlSuffix>
+                </channel>
+                <module id="8">
+                    <identifier>httpBasic</identifier>
+                    <order>1</order>
+                    <necessity>sufficient</necessity>
+                </module>
+            </sequence>
+            <ignoredLocalPath>/actuator/health</ignoredLocalPath>
+        </authentication>
+        <credentials>
+            <password>
+                <minOccurs>0</minOccurs>
+                <lockoutMaxFailedAttempts>3</lockoutMaxFailedAttempts>
+                <lockoutFailedAttemptsDuration>PT3M</lockoutFailedAttemptsDuration>
+                <lockoutDuration>PT15M</lockoutDuration>
+                <valuePolicyRef oid="00000000-0000-0000-0000-000000000003" relation="org:default" type="c:ValuePolicyType"/>
+            </password>
+        </credentials>
+    </apti:object>

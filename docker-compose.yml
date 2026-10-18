@@ -1,0 +1,123 @@
+services:
+
+  midpoint_data:
+    image: postgres:16-alpine
+
+    environment:
+      POSTGRES_USER: midpoint
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: midpoint
+
+    volumes:
+      - midpoint_data:/var/lib/postgresql/data
+
+    networks:
+      - midpoint
+
+  midpoint:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      - midpoint_data
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      MP_SET_midpoint_repository_jdbcUsername: midpoint
+      MP_SET_midpoint_repository_jdbcPassword: ${POSTGRES_PASSWORD}
+      MP_SET_midpoint_repository_jdbcUrl: jdbc:postgresql://midpoint_data:5432/midpoint
+      MP_SET_midpoint_repository_database: postgresql
+      MP_SET_midpoint_administrator_initialPassword: ${ADMIN_PASSWORD}
+      MP_UNSET_midpoint_repository_hibernateHbm2ddl: "1"
+      MP_NO_ENV_COMPAT: "1"
+
+    volumes:
+      - midpoint_home:/opt/midpoint/var
+
+    command:
+      - /opt/midpoint/bin/midpoint.sh
+      - container
+
+    healthcheck:
+      # /midpoint/ redirects to a relative "./self/dashboard" Location, which
+      # BusyBox wget cannot follow ("wget: bad address '.'") - use the Spring
+      # Boot actuator health endpoint instead, which returns 200 with no redirect.
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:8080/midpoint/actuator/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 60s
+
+    networks:
+      - midpoint
+
+  midpoint_import:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      midpoint:
+        condition: service_healthy
+
+    environment:
+      # MP_SET_ overrides are applied as JVM system properties by the running
+      # "midpoint" app - they are never written into config.xml on disk, so a
+      # separate one-off ninja process needs them set again here, or it falls
+      # back to config.xml's default (H2) connection.
+      MP_SET_midpoint_repository_jdbcUsername: midpoint
+      MP_SET_midpoint_repository_jdbcPassword: ${POSTGRES_PASSWORD}
+      MP_SET_midpoint_repository_jdbcUrl: jdbc:postgresql://midpoint_data:5432/midpoint
+      MP_SET_midpoint_repository_database: postgresql
+      MP_NO_ENV_COMPAT: "1"
+
+    volumes:
+      - midpoint_home:/opt/midpoint/var
+
+    command:
+      - /opt/midpoint/import-config.sh
+
+    restart: "no"
+
+    networks:
+      - midpoint
+
+  # Exercises the same code path as the ECS "midpoint-import" task
+  # (import-config-ecs.sh, direct JDBC import against RDS - see DEVOPS.md §4).
+  # Connects straight to midpoint_data, same as the "midpoint" service would,
+  # rather than depending on the "midpoint" app container. Not started by
+  # `docker compose up`; run explicitly with:
+  #   docker compose --profile ecs-test run --rm midpoint_import_ecs
+  midpoint_import_ecs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    profiles:
+      - ecs-test
+
+    depends_on:
+      - midpoint_data
+
+    environment:
+      MIDPOINT_JDBC_URL: jdbc:postgresql://midpoint_data:5432/midpoint
+      MIDPOINT_JDBC_USERNAME: midpoint
+      MIDPOINT_JDBC_PASSWORD: ${POSTGRES_PASSWORD}
+
+    command:
+      - /opt/midpoint/import-config-ecs.sh
+
+    restart: "no"
+
+    networks:
+      - midpoint
+
+volumes:
+  midpoint_data:
+  midpoint_home:
+
+networks:
+  midpoint:

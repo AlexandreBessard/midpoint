@@ -1,0 +1,223 @@
+# CI/CD for the MidPoint ECS deployment described in DEVOPS.md.
+#
+# Triggers a full image build + config import + service restart whenever
+# objects/, Dockerfile, or the import scripts change on the default branch.
+# Every step here mirrors exactly what was run and verified by hand against
+# a real AWS sandbox (DEVOPS.md S10, terraform/ecs-sandbox/) - same commands,
+# same task-definition shape (ecs/task-definitions/*.json), same gotchas
+# (linux/amd64 build, direct-JDBC import, force-new-deployment to refresh
+# midPoint's cache afterward).
+#
+# Required GitLab CI/CD variables (Settings > CI/CD > Variables, masked +
+# protected on the default branch) - none of these exist yet until the
+# one-time infra setup in DEVOPS.md S6 has been done for real on ANETT-DEV:
+#
+#   AWS_REGION                  e.g. eu-west-3
+#   AWS_ACCOUNT_ID
+#   AWS_DEPLOY_ROLE_ARN          IAM role this pipeline assumes via OIDC (see below)
+#   ECR_REPOSITORY_URL           e.g. <account>.dkr.ecr.<region>.amazonaws.com/midpoint
+#   ECS_CLUSTER
+#   MIDPOINT_SERVICE             ECS service name for the permanent midpoint service
+#   EXECUTION_ROLE_ARN           task execution role (DEVOPS.md S6.3)
+#   MIDPOINT_TASK_ROLE_ARN
+#   IMPORT_TASK_ROLE_ARN
+#   IMPORT_SUBNETS                comma-separated subnet IDs for the run-task network config
+#   SG_IMPORT                    security group for midpoint-import (RDS access only, DEVOPS.md S7)
+#   RDS_ENDPOINT
+#   EFS_FILE_SYSTEM_ID
+#   EFS_ACCESS_POINT_ID
+#   RDS_PASSWORD_SECRET_ARN       Secrets Manager ARN, DEVOPS.md S6.2
+#   ADMIN_PASSWORD_SECRET_ARN
+#   LOG_GROUP_MIDPOINT            e.g. /ecs/midpoint/midpoint
+#   LOG_GROUP_IMPORT              e.g. /ecs/midpoint/midpoint-import
+#
+# AWS-side prerequisite (one-time, not managed here): an IAM OIDC identity
+# provider trusting this GitLab instance, and AWS_DEPLOY_ROLE_ARN's trust
+# policy scoped to this specific project/branch. The role needs: ECR push,
+# ecs:RegisterTaskDefinition/RunTask/DescribeTasks/UpdateService/
+# DescribeServices, logs:DescribeLogStreams, and iam:PassRole on the three
+# role ARNs above (required to register task definitions that reference them).
+
+stages:
+  - build
+  - register
+  - deploy
+  - verify
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - objects/**/*
+        - Dockerfile
+        - import-config.sh
+        - import-config-ecs.sh
+
+variables:
+  IMAGE_TAG: "$CI_COMMIT_SHORT_SHA"
+  MIDPOINT_CPU: "1024"
+  MIDPOINT_MEMORY: "4096"
+  MIDPOINT_JVM_MAX_HEAP: "2560m"
+  MIDPOINT_JVM_INIT_HEAP: "512m"
+  IMPORT_CPU: "512"
+  IMPORT_MEMORY: "1024"
+  # Full clone needed so plan_import can diff against CI_COMMIT_BEFORE_SHA -
+  # a shallow clone might not have that commit available locally.
+  GIT_DEPTH: "0"
+
+.aws_auth: &aws_auth
+  id_tokens:
+    AWS_ID_TOKEN:
+      aud: https://gitlab.com
+  before_script:
+    - command -v envsubst >/dev/null || (dnf install -y gettext -q 2>/dev/null || yum install -y gettext -q)
+    - export AWS_ROLE_ARN="$AWS_DEPLOY_ROLE_ARN"
+    - export AWS_WEB_IDENTITY_TOKEN_FILE="$CI_PROJECT_DIR/aws_web_identity_token"
+    - echo "$AWS_ID_TOKEN" > "$AWS_WEB_IDENTITY_TOKEN_FILE"
+    - aws sts get-caller-identity
+
+build_image:
+  stage: build
+  image: docker:25
+  services:
+    - docker:25-dind
+  script:
+    # --platform is explicit on purpose: building on an ARM runner without
+    # this produces an image Fargate's default X86_64 platform can't start
+    # (CannotStartContainerError) - exactly what happened building locally
+    # on Apple Silicon during the sandbox validation.
+    - docker build --platform linux/amd64 -t "$ECR_REPOSITORY_URL:$IMAGE_TAG" -f Dockerfile .
+    - aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin "$ECR_REPOSITORY_URL"
+    - docker push "$ECR_REPOSITORY_URL:$IMAGE_TAG"
+  <<: *aws_auth
+
+register_task_defs:
+  stage: register
+  image: public.ecr.aws/aws-cli/aws-cli:latest
+  <<: *aws_auth
+  script:
+    - |
+      envsubst < ecs/task-definitions/midpoint.json > /tmp/midpoint.json
+      envsubst < ecs/task-definitions/midpoint-import.json > /tmp/midpoint-import.json
+    - |
+      MIDPOINT_TASK_DEF_ARN=$(aws ecs register-task-definition \
+        --cli-input-json file:///tmp/midpoint.json \
+        --query 'taskDefinition.taskDefinitionArn' --output text)
+      IMPORT_TASK_DEF_ARN=$(aws ecs register-task-definition \
+        --cli-input-json file:///tmp/midpoint-import.json \
+        --query 'taskDefinition.taskDefinitionArn' --output text)
+      echo "MIDPOINT_TASK_DEF_ARN=$MIDPOINT_TASK_DEF_ARN" >> deploy.env
+      echo "IMPORT_TASK_DEF_ARN=$IMPORT_TASK_DEF_ARN" >> deploy.env
+  artifacts:
+    reports:
+      dotenv: deploy.env
+
+# Figures out which objects/ subfolders actually changed since the last
+# deployed commit, so run_import can skip the other ~17 (each one costs
+# ~65-75s of fresh-JVM startup, see DEVOPS.md S10). Falls back to a full
+# import (empty IMPORT_TYPES) whenever it can't be sure that's safe: no
+# previous commit to diff against, or Dockerfile/the import scripts
+# themselves changed (those affect how every type is imported, not just one).
+plan_import:
+  stage: register
+  image: alpine:3.22
+  before_script:
+    - apk add --no-cache git
+  script:
+    - |
+      IMPORT_TYPES=""
+
+      if [ -z "${CI_COMMIT_BEFORE_SHA:-}" ] || [ "$CI_COMMIT_BEFORE_SHA" = "0000000000000000000000000000000000000000" ]; then
+        echo "No previous commit to diff against - full import."
+      else
+        CHANGED=$(git diff --name-only "$CI_COMMIT_BEFORE_SHA" "$CI_COMMIT_SHA" -- Dockerfile import-config.sh import-config-ecs.sh objects/ 2>/dev/null || true)
+
+        if echo "$CHANGED" | grep -qE '^(Dockerfile|import-config(-ecs)?\.sh)$'; then
+          echo "Dockerfile or import scripts changed - full import."
+        else
+          TYPES=$(echo "$CHANGED" | grep '^objects/' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+          if [ -n "$TYPES" ]; then
+            IMPORT_TYPES="$TYPES"
+            echo "Changed object types: $IMPORT_TYPES"
+          else
+            echo "Could not determine changed object types from diff - falling back to full import."
+          fi
+        fi
+      fi
+
+      echo "IMPORT_TYPES=$IMPORT_TYPES" >> deploy.env
+  artifacts:
+    reports:
+      dotenv: deploy.env
+
+run_import:
+  stage: deploy
+  image: public.ecr.aws/aws-cli/aws-cli:latest
+  <<: *aws_auth
+  needs:
+    - register_task_defs
+    - plan_import
+  script:
+    - |
+      OVERRIDES_ARG=""
+      if [ -n "${IMPORT_TYPES:-}" ]; then
+        echo "Incremental import - types: $IMPORT_TYPES"
+        printf '{"containerOverrides":[{"name":"midpoint-import","environment":[{"name":"IMPORT_TYPES","value":"%s"}]}]}' \
+          "$IMPORT_TYPES" > /tmp/import-overrides.json
+        OVERRIDES_ARG="--overrides file:///tmp/import-overrides.json"
+      else
+        echo "Full import (all object types)"
+      fi
+
+      TASK_ARN=$(aws ecs run-task \
+        --cluster "$ECS_CLUSTER" \
+        --task-definition "$IMPORT_TASK_DEF_ARN" \
+        --launch-type FARGATE \
+        --network-configuration "awsvpcConfiguration={subnets=[$IMPORT_SUBNETS],securityGroups=[$SG_IMPORT],assignPublicIp=DISABLED}" \
+        $OVERRIDES_ARG \
+        --query 'tasks[0].taskArn' --output text)
+      echo "Import task: $TASK_ARN"
+      aws ecs wait tasks-stopped --cluster "$ECS_CLUSTER" --tasks "$TASK_ARN"
+      EXIT_CODE=$(aws ecs describe-tasks --cluster "$ECS_CLUSTER" --tasks "$TASK_ARN" \
+        --query 'tasks[0].containers[0].exitCode' --output text)
+      echo "Import exit code: $EXIT_CODE"
+      [ "$EXIT_CODE" = "0" ] || { echo "Import failed, see CloudWatch Logs ($LOG_GROUP_IMPORT)"; exit 1; }
+      # Full import: 18 directories, ~65-75s each observed in the sandbox
+      # test (fresh JVM per ninja.sh invocation) - budget ~25min. Incremental
+      # imports cost roughly (number of changed types) x ~70s instead.
+
+restart_midpoint:
+  stage: deploy
+  image: public.ecr.aws/aws-cli/aws-cli:latest
+  <<: *aws_auth
+  needs:
+    - register_task_defs
+    - run_import
+  script:
+    # ninja.sh writes straight to RDS, never through midpoint's own API
+    # (DEVOPS.md S4) - the running service has no idea the config changed
+    # until it's restarted against the new task definition.
+    - aws ecs update-service --cluster "$ECS_CLUSTER" --service "$MIDPOINT_SERVICE" \
+        --task-definition "$MIDPOINT_TASK_DEF_ARN" --force-new-deployment
+    - aws ecs wait services-stable --cluster "$ECS_CLUSTER" --services "$MIDPOINT_SERVICE"
+
+verify:
+  stage: verify
+  image: public.ecr.aws/aws-cli/aws-cli:latest
+  <<: *aws_auth
+  needs:
+    - restart_midpoint
+  script:
+    # No direct HTTP reachability assumed here - ANETT-DEV's midpoint task
+    # is expected to be in a private subnet (unlike the public sandbox used
+    # for validation), so this checks ECS's own view of container health
+    # rather than curling the app. For a real HTTP-level smoke test, either
+    # front the service with an ALB or run this job from a VPC-connected
+    # GitLab Runner.
+    - |
+      TASK_ARN=$(aws ecs list-tasks --cluster "$ECS_CLUSTER" --service-name "$MIDPOINT_SERVICE" \
+        --query 'taskArns[0]' --output text)
+      HEALTH=$(aws ecs describe-tasks --cluster "$ECS_CLUSTER" --tasks "$TASK_ARN" \
+        --query 'tasks[0].containers[0].healthStatus' --output text)
+      echo "midpoint container health: $HEALTH"
+      [ "$HEALTH" = "HEALTHY" ] || { echo "New midpoint task did not report healthy"; exit 1; }

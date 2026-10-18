@@ -1,76 +1,619 @@
-<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ef83664c-782d-42ec-a038-000000000001" version="3" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-09-14T14:29:36.641Z</createTimestamp>
-            <creatorRef>
-                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </creatorRef>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#objectImport</createChannel>
-            <modifyTimestamp>2026-09-14T14:30:47.428Z</modifyTimestamp>
-            <modifierRef>
-                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </modifierRef>
-            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-09-14T14:29:36.642Z</requestTimestamp>
-            <requestorRef>
-                <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
-                <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
-                <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
-            </requestorRef>
-        </process>
-    </_metadata>
-    <name>Amazon Cognito</name>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <operationalState>
-        <lastAvailabilityStatus>broken</lastAvailabilityStatus>
-        <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
-        <timestamp>2026-09-14T14:38:49.374Z</timestamp>
-        <nodeId>DefaultNode</nodeId>
-    </operationalState>
-    <operationalStateHistory id="2">
-        <lastAvailabilityStatus>broken</lastAvailabilityStatus>
-        <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
-        <timestamp>2026-09-14T14:38:49.374Z</timestamp>
-        <nodeId>DefaultNode</nodeId>
-    </operationalStateHistory>
-    <connectorRef oid="1916d0f6-f12b-4c17-8524-1fddcbef03b6" relation="org:default" type="c:ConnectorType"/>
-    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
-        <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector">
-            <cfg:userPoolID>eu-west-3_Zz1lXvvBM</cfg:userPoolID>
-            <cfg:region>eu-west-3</cfg:region>
-            <cfg:AWSAccessKeyID>
-                <t:encryptedData>
-                    <t:encryptionMethod>
-                        <t:algorithm xmlns="http://prism.evolveum.com/xml/ns/public/types-3">http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                    </t:encryptionMethod>
-                    <t:keyInfo>
-                        <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
-                    </t:keyInfo>
-                    <t:cipherData>
-                        <t:cipherValue>XAUXbcr5N9azolbgkduiFDcXxXdNrvvV8Mvg/xxMGdfkjUemgZUc7+WIVJJ+vqSW</t:cipherValue>
-                    </t:cipherData>
-                </t:encryptedData>
-            </cfg:AWSAccessKeyID>
-            <cfg:AWSSecretAccessKey>
-                <t:encryptedData>
-                    <t:encryptionMethod>
-                        <t:algorithm xmlns="http://prism.evolveum.com/xml/ns/public/types-3">http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                    </t:encryptionMethod>
-                    <t:keyInfo>
-                        <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
-                    </t:keyInfo>
-                    <t:cipherData>
-                        <t:cipherValue>Gce6CC0HJ/RbY4gRnlFOunbfgDGNOOSU/C/gsTFkW5d4//JwLsuJIGYboUXkaj2ob6AJ+m3u5m3JROxA77Zhng==</t:cipherValue>
-                    </t:cipherData>
-                </t:encryptedData>
-            </cfg:AWSSecretAccessKey>
-        </icfc:configurationProperties>
-    </connectorConfiguration>
-</resource>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ef83664c-782d-42ec-a038-000000000001" version="28"  xsi:type="c:ResourceType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-09-14T14:29:36.641Z</createTimestamp>
+                <creatorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation>org:default</t:relation>
+                    <t:type>c:UserType</t:type>
+                </creatorRef>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#objectImport</createChannel>
+                <modifyTimestamp>2026-09-30T09:39:05.346Z</modifyTimestamp>
+                <modifierRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation>org:default</t:relation>
+                    <t:type>c:UserType</t:type>
+                </modifierRef>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-09-14T14:29:36.642Z</requestTimestamp>
+                <requestorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation>org:default</t:relation>
+                    <t:type>c:UserType</t:type>
+                </requestorRef>
+            </process>
+        </_metadata>
+        <name>Amazon Cognito</name>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <operationalState>
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status changed from BROKEN to UP because resource schema was successfully fetched</message>
+            <timestamp>2026-09-25T11:09:26.175Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalState>
+        <operationalStateHistory id="2">
+            <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+            <message>Status set to BROKEN because test resource Amazon Cognito failed during connector initialization. Generic error: org.identityconnectors.framework.common.exceptions.ConnectorException(software.amazon.awssdk.core.exception.SdkClientException: Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;software.amazon.awssdk.core.exception.SdkClientException(Unable to execute HTTP request: (internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;javax.net.ssl.SSLException((internal_error) Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.lang.RuntimeException(Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty)-&gt;java.security.InvalidAlgorithmParameterException(the trustAnchors parameter must be non-empty)</message>
+            <timestamp>2026-09-14T14:38:49.374Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <operationalStateHistory id="4">
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status changed from BROKEN to UP because resource schema was successfully fetched</message>
+            <timestamp>2026-09-25T11:09:26.175Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <connectorRef oid="1916d0f6-f12b-4c17-8524-1fddcbef03b6" relation="org:default" type="c:ConnectorType"/>
+        <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+            <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector-amazon-cognito-user-pool/jp.openstandia.connector.amazonaws.CognitoUserPoolConnector">
+                <cfg:userPoolID>eu-west-3_Zz1lXvvBM</cfg:userPoolID>
+                <cfg:AWSAccessKeyID>
+                    <t:encryptedData>
+                        <t:encryptionMethod>
+                            <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                        </t:encryptionMethod>
+                        <t:keyInfo>
+                            <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
+                        </t:keyInfo>
+                        <t:cipherData>
+                            <t:cipherValue>XAUXbcr5N9azolbgkduiFDcXxXdNrvvV8Mvg/xxMGdfkjUemgZUc7+WIVJJ+vqSW</t:cipherValue>
+                        </t:cipherData>
+                    </t:encryptedData>
+                </cfg:AWSAccessKeyID>
+                <cfg:AWSSecretAccessKey>
+                    <t:encryptedData>
+                        <t:encryptionMethod>
+                            <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                        </t:encryptionMethod>
+                        <t:keyInfo>
+                            <t:keyName>LfMa4KSGFOO8D0cAHzSKcoHta3w=</t:keyName>
+                        </t:keyInfo>
+                        <t:cipherData>
+                            <t:cipherValue>Gce6CC0HJ/RbY4gRnlFOunbfgDGNOOSU/C/gsTFkW5d4//JwLsuJIGYboUXkaj2ob6AJ+m3u5m3JROxA77Zhng==</t:cipherValue>
+                        </t:cipherData>
+                    </t:encryptedData>
+                </cfg:AWSSecretAccessKey>
+                <cfg:region>eu-west-3</cfg:region>
+            </icfc:configurationProperties>
+        </connectorConfiguration>
+        <schema>
+            <cachingMetadata>
+                <retrievalTimestamp>2026-09-25T12:03:44.988Z</retrievalTimestamp>
+                <serialNumber>97dfc88ba55b2e9a-b608e5bbb93fc3cb</serialNumber>
+            </cachingMetadata>
+            <definition>
+                <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+                    <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                    <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"/>
+                    <xsd:complexType name="Group">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <a:container>true</a:container>
+                                <ra:resourceObject>true</ra:resourceObject>
+                                <ra:nativeObjectClass>Group</ra:nativeObjectClass>
+                                <ra:default>false</ra:default>
+                                <ra:auxiliary>false</ra:auxiliary>
+                                <ra:embedded>false</ra:embedded>
+                                <ra:namingAttribute>ri:GroupName</ra:namingAttribute>
+                                <ra:displayNameAttribute>ri:GroupName</ra:displayNameAttribute>
+                                <ra:identifier>ri:GroupName</ra:identifier>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                        <xsd:sequence>
+                            <xsd:element minOccurs="0" name="CreationDate" type="xsd:dateTime">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>120</a:displayOrder>
+                                        <a:access>read</a:access>
+                                        <ra:frameworkAttributeName>CreationDate</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="Precedence" type="xsd:int">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>130</a:displayOrder>
+                                        <ra:frameworkAttributeName>Precedence</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="Description" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>140</a:displayOrder>
+                                        <ra:frameworkAttributeName>Description</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="LastModifiedDate" type="xsd:dateTime">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>150</a:displayOrder>
+                                        <a:access>read</a:access>
+                                        <ra:frameworkAttributeName>LastModifiedDate</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="GroupName" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>100</a:displayOrder>
+                                        <a:access>create</a:access>
+                                        <a:access>read</a:access>
+                                        <ra:nativeAttributeName>GroupName</ra:nativeAttributeName>
+                                        <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="RoleArn" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>160</a:displayOrder>
+                                        <ra:frameworkAttributeName>RoleArn</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element maxOccurs="unbounded" minOccurs="0" name="users" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>170</a:displayOrder>
+                                        <ra:frameworkAttributeName>users</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>false</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                    <xsd:complexType name="User">
+                        <xsd:annotation>
+                            <xsd:appinfo>
+                                <a:container>true</a:container>
+                                <ra:resourceObject>true</ra:resourceObject>
+                                <ra:nativeObjectClass>User</ra:nativeObjectClass>
+                                <ra:default>false</ra:default>
+                                <ra:auxiliary>false</ra:auxiliary>
+                                <ra:embedded>false</ra:embedded>
+                                <ra:namingAttribute>ri:username</ra:namingAttribute>
+                                <ra:displayNameAttribute>ri:username</ra:displayNameAttribute>
+                                <ra:identifier>ri:sub</ra:identifier>
+                                <ra:secondaryIdentifier>ri:username</ra:secondaryIdentifier>
+                            </xsd:appinfo>
+                        </xsd:annotation>
+                        <xsd:sequence>
+                            <xsd:element maxOccurs="unbounded" minOccurs="0" name="groups" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>120</a:displayOrder>
+                                        <ra:frameworkAttributeName>groups</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>false</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="picture" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>130</a:displayOrder>
+                                        <ra:frameworkAttributeName>picture</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="phone_number_verified" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>140</a:displayOrder>
+                                        <ra:frameworkAttributeName>phone_number_verified</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="birthdate" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>150</a:displayOrder>
+                                        <ra:frameworkAttributeName>birthdate</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="email" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>160</a:displayOrder>
+                                        <a:matchingRule xmlns:qn732="http://prism.evolveum.com/xml/ns/public/matching-rule-3">qn732:stringIgnoreCase</a:matchingRule>
+                                        <ra:frameworkAttributeName>email</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="email_verified" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>170</a:displayOrder>
+                                        <ra:frameworkAttributeName>email_verified</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="profile" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>180</a:displayOrder>
+                                        <ra:frameworkAttributeName>profile</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="family_name" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>190</a:displayOrder>
+                                        <ra:frameworkAttributeName>family_name</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="gender" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>200</a:displayOrder>
+                                        <ra:frameworkAttributeName>gender</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="updated_at" type="xsd:int">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>210</a:displayOrder>
+                                        <ra:frameworkAttributeName>updated_at</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="username" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>110</a:displayOrder>
+                                        <a:access>create</a:access>
+                                        <a:access>read</a:access>
+                                        <a:matchingRule xmlns:qn229="http://prism.evolveum.com/xml/ns/public/matching-rule-3">qn229:stringIgnoreCase</a:matchingRule>
+                                        <ra:nativeAttributeName>username</ra:nativeAttributeName>
+                                        <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="middle_name" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>220</a:displayOrder>
+                                        <ra:frameworkAttributeName>middle_name</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="UserStatus" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>230</a:displayOrder>
+                                        <a:access>read</a:access>
+                                        <ra:frameworkAttributeName>UserStatus</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="given_name" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>240</a:displayOrder>
+                                        <ra:frameworkAttributeName>given_name</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="zoneinfo" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>250</a:displayOrder>
+                                        <ra:frameworkAttributeName>zoneinfo</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element name="preferred_username" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>260</a:displayOrder>
+                                        <a:matchingRule xmlns:qn139="http://prism.evolveum.com/xml/ns/public/matching-rule-3">qn139:stringIgnoreCase</a:matchingRule>
+                                        <ra:frameworkAttributeName>preferred_username</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="identities" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>270</a:displayOrder>
+                                        <ra:frameworkAttributeName>identities</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="UserLastModifiedDate" type="xsd:dateTime">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>280</a:displayOrder>
+                                        <a:access>read</a:access>
+                                        <ra:frameworkAttributeName>UserLastModifiedDate</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="password_permanent" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>290</a:displayOrder>
+                                        <a:access>create</a:access>
+                                        <a:access>update</a:access>
+                                        <ra:frameworkAttributeName>password_permanent</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>false</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="name" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>300</a:displayOrder>
+                                        <ra:frameworkAttributeName>name</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="nickname" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>310</a:displayOrder>
+                                        <ra:frameworkAttributeName>nickname</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="locale" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>320</a:displayOrder>
+                                        <ra:frameworkAttributeName>locale</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="address" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>330</a:displayOrder>
+                                        <ra:frameworkAttributeName>address</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="UserCreateDate" type="xsd:dateTime">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>340</a:displayOrder>
+                                        <a:access>read</a:access>
+                                        <ra:frameworkAttributeName>UserCreateDate</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="phone_number" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>350</a:displayOrder>
+                                        <ra:frameworkAttributeName>phone_number</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="website" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>360</a:displayOrder>
+                                        <ra:frameworkAttributeName>website</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                            <xsd:element minOccurs="0" name="sub" type="xsd:string">
+                                <xsd:annotation>
+                                    <xsd:appinfo>
+                                        <a:displayOrder>100</a:displayOrder>
+                                        <a:access>read</a:access>
+                                        <ra:nativeAttributeName>sub</ra:nativeAttributeName>
+                                        <ra:frameworkAttributeName>__UID__</ra:frameworkAttributeName>
+                                        <ra:returnedByDefault>true</ra:returnedByDefault>
+                                    </xsd:appinfo>
+                                </xsd:annotation>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:schema>
+            </definition>
+        </schema>
+        <schemaHandling>
+            <objectType id="5">
+                <kind>account</kind>
+                <displayName>Compte Cognito</displayName>
+                <default>true</default>
+                <delineation>
+                    <objectClass>ri:User</objectClass>
+                </delineation>
+                <focus>
+                    <type>c:UserType</type>
+                    <archetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
+                </focus>
+                <attribute id="12">
+                    <ref>ri:email</ref>
+                    <outbound>
+                        <name>Mail</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>emailAddress</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="14">
+                    <ref>ri:username</ref>
+                    <outbound>
+                        <name>Username</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>name</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="15">
+                    <ref>ri:password_permanent</ref>
+                </attribute>
+                <attribute id="17">
+                    <ref>ri:preferred_username</ref>
+                    <outbound>
+                        <name>Preferred</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>emailAddress</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="19">
+                    <ref>ri:email_verified</ref>
+                    <outbound>
+                        <name>EmailVerified</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <value>TRUE</value>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="20">
+                    <ref>ri:UserStatus</ref>
+                </attribute>
+                <attribute id="22">
+                    <ref>ri:family_name</ref>
+                    <outbound>
+                        <name>FamilyName</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>familyName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="23">
+                    <ref>ri:given_name</ref>
+                    <outbound>
+                        <name>GivenName</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>givenName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="24">
+                    <ref>ri:name</ref>
+                    <outbound>
+                        <name>FullName</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>fullName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <activation>
+                    <administrativeStatus/>
+                </activation>
+                <credentials>
+                    <password>
+                        <outbound id="21">
+                            <name>Password</name>
+                            <authoritative>true</authoritative>
+                            <exclusive>true</exclusive>
+                            <source>
+                                <path>credentials/password</path>
+                            </source>
+                        </outbound>
+                    </password>
+                </credentials>
+                <configuredCapabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+                    <cap:addRemoveAttributeValues>
+                        <cap:enabled>true</cap:enabled>
+                    </cap:addRemoveAttributeValues>
+                </configuredCapabilities>
+                <correlation>
+                    <correlators>
+                        <items id="10">
+                            <name>Même email</name>
+                            <item id="11">
+                                <ref>emailAddress</ref>
+                            </item>
+                        </items>
+                    </correlators>
+                </correlation>
+                <synchronization>
+                    <reaction id="6">
+                        <situation>unlinked</situation>
+                        <actions>
+                            <link id="7"/>
+                        </actions>
+                    </reaction>
+                    <reaction id="8">
+                        <situation>linked</situation>
+                        <actions>
+                            <synchronize id="9"/>
+                        </actions>
+                    </reaction>
+                </synchronization>
+            </objectType>
+        </schemaHandling>
+        <capabilities>
+            <cachingMetadata>
+                <retrievalTimestamp>2026-09-25T11:09:26.164Z</retrievalTimestamp>
+                <serialNumber>1f21ac345eb08dd8-127aae6a31a646b1</serialNumber>
+            </cachingMetadata>
+            <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+                <cap:schema/>
+                <cap:activation>
+                    <cap:status/>
+                </cap:activation>
+                <cap:credentials>
+                    <cap:password>
+                        <cap:returnedByDefault>false</cap:returnedByDefault>
+                    </cap:password>
+                </cap:credentials>
+                <cap:create/>
+                <cap:read>
+                    <cap:returnDefaultAttributesOption>true</cap:returnDefaultAttributesOption>
+                </cap:read>
+                <cap:update>
+                    <cap:delta>true</cap:delta>
+                    <cap:addRemoveAttributeValues>true</cap:addRemoveAttributeValues>
+                </cap:update>
+                <cap:delete/>
+                <cap:testConnection/>
+                <cap:script>
+                    <cap:host id="3">
+                        <cap:type>connector</cap:type>
+                    </cap:host>
+                </cap:script>
+            </native>
+        </capabilities>
+    </apti:object>

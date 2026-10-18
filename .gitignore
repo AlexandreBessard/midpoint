@@ -16,10 +16,30 @@ target/
 scratches/
 credentials.kdbx
 
+### Docker secrets ###
+.env
+
 ### Sensitive / disposable data (not config) ###
 
 # Raw HR feed extracts containing employee PII - not versioned
-import/
+# (wildcard on children, not the directory itself, so git still descends into it
+# and can apply the exceptions below - see "except scripts")
+/import/*
+
+# ... except scripts (code, not data) living under import/CEGID/script/
+# (git requires un-ignoring each ancestor directory for a negation to take effect)
+!/import/CEGID/
+/import/CEGID/*
+!/import/CEGID/script/
+
+# Exports and old HR data containing employee PII - not versioned
+export/
+old_data/
+requirements/
+
+# Disposable one-shot tasks (shadow cleanup, simulations)
+objects/tasks/Delete*shadows.xml
+objects/tasks/Simulat*reconciliation.xml
 
 # Bulk disposable simulation-run snapshots, not hand-maintained config
 objects/simulationResults/

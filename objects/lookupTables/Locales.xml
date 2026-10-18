@@ -1,90 +1,15 @@
-<lookupTable xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000210" version="0" >
-    <_metadata id="21">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:55.178Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:55.171Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Locales</name>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <row id="1">
-        <key>cs</key>
-        <label>Čeština</label>
-    </row>
-    <row id="2">
-        <key>de</key>
-        <label>Deutsch</label>
-    </row>
-    <row id="3">
-        <key>et</key>
-        <label>Eesti</label>
-    </row>
-    <row id="4">
-        <key>en</key>
-        <label>English</label>
-    </row>
-    <row id="5">
-        <key>es</key>
-        <label>Español</label>
-    </row>
-    <row id="6">
-        <key>fi</key>
-        <label>Suomi</label>
-    </row>
-    <row id="7">
-        <key>fr</key>
-        <label>Français</label>
-    </row>
-    <row id="8">
-        <key>hu</key>
-        <label>Magyar</label>
-    </row>
-    <row id="9">
-        <key>it</key>
-        <label>Italiano</label>
-    </row>
-    <row id="10">
-        <key>ja</key>
-        <label>日本語</label>
-    </row>
-    <row id="11">
-        <key>lt</key>
-        <label>Lietuviškai</label>
-    </row>
-    <row id="12">
-        <key>pl</key>
-        <label>Polski</label>
-    </row>
-    <row id="13">
-        <key>pt_BR</key>
-        <label>Português (Brasil)</label>
-    </row>
-    <row id="14">
-        <key>ru</key>
-        <label>Русский</label>
-    </row>
-    <row id="15">
-        <key>sk</key>
-        <label>Slovenčina</label>
-    </row>
-    <row id="16">
-        <key>tr</key>
-        <label>Yкраїнська</label>
-    </row>
-    <row id="17">
-        <key>zh_CN</key>
-        <label>中文</label>
-    </row>
-    <row id="18">
-        <key>ko</key>
-        <label>한국인</label>
-    </row>
-    <row id="19">
-        <key>nl</key>
-        <label>Nederlands</label>
-    </row>
-</lookupTable>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000210" version="0"  xsi:type="c:LookupTableType">
+        <_metadata id="21">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:55.178Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:55.171Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Locales</name>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <row incomplete="true"/>
+    </apti:object>

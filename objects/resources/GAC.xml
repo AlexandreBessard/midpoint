@@ -1,0 +1,571 @@
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0" version="11"  xsi:type="c:ResourceType">
+        <name>GAC</name>
+        <description>Ressource CSV d'export vers GAC (gestion de flotte véhicules) - en écriture uniquement, phase de test</description>
+        <lifecycleState>active</lifecycleState>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <operationalState>
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status changed from BROKEN to UP because resource test was successful</message>
+            <timestamp>2026-09-22T11:49:19.380Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalState>
+        <operationalStateHistory id="4">
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status set to UP because resource schema was successfully fetched</message>
+            <timestamp>2026-09-17T10:27:09.966Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <operationalStateHistory id="49">
+            <lastAvailabilityStatus>broken</lastAvailabilityStatus>
+            <message>Status changed from UP to BROKEN because test resource GAC failed while processing schema refinements: Definition of attribute 'Lieu_x20de_x20Naissance' not found in object class '{http://midpoint.evolveum.com/xml/ns/public/resource/instance-3}AccountObjectClass' nor auxiliary object classes for 'ROTD+(ACCOUNT:default={.../resource/instance-3}AccountObjectClass)' as defined in attribute 'Lieu_x20de_x20Naissance' definition in object type ACCOUNT/null (Compte GAC) definition in resource:db1ea70d-0bb4-43b6-a4a6-b2627b9ac7d0(GAC) (or some of its ancestors) @schemaHandling/objectType/2/attribute/44</message>
+            <timestamp>2026-09-22T11:41:33.809Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <operationalStateHistory id="50">
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+            <message>Status changed from BROKEN to UP because resource test was successful</message>
+            <timestamp>2026-09-22T11:49:19.380Z</timestamp>
+            <nodeId>DefaultNode</nodeId>
+        </operationalStateHistory>
+        <connectorRef oid="e9830727-e7ea-410c-b177-e4474628c87c" relation="org:default" type="c:ConnectorType"/>
+        <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+            <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+                <cfg:fieldDelimiter>;</cfg:fieldDelimiter>
+                <cfg:filePath>opt/midpoint/var/export/GAC.csv</cfg:filePath>
+                <cfg:nameAttribute>Matricule *</cfg:nameAttribute>
+                <cfg:uniqueAttribute>Matricule *</cfg:uniqueAttribute>
+            </icfc:configurationProperties>
+        </connectorConfiguration>
+        <schema>
+            <cachingMetadata>
+                <retrievalTimestamp>2026-09-17T10:27:09.966Z</retrievalTimestamp>
+                <serialNumber>e98e4c1ee43c9e2c-66a6b3ae698d8f1e</serialNumber>
+            </cachingMetadata>
+            <generationConstraints>
+                <generateObjectClass>ri:AccountObjectClass</generateObjectClass>
+            </generationConstraints>
+            <definition>
+                <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xml:space="preserve">
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"/>
+                <xsd:complexType name="AccountObjectClass">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container>true</a:container>
+                            <ra:resourceObject>true</ra:resourceObject>
+                            <ra:nativeObjectClass>__ACCOUNT__</ra:nativeObjectClass>
+                            <ra:default>true</ra:default>
+                            <ra:auxiliary>false</ra:auxiliary>
+                            <ra:embedded>false</ra:embedded>
+                            <ra:namingAttribute>ri:Matricule_x20_x2a</ra:namingAttribute>
+                            <ra:displayNameAttribute>ri:Matricule_x20_x2a</ra:displayNameAttribute>
+                            <ra:identifier>ri:Matricule_x20_x2a</ra:identifier>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                    <xsd:sequence>
+                        <xsd:element name="Matricule_x20_x2a" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>100</a:displayOrder>
+                                    <ra:nativeAttributeName>Matricule *</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Civilité_x20_x28genre_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>110</a:displayOrder>
+                                    <ra:nativeAttributeName>Civilité (genre)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Civilité (genre)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Prénom_x20_x2a" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>120</a:displayOrder>
+                                    <ra:nativeAttributeName>Prénom *</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Prénom *</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="Nom_x20_x2a" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>130</a:displayOrder>
+                                    <ra:nativeAttributeName>Nom *</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Nom *</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Email" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>140</a:displayOrder>
+                                    <ra:nativeAttributeName>Email</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Email</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="AFFECTATION_x20-_x20Date_x20de_x20début_x20_x2a" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>150</a:displayOrder>
+                                    <ra:nativeAttributeName>AFFECTATION - Date de début *</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>AFFECTATION - Date de début *</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="AFFECTATION_x20-_x20Date_x20de_x20fin" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>160</a:displayOrder>
+                                    <ra:nativeAttributeName>AFFECTATION - Date de fin</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>AFFECTATION - Date de fin</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="AFFECTATION_x20-_x20Entité_x20_x28code_x29_x20_x2a" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>170</a:displayOrder>
+                                    <ra:nativeAttributeName>AFFECTATION - Entité (code) *</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>AFFECTATION - Entité (code) *</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="AFFECTATION_x20-_x20Entité_x20_x28libellé_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>180</a:displayOrder>
+                                    <ra:nativeAttributeName>AFFECTATION - Entité (libellé)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>AFFECTATION - Entité (libellé)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="AFFECTATION_x20-_x20Centre_x20de_x20coûts_x20_x28code_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>190</a:displayOrder>
+                                    <ra:nativeAttributeName>AFFECTATION - Centre de coûts (code)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>AFFECTATION - Centre de coûts (code)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="AFFECTATION_x20-_x20Centre_x20de_x20coûts_x20_x28libellé_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>200</a:displayOrder>
+                                    <ra:nativeAttributeName>AFFECTATION - Centre de coûts (libellé)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>AFFECTATION - Centre de coûts (libellé)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Date_x20de_x20naissance" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>210</a:displayOrder>
+                                    <ra:nativeAttributeName>Date de naissance</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Date de naissance</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Lieu_x20de_x20Naissance" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>220</a:displayOrder>
+                                    <ra:nativeAttributeName>Lieu de Naissance</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Lieu de Naissance</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Adresse_x20_x28ligne_x201_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>230</a:displayOrder>
+                                    <ra:nativeAttributeName>Adresse (ligne 1)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Adresse (ligne 1)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Adresse_x20_x28ligne_x202_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>240</a:displayOrder>
+                                    <ra:nativeAttributeName>Adresse (ligne 2)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Adresse (ligne 2)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Code_x20postal" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>250</a:displayOrder>
+                                    <ra:nativeAttributeName>Code postal</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Code postal</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Ville" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>260</a:displayOrder>
+                                    <ra:nativeAttributeName>Ville</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Ville</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Pays_x20de_x20l_x27adresse_x20principale_x20_x28code_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>270</a:displayOrder>
+                                    <ra:nativeAttributeName>Pays de l'adresse principale (code)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Pays de l'adresse principale (code)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Numéro_x20de_x20permis_x20de_x20conduire" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>280</a:displayOrder>
+                                    <ra:nativeAttributeName>Numéro de permis de conduire</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Numéro de permis de conduire</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Pays_x20de_x20délivrance_x20du_x20permis_x20de_x20conduire" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>290</a:displayOrder>
+                                    <ra:nativeAttributeName>Pays de délivrance du permis de conduire</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Pays de délivrance du permis de conduire</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Permis_x20-_x20Délivré_x20le_x20_x28date_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>300</a:displayOrder>
+                                    <ra:nativeAttributeName>Permis - Délivré le (date)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Permis - Délivré le (date)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Permis_x20-_x20Délivré_x20par_x20_x28lieu_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>310</a:displayOrder>
+                                    <ra:nativeAttributeName>Permis - Délivré par (lieu)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Permis - Délivré par (lieu)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Permis_x20-_x20Expire_x20le_x20_x28date_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>320</a:displayOrder>
+                                    <ra:nativeAttributeName>Permis - Expire le (date)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Permis - Expire le (date)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Numéro_x20de_x20Téléphone" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>330</a:displayOrder>
+                                    <ra:nativeAttributeName>Numéro de Téléphone</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Numéro de Téléphone</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Fonction_x20actuelle" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>340</a:displayOrder>
+                                    <ra:nativeAttributeName>Fonction actuelle</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Fonction actuelle</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Description" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>350</a:displayOrder>
+                                    <ra:nativeAttributeName>Description</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Description</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Information" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>360</a:displayOrder>
+                                    <ra:nativeAttributeName>Information</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Information</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Catégorie_x20interne_x20_x28collaborateur_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>370</a:displayOrder>
+                                    <ra:nativeAttributeName>Catégorie interne (collaborateur)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Catégorie interne (collaborateur)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Responsable_x20hiérarchique_x20_x28matricule_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>380</a:displayOrder>
+                                    <ra:nativeAttributeName>Responsable hiérarchique (matricule)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Responsable hiérarchique (matricule)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Responsable_x20RH_x20_x28matricule_x29" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>390</a:displayOrder>
+                                    <ra:nativeAttributeName>Responsable RH (matricule)</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Responsable RH (matricule)</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element minOccurs="0" name="Catégorie_x20Télécom" type="xsd:string">
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <a:displayOrder>400</a:displayOrder>
+                                    <ra:nativeAttributeName>Catégorie Télécom</ra:nativeAttributeName>
+                                    <ra:frameworkAttributeName>Catégorie Télécom</ra:frameworkAttributeName>
+                                    <ra:returnedByDefault>true</ra:returnedByDefault>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:schema>
+            </definition>
+        </schema>
+        <schemaHandling>
+            <objectType id="2">
+                <kind>account</kind>
+                <displayName>Compte GAC</displayName>
+                <delineation>
+                    <objectClass>ri:AccountObjectClass</objectClass>
+                </delineation>
+                <focus>
+                    <type>c:UserType</type>
+                    <archetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
+                </focus>
+                <attribute id="10">
+                    <ref>ri:Matricule_x20_x2a</ref>
+                    <outbound id="11">
+                        <name>Matricule</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>personalNumber</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="12">
+                    <ref>ri:Civilité_x20_x28genre_x29</ref>
+                    <outbound id="13">
+                        <name>Civilité (genre)</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/gender</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="14">
+                    <ref>ri:Prénom_x20_x2a</ref>
+                    <outbound id="15">
+                        <name>Prénom</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>givenName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="16">
+                    <ref>ri:Nom_x20_x2a</ref>
+                    <outbound id="17">
+                        <name>Nom</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>familyName</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="40">
+                    <ref>ri:Email</ref>
+                    <outbound id="41">
+                        <name>Email</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>emailAddress</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="26">
+                    <ref>ri:AFFECTATION_x20-_x20Date_x20de_x20début_x20_x2a</ref>
+                    <outbound id="27">
+                        <name>AFFECTATION - Date de début</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/startDate</path>
+                        </source>
+                        <expression>
+                            <script>
+                                <code>if (startDate == null) return null
+return String.format("%02d/%02d/%04d", startDate.day, startDate.month, startDate.year)</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="28">
+                    <ref>ri:AFFECTATION_x20-_x20Date_x20de_x20fin</ref>
+                    <outbound id="29">
+                        <name>AFFECTATION - Date de fin</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>activation/validTo</path>
+                        </source>
+                        <expression>
+                            <script>
+                                <code>if (validTo == null) return null
+return String.format("%02d/%02d/%04d", validTo.day, validTo.month, validTo.year)</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="30">
+                    <ref>ri:AFFECTATION_x20-_x20Entité_x20_x28code_x29_x20_x2a</ref>
+                    <outbound id="31">
+                        <name>AFFECTATION - Entité (code)</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/entityCode</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="32">
+                    <ref>ri:AFFECTATION_x20-_x20Entité_x20_x28libellé_x29</ref>
+                    <outbound id="33">
+                        <name>AFFECTATION - Entité (libellé)</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/entityLabel</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="42">
+                    <ref>ri:Date_x20de_x20naissance</ref>
+                    <outbound id="43">
+                        <name>Date de naissance</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/birthDate</path>
+                        </source>
+                        <expression>
+                            <script>
+                                <code>if (birthDate == null) return null
+return String.format("%02d/%02d/%04d", birthDate.day, birthDate.month, birthDate.year)</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="44">
+                    <ref>ri:Lieu_x20de_x20Naissance</ref>
+                    <outbound id="45">
+                        <name>Lieu de naissance</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/birthPlace</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="46">
+                    <ref>ri:Code_x20postal</ref>
+                    <outbound id="47">
+                        <name>Code postal</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>extension/postalCode</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="48">
+                    <ref>ri:Ville</ref>
+                    <outbound id="49">
+                        <name>Ville</name>
+                        <strength>strong</strength>
+                        <source>
+                            <path>locality</path>
+                        </source>
+                    </outbound>
+                </attribute>
+            </objectType>
+        </schemaHandling>
+        <capabilities>
+            <cachingMetadata>
+                <retrievalTimestamp>2026-09-17T10:27:09.951Z</retrievalTimestamp>
+                <serialNumber>fba1b09b64c41dd2-3b36816cdbab7ceb</serialNumber>
+            </cachingMetadata>
+            <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+                <cap:schema/>
+                <cap:discoverConfiguration/>
+                <cap:liveSync/>
+                <cap:create/>
+                <cap:read>
+                    <cap:returnDefaultAttributesOption>false</cap:returnDefaultAttributesOption>
+                </cap:read>
+                <cap:update>
+                    <cap:addRemoveAttributeValues>true</cap:addRemoveAttributeValues>
+                </cap:update>
+                <cap:delete/>
+                <cap:testConnection/>
+                <cap:script>
+                    <cap:host id="2">
+                        <cap:type>resource</cap:type>
+                    </cap:host>
+                    <cap:host id="3">
+                        <cap:type>connector</cap:type>
+                    </cap:host>
+                </cap:script>
+            </native>
+        </capabilities>
+    </apti:object>

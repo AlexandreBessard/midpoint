@@ -1,45 +1,45 @@
-<policy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="6451bca8-4035-4fb3-8ab1-5de14da59e18" version="0" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:56.381Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:56.368Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Require owner</name>
-    <description>Policy requiring affected objects to have an owner.</description>
-    <documentation>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="6451bca8-4035-4fb3-8ab1-5de14da59e18" version="0"  xsi:type="c:PolicyType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:56.381Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:56.368Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Require owner</name>
+        <description>Policy requiring affected objects to have an owner.</description>
+        <documentation>
         When this policy is applied, the affected objects are required to have an owner.
         Objects with no owner are marked with "Unowned" mark.
         (ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.9,ISO27001/A.5.36)
     </documentation>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:56.373Z</enableTimestamp>
-    </activation>
-    <inducement id="2">
-        <identifier>policy-require-owner</identifier>
-        <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.9,ISO27001/A.5.36)</documentation>
-        <policyRule>
-            <name>rule-require-owner</name>
-            <policyConstraints>
-                <minAssignees id="3">
-                    <name>constraint-require-owner</name>
-                    <multiplicity>1</multiplicity>
-                    <relation>org:owner</relation>
-                </minAssignees>
-            </policyConstraints>
-            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91" relation="org:default" type="c:MarkType"/>
-            <policyActions>
-                <record>
-                    <description>Record the mark for use in dashboards and reports.</description>
-                </record>
-            </policyActions>
-            <evaluationTarget>object</evaluationTarget>
-        </policyRule>
-    </inducement>
-</policy>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:56.373Z</enableTimestamp>
+        </activation>
+        <inducement id="2">
+            <identifier>policy-require-owner</identifier>
+            <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.9,ISO27001/A.5.36)</documentation>
+            <policyRule>
+                <name>rule-require-owner</name>
+                <policyConstraints>
+                    <minAssignees id="3">
+                        <name>constraint-require-owner</name>
+                        <multiplicity>1</multiplicity>
+                        <relation>org:owner</relation>
+                    </minAssignees>
+                </policyConstraints>
+                <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91" relation="org:default" type="c:MarkType"/>
+                <policyActions>
+                    <record>
+                        <description>Record the mark for use in dashboards and reports.</description>
+                    </record>
+                </policyActions>
+                <evaluationTarget>object</evaluationTarget>
+            </policyRule>
+        </inducement>
+    </apti:object>

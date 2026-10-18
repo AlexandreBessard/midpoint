@@ -1,0 +1,3 @@
+aws_region   = "eu-west-1"
+name_prefix  = "midpoint-sandbox"
+allowed_cidr = "203.0.113.4/32" # replace with: curl -s -4 ifconfig.me, then append /32 (the -4 matters)

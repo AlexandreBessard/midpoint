@@ -1,46 +1,46 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000538" version="0" >
-    <_metadata id="4">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:58.562Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:58.551Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Certification-campaign-reiterate task</name>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:58.555Z</enableTimestamp>
-    </activation>
-    <archetypePolicy>
-        <display>
-            <label>Certification campaign reiterate related task</label>
-            <pluralLabel>
-                <t:orig>Certification-campaign-reiterate-related tasks</t:orig>
-                <t:norm>certificationcampaignreiteraterelated tasks</t:norm>
-                <t:translation>
-                    <t:key>CertificationCampaignReiterateRelatedTasks.title</t:key>
-                </t:translation>
-            </pluralLabel>
-        </display>
-        <adminGuiConfiguration>
-            <objectDetails>
-                <type>TaskType</type>
-                <panel id="1">
-                    <identifier>activity</identifier>
-                    <panel id="2">
-                        <identifier>work</identifier>
-                        <container id="3">
-                            <identifier>certificationReiterateCampaign</identifier>
-                            <path>activity/work/certificationReiterateCampaign</path>
-                        </container>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000538" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="4">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:58.562Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:58.551Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Certification-campaign-reiterate task</name>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:58.555Z</enableTimestamp>
+        </activation>
+        <archetypePolicy>
+            <display>
+                <label>Certification campaign reiterate related task</label>
+                <pluralLabel>
+                    <t:orig>Certification-campaign-reiterate-related tasks</t:orig>
+                    <t:norm>certificationcampaignreiteraterelated tasks</t:norm>
+                    <t:translation>
+                        <t:key>CertificationCampaignReiterateRelatedTasks.title</t:key>
+                    </t:translation>
+                </pluralLabel>
+            </display>
+            <adminGuiConfiguration>
+                <objectDetails>
+                    <type>TaskType</type>
+                    <panel id="1">
+                        <identifier>activity</identifier>
+                        <panel id="2">
+                            <identifier>work</identifier>
+                            <container id="3">
+                                <identifier>certificationReiterateCampaign</identifier>
+                                <path>activity/work/certificationReiterateCampaign</path>
+                            </container>
+                        </panel>
                     </panel>
-                </panel>
-            </objectDetails>
-        </adminGuiConfiguration>
-    </archetypePolicy>
-    <superArchetypeRef oid="00000000-0000-0000-0000-000000000520" relation="org:default" type="c:ArchetypeType"/>
-</archetype>
+                </objectDetails>
+            </adminGuiConfiguration>
+        </archetypePolicy>
+        <superArchetypeRef oid="00000000-0000-0000-0000-000000000520" relation="org:default" type="c:ArchetypeType"/>
+    </apti:object>

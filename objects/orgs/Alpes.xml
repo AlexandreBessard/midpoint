@@ -1,0 +1,38 @@
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="51a23811-e8ef-41ac-b5a3-00aa0ff51d89" version="1"  xsi:type="c:OrgType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-09-21T09:36:37.297Z</createTimestamp>
+                <creatorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </creatorRef>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#reconciliation</createChannel>
+                <createTaskRef>
+                    <t:oid>16a40d6b-8f66-4af5-98a0-2e818c31a5a9</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:TaskType</t:type>
+                </createTaskRef>
+            </storage>
+            <process>
+                <requestTimestamp>2026-09-21T09:36:37.252Z</requestTimestamp>
+                <requestorRef>
+                    <t:oid>6d3b8725-521b-4364-ad0d-efd14aab7c49</t:oid>
+                    <t:relation xmlns="http://prism.evolveum.com/xml/ns/public/types-3">org:default</t:relation>
+                    <t:type xmlns="http://prism.evolveum.com/xml/ns/public/types-3">c:UserType</t:type>
+                </requestorRef>
+            </process>
+            <provisioning>
+                <lastProvisioningTimestamp>2026-09-21T09:36:37.297Z</lastProvisioningTimestamp>
+            </provisioning>
+        </_metadata>
+        <name>Alpes</name>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <linkRef oid="912312fa-818f-4bd0-88a2-83437660dbe2" relation="org:default" type="c:ShadowType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-09-21T09:36:37.252Z</enableTimestamp>
+        </activation>
+        <identifier>ALP</identifier>
+    </apti:object>

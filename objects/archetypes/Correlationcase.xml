@@ -1,19 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000345" version="0" >
-    <_metadata id="5">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:52.062Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:52.043Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Correlation case</name>
-    <description>
-        Archetype for correlation cases.
-    </description>
-    <assignment id="1">
-        <_metadata id="6">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000345" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="5">
             <storage>
                 <createTimestamp>2026-07-20T09:56:52.062Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -21,87 +7,101 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:52.043Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="7">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:52.043Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
+        <name>Correlation case</name>
+        <description>
+        Archetype for correlation cases.
+    </description>
+        <assignment id="1">
+            <_metadata id="6">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:52.062Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:52.043Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="7">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:52.043Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="2">
+                <holderType>CaseType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:52.048Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="2">
-            <holderType>CaseType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:52.048Z</enableTimestamp>
-    </activation>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Correlation case</t:orig>
-                <t:norm>correlation case</t:norm>
-                <t:translation>
-                    <t:key>correlationCase.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Correlation cases</t:orig>
-                <t:norm>correlation cases</t:norm>
-                <t:translation>
-                    <t:key>correlationCase.pluralLabel</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fe fe-approver-object</cssClass>
-            </icon>
-        </display>
-        <adminGuiConfiguration>
-            <objectDetails>
-                <panel id="3">
-                    <identifier>caseWorkItems</identifier>
-                    <display>
-                        <label>
-                            <t:orig>Workitems</t:orig>
-                            <t:norm>workitems</t:norm>
-                            <t:translation>
-                                <t:key>Workitems.panel.title</t:key>
-                            </t:translation>
-                        </label>
-                        <icon>
-                            <cssClass>fa fa-circle</cssClass>
-                        </icon>
-                    </display>
-                    <displayOrder>20</displayOrder>
-                    <panelType>caseWorkItems</panelType>
-                    <type>c:CaseType</type>
-                </panel>
-                <panel id="4">
-                    <identifier>correlationContext</identifier>
-                    <display>
-                        <label>
-                            <t:orig>Correlation</t:orig>
-                            <t:norm>correlation</t:norm>
-                            <t:translation>
-                                <t:key>correlation.panel.label</t:key>
-                            </t:translation>
-                        </label>
-                        <icon>
-                            <cssClass>fa fa-circle</cssClass>
-                        </icon>
-                    </display>
-                    <displayOrder>30</displayOrder>
-                    <panelType>correlationContext</panelType>
-                    <type>c:CaseType</type>
-                    <default>true</default>
-                </panel>
-            </objectDetails>
-        </adminGuiConfiguration>
-    </archetypePolicy>
-</archetype>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Correlation case</t:orig>
+                    <t:norm>correlation case</t:norm>
+                    <t:translation>
+                        <t:key>correlationCase.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Correlation cases</t:orig>
+                    <t:norm>correlation cases</t:norm>
+                    <t:translation>
+                        <t:key>correlationCase.pluralLabel</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fe fe-approver-object</cssClass>
+                </icon>
+            </display>
+            <adminGuiConfiguration>
+                <objectDetails>
+                    <panel id="3">
+                        <identifier>caseWorkItems</identifier>
+                        <display>
+                            <label>
+                                <t:orig>Workitems</t:orig>
+                                <t:norm>workitems</t:norm>
+                                <t:translation>
+                                    <t:key>Workitems.panel.title</t:key>
+                                </t:translation>
+                            </label>
+                            <icon>
+                                <cssClass>fa fa-circle</cssClass>
+                            </icon>
+                        </display>
+                        <displayOrder>20</displayOrder>
+                        <panelType>caseWorkItems</panelType>
+                        <type>c:CaseType</type>
+                    </panel>
+                    <panel id="4">
+                        <identifier>correlationContext</identifier>
+                        <display>
+                            <label>
+                                <t:orig>Correlation</t:orig>
+                                <t:norm>correlation</t:norm>
+                                <t:translation>
+                                    <t:key>correlation.panel.label</t:key>
+                                </t:translation>
+                            </label>
+                            <icon>
+                                <cssClass>fa fa-circle</cssClass>
+                            </icon>
+                        </display>
+                        <displayOrder>30</displayOrder>
+                        <panelType>correlationContext</panelType>
+                        <type>c:CaseType</type>
+                        <default>true</default>
+                    </panel>
+                </objectDetails>
+            </adminGuiConfiguration>
+        </archetypePolicy>
+    </apti:object>

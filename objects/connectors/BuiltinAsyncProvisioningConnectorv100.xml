@@ -1,0 +1,33 @@
+<connector xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="2133fca0-0d25-4904-b524-eed655a3ee0c" version="90" >
+    <name>Built-in AsyncProvisioningConnector v1.0.0</name>
+    <displayName>AsyncProvisioningConnector</displayName>
+    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1</framework>
+    <connectorType>AsyncProvisioningConnector</connectorType>
+    <connectorVersion>1.0.0</connectorVersion>
+    <connectorBundle>com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.provisioning</connectorBundle>
+    <namespace>http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.provisioning/AsyncProvisioningConnector</namespace>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3" xmlns:qn654="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.provisioning/AsyncProvisioningConnector" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.provisioning/AsyncProvisioningConnector">
+                <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/common/common-3"/>
+                <xsd:complexType name="ConfigurationType">
+                    <xsd:sequence>
+                        <xsd:element name="operationExecutionConfirmation" type="xsd:boolean"/>
+                        <xsd:element name="predefinedTransformation" type="qn654:PredefinedOperationRequestTransformationType"/>
+                        <xsd:element name="targets" type="qn654:AsyncProvisioningTargetsType"/>
+                        <xsd:element name="transformExpression" type="qn654:ExpressionType"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:element name="connectorConfiguration" type="tns:ConfigurationType">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <a:container/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <available>true</available>
+</connector>

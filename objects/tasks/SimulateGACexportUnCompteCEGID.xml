@@ -1,0 +1,46 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+    <name>Simulation: export GAC (test 1 compte CEGID)</name>
+    <description>
+        Recalcule un seul utilisateur (identifié par son matricule CEGID = employeeNumber)
+        et simule les changements sur toutes ses ressources, dont GAC, sans rien écrire.
+        Remplacer la valeur "REMPLACER_MATRICULE" ci-dessous par le matricule CEGID à tester
+        avant d'exécuter la tâche. A supprimer après usage.
+
+        Prérequis : l'utilisateur testé doit déjà avoir un compte/une affectation GAC
+        (Focus -&gt; onglet Accounts -&gt; Add account -&gt; GAC), sinon GAC n'apparaîtra pas
+        dans le résultat de simulation, faute de projection existante à recalculer.
+    </description>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <executionState>runnable</executionState>
+    <binding>loose</binding>
+    <activity>
+        <work>
+            <recomputation>
+                <objects>
+                    <type>UserType</type>
+                    <query>
+                        <q:filter>
+                            <q:equal>
+                                <q:path>employeeNumber</q:path>
+                                <q:value>REMPLACER_MATRICULE</q:value>
+                            </q:equal>
+                        </q:filter>
+                    </query>
+                </objects>
+            </recomputation>
+        </work>
+        <execution>
+            <mode>preview</mode>
+            <configurationToUse>
+                <predefined>production</predefined>
+            </configurationToUse>
+        </execution>
+        <reporting>
+            <simulationResult/>
+        </reporting>
+    </activity>
+</task>

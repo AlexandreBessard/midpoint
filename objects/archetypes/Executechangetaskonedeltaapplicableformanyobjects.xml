@@ -1,16 +1,5 @@
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000517" version="0" >
-    <_metadata id="18">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:57.867Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:57.855Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Execute change task (one delta applicable for many objects)</name>
-    <assignment id="14">
-        <_metadata id="19">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000517" version="0"  xsi:type="c:ArchetypeType">
+        <_metadata id="18">
             <storage>
                 <createTimestamp>2026-07-20T09:56:57.867Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -18,121 +7,132 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:57.855Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="20">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:57.854Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>holderType</identifier>
+        <name>Execute change task (one delta applicable for many objects)</name>
+        <assignment id="14">
+            <_metadata id="19">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:57.867Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:57.855Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="20">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:57.854Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>holderType</identifier>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+            <assignmentRelation id="15">
+                <holderType>TaskType</holderType>
+            </assignmentRelation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
         <activation>
             <effectiveStatus>enabled</effectiveStatus>
+            <enableTimestamp>2026-07-20T09:56:57.858Z</enableTimestamp>
         </activation>
-        <assignmentRelation id="15">
-            <holderType>TaskType</holderType>
-        </assignmentRelation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <activation>
-        <effectiveStatus>enabled</effectiveStatus>
-        <enableTimestamp>2026-07-20T09:56:57.858Z</enableTimestamp>
-    </activation>
-    <inducement id="16">
-        <identifier>nameMapping</identifier>
-        <focusMappings>
-            <mapping id="17">
-                <strength>weak</strength>
-                <expression>
-                    <script>
-                        <code>
+        <inducement id="16">
+            <identifier>nameMapping</identifier>
+            <focusMappings>
+                <mapping id="17">
+                    <strength>weak</strength>
+                    <expression>
+                        <script>
+                            <code>
                             return source.name
                         </code>
-                    </script>
-                </expression>
-                <target>
-                    <path>name</path>
-                </target>
-            </mapping>
-        </focusMappings>
-    </inducement>
-    <archetypePolicy>
-        <display>
-            <label>
-                <t:orig>Execute change task (one delta applicable for many objects)</t:orig>
-                <t:norm>execute change task one delta applicable for many objects</t:norm>
-                <t:translation>
-                    <t:key>ExecuteChangeTask.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Execute change task (one delta applicable for many objects)</t:orig>
-                <t:norm>execute change task one delta applicable for many objects</t:norm>
-                <t:translation>
-                    <t:key>TaskHandlerSelector.model.synchronization.task.execute.handler</t:key>
-                </t:translation>
-            </pluralLabel>
-            <icon>
-                <cssClass>fa fa-wrench</cssClass>
-                <color>green</color>
-            </icon>
-        </display>
-        <itemConstraint id="1">
-            <path>extension</path>
-            <visibility>vacant</visibility>
-        </itemConstraint>
-        <itemConstraint id="2">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectType</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="3">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectQuery</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="4">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:searchOptions</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="5">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:iterationMethod</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="6">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:useRepositoryDirectly</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="7">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:failedObjectsSelector</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="8">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:workerThreads</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="9">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectDelta</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <itemConstraint id="10">
-            <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:modelExecuteOptions</path>
-            <visibility>visible</visibility>
-        </itemConstraint>
-        <adminGuiConfiguration>
-            <objectDetails>
-                <type>TaskType</type>
-                <panel id="11">
-                    <identifier>activity</identifier>
-                    <panel id="12">
-                        <identifier>work</identifier>
-                        <container id="13">
-                            <identifier>work-iterativeChangeExecution</identifier>
-                            <path>activity/work/iterativeChangeExecution</path>
-                        </container>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </mapping>
+            </focusMappings>
+        </inducement>
+        <archetypePolicy>
+            <display>
+                <label>
+                    <t:orig>Execute change task (one delta applicable for many objects)</t:orig>
+                    <t:norm>execute change task one delta applicable for many objects</t:norm>
+                    <t:translation>
+                        <t:key>ExecuteChangeTask.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Execute change task (one delta applicable for many objects)</t:orig>
+                    <t:norm>execute change task one delta applicable for many objects</t:norm>
+                    <t:translation>
+                        <t:key>TaskHandlerSelector.model.synchronization.task.execute.handler</t:key>
+                    </t:translation>
+                </pluralLabel>
+                <icon>
+                    <cssClass>fa fa-wrench</cssClass>
+                    <color>green</color>
+                </icon>
+            </display>
+            <itemConstraint id="1">
+                <path>extension</path>
+                <visibility>vacant</visibility>
+            </itemConstraint>
+            <itemConstraint id="2">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectType</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="3">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectQuery</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="4">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:searchOptions</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="5">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:iterationMethod</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="6">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:useRepositoryDirectly</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="7">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:failedObjectsSelector</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="8">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:workerThreads</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="9">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:objectDelta</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <itemConstraint id="10">
+                <path xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">extension/mext:modelExecuteOptions</path>
+                <visibility>visible</visibility>
+            </itemConstraint>
+            <adminGuiConfiguration>
+                <objectDetails>
+                    <type>TaskType</type>
+                    <panel id="11">
+                        <identifier>activity</identifier>
+                        <panel id="12">
+                            <identifier>work</identifier>
+                            <container id="13">
+                                <identifier>work-iterativeChangeExecution</identifier>
+                                <path>activity/work/iterativeChangeExecution</path>
+                            </container>
+                        </panel>
                     </panel>
-                </panel>
-            </objectDetails>
-        </adminGuiConfiguration>
-    </archetypePolicy>
-    <archetypeType>auxiliary</archetypeType>
-</archetype>
+                </objectDetails>
+            </adminGuiConfiguration>
+        </archetypePolicy>
+        <archetypeType>auxiliary</archetypeType>
+    </apti:object>

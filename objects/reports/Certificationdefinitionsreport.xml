@@ -1,17 +1,5 @@
-<report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000130" version="0" >
-    <_metadata id="9">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:54.266Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:54.253Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Certification definitions report</name>
-    <description>All certification definitions with basic information on related campaigns.</description>
-    <assignment id="1">
-        <_metadata id="10">
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000130" version="0"  xsi:type="c:ReportType">
+        <_metadata id="9">
             <storage>
                 <createTimestamp>2026-07-20T09:56:54.266Z</createTimestamp>
                 <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
@@ -19,173 +7,185 @@
             <process>
                 <requestTimestamp>2026-07-20T09:56:54.253Z</requestTimestamp>
             </process>
-            <provenance>
-                <acquisition id="11">
-                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
-                    <timestamp>2026-07-20T09:56:54.252Z</timestamp>
-                </acquisition>
-            </provenance>
         </_metadata>
-        <identifier>archetype</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
-        <activation>
-            <effectiveStatus>enabled</effectiveStatus>
-        </activation>
-    </assignment>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <archetypeRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
-    <archetypeRef oid="00000000-0000-0000-0000-000000000172" relation="org:default" type="c:ArchetypeType"/>
-    <roleMembershipRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType">
-        <_metadata id="12">
-            <storage>
-                <createTimestamp>2026-07-20T09:56:54.262Z</createTimestamp>
-            </storage>
-            <provenance>
-                <assignmentPath>
-                    <sourceRef oid="00000000-0000-0000-0000-000000000130" relation="org:default" type="c:ReportType"/>
-                    <segment id="13">
-                        <segmentOrder>1</segmentOrder>
-                        <assignmentId>1</assignmentId>
-                        <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
-                        <matchingOrder>true</matchingOrder>
-                    </segment>
-                </assignmentPath>
-            </provenance>
-        </_metadata>
-    </roleMembershipRef>
-    <roleMembershipRef oid="00000000-0000-0000-0000-000000000172" relation="org:default" type="c:ArchetypeType">
-        <_metadata id="14">
-            <storage>
-                <createTimestamp>2026-07-20T09:56:54.262Z</createTimestamp>
-            </storage>
-            <provenance>
-                <assignmentPath>
-                    <sourceRef oid="00000000-0000-0000-0000-000000000130" relation="org:default" type="c:ReportType"/>
-                    <segment id="15">
-                        <segmentOrder>1</segmentOrder>
-                        <assignmentId>1</assignmentId>
-                        <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
-                        <matchingOrder>true</matchingOrder>
-                    </segment>
-                    <segment id="16">
-                        <segmentOrder>2</segmentOrder>
-                        <targetRef oid="00000000-0000-0000-0000-000000000172" relation="org:default" type="c:ArchetypeType"/>
-                        <matchingOrder>true</matchingOrder>
-                    </segment>
-                </assignmentPath>
-            </provenance>
-        </_metadata>
-    </roleMembershipRef>
-    <objectCollection>
-        <collection/>
-        <view>
-            <paging>
-                <q:orderBy>name</q:orderBy>
-                <q:orderDirection>ascending</q:orderDirection>
-            </paging>
-            <column id="2">
-                <name>name</name>
-                <path>name</path>
-            </column>
-            <column id="3">
-                <name>owner</name>
-                <path>ownerRef</path>
-                <display>
-                    <label>
-                        <t:orig>Owner</t:orig>
-                        <t:norm>owner</t:norm>
-                        <t:translation>
-                            <t:key>reportCertificationDefinitions.ownerColumn.label</t:key>
-                        </t:translation>
-                    </label>
-                </display>
-                <previousColumn>name</previousColumn>
-            </column>
-            <column id="4">
-                <name>campaigns</name>
-                <display>
-                    <label>
-                        <t:orig>Campaigns</t:orig>
-                        <t:norm>campaigns</t:norm>
-                        <t:translation>
-                            <t:key>reportCertificationDefinitions.campaignsColumn.label</t:key>
-                        </t:translation>
-                    </label>
-                </display>
-                <previousColumn>owner</previousColumn>
-                <export>
-                    <expression>
-                        <script>
-                            <code>campaigns</code>
-                        </script>
-                    </expression>
-                </export>
-                <displayValue>number</displayValue>
-            </column>
-            <column id="5">
-                <name>openCampaigns</name>
-                <display>
-                    <label>
-                        <t:orig>Open campaigns</t:orig>
-                        <t:norm>open campaigns</t:norm>
-                        <t:translation>
-                            <t:key>reportCertificationDefinitions.openCampaignsColumn.label</t:key>
-                        </t:translation>
-                    </label>
-                </display>
-                <previousColumn>campaigns</previousColumn>
-                <export>
-                    <expression>
-                        <script>
-                            <code>
+        <name>Certification definitions report</name>
+        <description>All certification definitions with basic information on related campaigns.</description>
+        <assignment id="1">
+            <_metadata id="10">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:54.266Z</createTimestamp>
+                    <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+                </storage>
+                <process>
+                    <requestTimestamp>2026-07-20T09:56:54.253Z</requestTimestamp>
+                </process>
+                <provenance>
+                    <acquisition id="11">
+                        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+                        <timestamp>2026-07-20T09:56:54.252Z</timestamp>
+                    </acquisition>
+                </provenance>
+            </_metadata>
+            <identifier>archetype</identifier>
+            <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
+            <activation>
+                <effectiveStatus>enabled</effectiveStatus>
+            </activation>
+        </assignment>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <archetypeRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
+        <archetypeRef oid="00000000-0000-0000-0000-000000000172" relation="org:default" type="c:ArchetypeType"/>
+        <roleMembershipRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType">
+            <_metadata id="12">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:54.262Z</createTimestamp>
+                </storage>
+                <provenance>
+                    <assignmentPath>
+                        <sourceRef oid="00000000-0000-0000-0000-000000000130" relation="org:default" type="c:ReportType"/>
+                        <segment id="13">
+                            <segmentOrder>1</segmentOrder>
+                            <assignmentId>1</assignmentId>
+                            <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
+                            <matchingOrder>true</matchingOrder>
+                        </segment>
+                    </assignmentPath>
+                </provenance>
+            </_metadata>
+        </roleMembershipRef>
+        <roleMembershipRef oid="00000000-0000-0000-0000-000000000172" relation="org:default" type="c:ArchetypeType">
+            <_metadata id="14">
+                <storage>
+                    <createTimestamp>2026-07-20T09:56:54.262Z</createTimestamp>
+                </storage>
+                <provenance>
+                    <assignmentPath>
+                        <sourceRef oid="00000000-0000-0000-0000-000000000130" relation="org:default" type="c:ReportType"/>
+                        <segment id="15">
+                            <segmentOrder>1</segmentOrder>
+                            <assignmentId>1</assignmentId>
+                            <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType"/>
+                            <matchingOrder>true</matchingOrder>
+                        </segment>
+                        <segment id="16">
+                            <segmentOrder>2</segmentOrder>
+                            <targetRef oid="00000000-0000-0000-0000-000000000172" relation="org:default" type="c:ArchetypeType"/>
+                            <matchingOrder>true</matchingOrder>
+                        </segment>
+                    </assignmentPath>
+                </provenance>
+            </_metadata>
+        </roleMembershipRef>
+        <objectCollection>
+            <collection/>
+            <view>
+                <paging>
+                    <q:orderBy>name</q:orderBy>
+                    <q:orderDirection>ascending</q:orderDirection>
+                </paging>
+                <column id="2">
+                    <name>name</name>
+                    <path>name</path>
+                </column>
+                <column id="3">
+                    <name>owner</name>
+                    <path>ownerRef</path>
+                    <display>
+                        <label>
+                            <t:orig>Owner</t:orig>
+                            <t:norm>owner</t:norm>
+                            <t:translation>
+                                <t:key>reportCertificationDefinitions.ownerColumn.label</t:key>
+                            </t:translation>
+                        </label>
+                    </display>
+                    <previousColumn>name</previousColumn>
+                </column>
+                <column id="4">
+                    <name>campaigns</name>
+                    <display>
+                        <label>
+                            <t:orig>Campaigns</t:orig>
+                            <t:norm>campaigns</t:norm>
+                            <t:translation>
+                                <t:key>reportCertificationDefinitions.campaignsColumn.label</t:key>
+                            </t:translation>
+                        </label>
+                    </display>
+                    <previousColumn>owner</previousColumn>
+                    <export>
+                        <expression>
+                            <script>
+                                <code>campaigns</code>
+                            </script>
+                        </expression>
+                    </export>
+                    <displayValue>number</displayValue>
+                </column>
+                <column id="5">
+                    <name>openCampaigns</name>
+                    <display>
+                        <label>
+                            <t:orig>Open campaigns</t:orig>
+                            <t:norm>open campaigns</t:norm>
+                            <t:translation>
+                                <t:key>reportCertificationDefinitions.openCampaignsColumn.label</t:key>
+                            </t:translation>
+                        </label>
+                    </display>
+                    <previousColumn>campaigns</previousColumn>
+                    <export>
+                        <expression>
+                            <script>
+                                <code>
                                 import com.evolveum.midpoint.xml.ns._public.common.common_3.AccessCertificationCampaignType
                                 import static com.evolveum.midpoint.xml.ns._public.common.common_3.AccessCertificationCampaignStateType.*
 
                                 (campaigns as Collection&lt;AccessCertificationCampaignType&gt;)
                                         .count { it.state != CREATED &amp;&amp; it.state != CLOSED }
                             </code>
-                        </script>
-                    </expression>
-                </export>
-            </column>
-            <column id="6">
-                <name>lastStarted</name>
-                <path>lastCampaignStartedTimestamp</path>
-                <display>
-                    <label>
-                        <t:orig>Last started</t:orig>
-                        <t:norm>last started</t:norm>
-                        <t:translation>
-                            <t:key>reportCertificationDefinitions.lastStartedColumn.label</t:key>
-                        </t:translation>
-                    </label>
-                </display>
-                <previousColumn>openCampaigns</previousColumn>
-            </column>
-            <column id="7">
-                <name>lastClosed</name>
-                <path>lastCampaignClosedTimestamp</path>
-                <display>
-                    <label>
-                        <t:orig>Last closed</t:orig>
-                        <t:norm>last closed</t:norm>
-                        <t:translation>
-                            <t:key>reportCertificationDefinitions.lastClosedColumn.label</t:key>
-                        </t:translation>
-                    </label>
-                </display>
-                <previousColumn>lastStarted</previousColumn>
-            </column>
-            <type>AccessCertificationDefinitionType</type>
-        </view>
-        <useOnlyReportView>true</useOnlyReportView>
-        <subreport id="8">
-            <name>campaigns</name>
-            <type>AccessCertificationCampaignType</type>
-            <expression>
-                <script>
-                    <code>
+                            </script>
+                        </expression>
+                    </export>
+                </column>
+                <column id="6">
+                    <name>lastStarted</name>
+                    <path>lastCampaignStartedTimestamp</path>
+                    <display>
+                        <label>
+                            <t:orig>Last started</t:orig>
+                            <t:norm>last started</t:norm>
+                            <t:translation>
+                                <t:key>reportCertificationDefinitions.lastStartedColumn.label</t:key>
+                            </t:translation>
+                        </label>
+                    </display>
+                    <previousColumn>openCampaigns</previousColumn>
+                </column>
+                <column id="7">
+                    <name>lastClosed</name>
+                    <path>lastCampaignClosedTimestamp</path>
+                    <display>
+                        <label>
+                            <t:orig>Last closed</t:orig>
+                            <t:norm>last closed</t:norm>
+                            <t:translation>
+                                <t:key>reportCertificationDefinitions.lastClosedColumn.label</t:key>
+                            </t:translation>
+                        </label>
+                    </display>
+                    <previousColumn>lastStarted</previousColumn>
+                </column>
+                <type>AccessCertificationDefinitionType</type>
+            </view>
+            <useOnlyReportView>true</useOnlyReportView>
+            <subreport id="8">
+                <name>campaigns</name>
+                <type>AccessCertificationCampaignType</type>
+                <expression>
+                    <script>
+                        <code>
                         import com.evolveum.midpoint.prism.query.ObjectQuery
                         import com.evolveum.midpoint.xml.ns._public.common.common_3.AccessCertificationCampaignType
 
@@ -197,8 +197,8 @@
                                 .build() as ObjectQuery,
                             null)
                     </code>
-                </script>
-            </expression>
-        </subreport>
-    </objectCollection>
-</report>
+                    </script>
+                </expression>
+            </subreport>
+        </objectCollection>
+    </apti:object>

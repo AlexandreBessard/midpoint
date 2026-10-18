@@ -1,38 +1,38 @@
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="89c49f7f-2b3e-4319-8b19-a8ed651394f4" version="0" >
-    <_metadata id="1">
-        <storage>
-            <createTimestamp>2026-07-20T09:56:56.525Z</createTimestamp>
-            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
-        </storage>
-        <process>
-            <requestTimestamp>2026-07-20T09:56:56.519Z</requestTimestamp>
-        </process>
-    </_metadata>
-    <name>Suspicious applications</name>
-    <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
-    <iteration>0</iteration>
-    <iterationToken/>
-    <type>ServiceType</type>
-    <filter>
-        <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000830" ) and archetypeRef matches (oid = "00000000-0000-0000-0000-000000000329" and targetType = ArchetypeType)</q:text>
-    </filter>
-    <domain/>
-    <defaultView>
-        <display>
-            <label>
-                <t:orig>Suspicious application</t:orig>
-                <t:norm>suspicious application</t:norm>
-                <t:translation>
-                    <t:key>suspiciousApplication.label</t:key>
-                </t:translation>
-            </label>
-            <pluralLabel>
-                <t:orig>Suspicious applications</t:orig>
-                <t:norm>suspicious applications</t:norm>
-                <t:translation>
-                    <t:key>suspiciousApplication.pluralLabel</t:key>
-                </t:translation>
-            </pluralLabel>
-        </display>
-    </defaultView>
-</objectCollection>
+<apti:object xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="89c49f7f-2b3e-4319-8b19-a8ed651394f4" version="0"  xsi:type="c:ObjectCollectionType">
+        <_metadata id="1">
+            <storage>
+                <createTimestamp>2026-07-20T09:56:56.525Z</createTimestamp>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-07-20T09:56:56.519Z</requestTimestamp>
+            </process>
+        </_metadata>
+        <name>Suspicious applications</name>
+        <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
+        <iteration>0</iteration>
+        <iterationToken/>
+        <type>ServiceType</type>
+        <filter>
+            <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000830" ) and archetypeRef matches (oid = "00000000-0000-0000-0000-000000000329" and targetType = ArchetypeType)</q:text>
+        </filter>
+        <domain/>
+        <defaultView>
+            <display>
+                <label>
+                    <t:orig>Suspicious application</t:orig>
+                    <t:norm>suspicious application</t:norm>
+                    <t:translation>
+                        <t:key>suspiciousApplication.label</t:key>
+                    </t:translation>
+                </label>
+                <pluralLabel>
+                    <t:orig>Suspicious applications</t:orig>
+                    <t:norm>suspicious applications</t:norm>
+                    <t:translation>
+                        <t:key>suspiciousApplication.pluralLabel</t:key>
+                    </t:translation>
+                </pluralLabel>
+            </display>
+        </defaultView>
+    </apti:object>
