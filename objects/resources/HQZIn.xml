@@ -10,7 +10,7 @@
                 <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
             </storage>
         </_metadata>
-        <name>HQZ In</name>
+        <name>HQZ Testing</name>
         <lifecycleState>active</lifecycleState>
         <iteration>0</iteration>
         <iterationToken/>
