@@ -131,6 +131,11 @@ data "aws_iam_policy_document" "github_actions_ecr_push" {
   statement {
     actions = [
       "ecr:BatchCheckLayerAvailability",
+      # Needed even for a push-only flow: docker/build-push-action pushes a
+      # manifest list referencing the provenance/SBOM attestation manifest,
+      # and buildx reads back manifests during that push (confirmed by a real
+      # CI failure: "denied: ... not authorized to perform: ecr:BatchGetImage").
+      "ecr:BatchGetImage",
       "ecr:PutImage",
       "ecr:InitiateLayerUpload",
       "ecr:UploadLayerPart",
