@@ -2,6 +2,11 @@ output "ecr_repository_url" {
   value = aws_ecr_repository.midpoint.repository_url
 }
 
+output "github_actions_role_arn" {
+  description = "Set as the AWS_DEPLOY_ROLE_ARN GitHub repo variable (Settings > Secrets and variables > Actions > Variables) for .github/workflows/release.yml."
+  value       = aws_iam_role.github_actions_deploy.arn
+}
+
 output "ecr_login_command" {
   value = "aws ecr get-login-password --region ${var.aws_region} | docker login --username AWS --password-stdin ${aws_ecr_repository.midpoint.repository_url}"
 }

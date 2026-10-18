@@ -74,6 +74,12 @@ variable "import_memory" {
   default     = 1024
 }
 
+variable "github_repository" {
+  description = "GitHub <owner>/<repo> allowed to assume the CI deploy role via OIDC (only pushes to its main branch, see iam.tf), e.g. AlexandreBessard/midpoint."
+  type        = string
+  default     = "AlexandreBessard/midpoint"
+}
+
 variable "log_retention_days" {
   description = "CloudWatch Logs retention for both task definitions. Short on purpose - this is a disposable sandbox."
   type        = number

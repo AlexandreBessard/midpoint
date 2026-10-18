@@ -49,3 +49,76 @@ resource "aws_iam_role" "import_task" {
   name_prefix        = "${var.name_prefix}-import-task-"
   assume_role_policy = data.aws_iam_policy_document.ecs_tasks_assume_role.json
 }
+
+# --- GitHub Actions OIDC: lets .github/workflows/release.yml assume an AWS
+# role to push images to ECR, with no long-lived AWS keys stored in GitHub.
+#
+# NOTE: an OIDC provider for a given URL is a single, account-wide resource.
+# If this AWS account already trusts token.actions.githubusercontent.com
+# (e.g. from another project's Terraform), importing that existing provider
+# instead of creating a second one here.
+
+data "tls_certificate" "github_actions" {
+  url = "https://token.actions.githubusercontent.com"
+}
+
+resource "aws_iam_openid_connect_provider" "github_actions" {
+  url             = "https://token.actions.githubusercontent.com"
+  client_id_list  = ["sts.amazonaws.com"]
+  thumbprint_list = [data.tls_certificate.github_actions.certificates[0].sha1_fingerprint]
+}
+
+data "aws_iam_policy_document" "github_actions_assume_role" {
+  statement {
+    actions = ["sts:AssumeRoleWithWebIdentity"]
+
+    principals {
+      type        = "Federated"
+      identifiers = [aws_iam_openid_connect_provider.github_actions.arn]
+    }
+
+    condition {
+      test     = "StringEquals"
+      variable = "token.actions.githubusercontent.com:aud"
+      values   = ["sts.amazonaws.com"]
+    }
+
+    # Scoped to pushes on main only - not PRs, not other branches, not forks.
+    condition {
+      test     = "StringLike"
+      variable = "token.actions.githubusercontent.com:sub"
+      values   = ["repo:${var.github_repository}:ref:refs/heads/main"]
+    }
+  }
+}
+
+resource "aws_iam_role" "github_actions_deploy" {
+  name_prefix        = "${var.name_prefix}-gha-deploy-"
+  assume_role_policy = data.aws_iam_policy_document.github_actions_assume_role.json
+}
+
+# Scoped to this sandbox's own ECR repo only - matches release.yml, which
+# just builds and pushes an image (no ECS/task-def/Secrets Manager access).
+data "aws_iam_policy_document" "github_actions_ecr_push" {
+  statement {
+    actions   = ["ecr:GetAuthorizationToken"]
+    resources = ["*"]
+  }
+
+  statement {
+    actions = [
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:PutImage",
+      "ecr:InitiateLayerUpload",
+      "ecr:UploadLayerPart",
+      "ecr:CompleteLayerUpload",
+    ]
+    resources = [aws_ecr_repository.midpoint.arn]
+  }
+}
+
+resource "aws_iam_role_policy" "github_actions_ecr_push" {
+  name   = "push-to-ecr"
+  role   = aws_iam_role.github_actions_deploy.id
+  policy = data.aws_iam_policy_document.github_actions_ecr_push.json
+}
