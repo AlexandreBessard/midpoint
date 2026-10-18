@@ -92,11 +92,12 @@ resource "aws_ecs_task_definition" "midpoint" {
 }
 
 resource "aws_ecs_service" "midpoint" {
-  name            = "${var.name_prefix}-midpoint"
-  cluster         = aws_ecs_cluster.this.id
-  task_definition = aws_ecs_task_definition.midpoint.arn
-  desired_count   = 1
-  launch_type     = "FARGATE"
+  name                   = "${var.name_prefix}-midpoint"
+  cluster                = aws_ecs_cluster.this.id
+  task_definition        = aws_ecs_task_definition.midpoint.arn
+  desired_count          = 1
+  launch_type            = "FARGATE"
+  enable_execute_command = true # lets `aws ecs execute-command` open a shell in the running container
 
   network_configuration {
     subnets          = local.subnet_ids

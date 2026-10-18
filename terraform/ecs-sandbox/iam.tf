@@ -38,8 +38,9 @@ resource "aws_iam_role_policy" "execution_secrets" {
 }
 
 # Task roles: the app's own runtime identity. Neither midpoint nor ninja
-# calls AWS APIs in this flow, so these stay empty - present only because
-# ECS task definitions expect a task_role_arn.
+# calls AWS APIs in this flow, so these stay empty except for the ECS Exec
+# permissions below - present only because ECS task definitions expect a
+# task_role_arn.
 resource "aws_iam_role" "midpoint_task" {
   name_prefix        = "${var.name_prefix}-midpoint-task-"
   assume_role_policy = data.aws_iam_policy_document.ecs_tasks_assume_role.json
@@ -48,6 +49,27 @@ resource "aws_iam_role" "midpoint_task" {
 resource "aws_iam_role" "import_task" {
   name_prefix        = "${var.name_prefix}-import-task-"
   assume_role_policy = data.aws_iam_policy_document.ecs_tasks_assume_role.json
+}
+
+# `aws ecs execute-command` tunnels through an SSM Session Manager channel
+# that the container agent opens using the task role - without this, enabling
+# enable_execute_command on the service still fails to actually open a shell.
+data "aws_iam_policy_document" "ecs_exec" {
+  statement {
+    actions = [
+      "ssmmessages:CreateControlChannel",
+      "ssmmessages:CreateDataChannel",
+      "ssmmessages:OpenControlChannel",
+      "ssmmessages:OpenDataChannel",
+    ]
+    resources = ["*"] # SSM Session Manager channel actions don't support resource-level restriction
+  }
+}
+
+resource "aws_iam_role_policy" "midpoint_task_ecs_exec" {
+  name   = "ecs-exec"
+  role   = aws_iam_role.midpoint_task.id
+  policy = data.aws_iam_policy_document.ecs_exec.json
 }
 
 # --- GitHub Actions OIDC: lets .github/workflows/release.yml assume an AWS
