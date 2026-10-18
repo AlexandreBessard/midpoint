@@ -1,46 +1,61 @@
 #!/bin/sh
 #
-# Importe la configuration objects/ via Ninja en mode REST.
-# Les dossiers sont traités dans l'ordre des dépendances.
+# Importe la configuration objects/ via Ninja, en connexion JDBC directe vers
+# le repository RDS (ninja.sh n'a pas de mode "REST" : il écrit toujours
+# directement dans la base - voir DEVOPS.md §4). Les dossiers sont traités
+# dans l'ordre des dépendances.
+#
+# Conséquence : cet import ne passe pas par l'instance MidPoint en cours
+# d'exécution, donc elle ne sait pas que sa configuration a changé tant
+# qu'elle n'est pas redémarrée (voir DEVOPS.md §7, étape "force-new-deployment"
+# après un import réussi).
 #
 # Prérequis :
+# - Schéma du repository déjà initialisé (ninja run-sql --mode REPOSITORY
+#   --create, voir DEVOPS.md §6.1) - ninja n'auto-crée pas le schéma.
 # - Connecteurs et objets intégrés déjà présents sur le serveur.
 # - Tâches à importer configurées comme suspendues.
 # - Options Ninja compatibles avec la version installée.
+#
+# IMPORT_TYPES (optionnel) : liste de types séparés par des espaces (ex.
+# "roles archetypes") pour ne traiter que ces dossiers, dans l'ordre des
+# dépendances - au lieu des 18 dossiers systématiquement. Non défini/vide =
+# comportement d'origine (tout importer), utilisé pour le bootstrap (§8) et
+# les resync complets. Sûr pour des mises à jour incrémentales : les types
+# non sélectionnés sont supposés déjà présents en base depuis un import
+# précédent, pas besoin de les rejouer.
 
 set -eu
 
-: "${MIDPOINT_URL:?MIDPOINT_URL doit contenir l'URL de MidPoint}"
-: "${MIDPOINT_ADMIN_PASSWORD:?MIDPOINT_ADMIN_PASSWORD doit contenir le mot de passe}"
+: "${MIDPOINT_JDBC_URL:?MIDPOINT_JDBC_URL doit contenir l'URL JDBC du repository (ex: jdbc:postgresql://host:5432/midpoint)}"
+: "${MIDPOINT_JDBC_PASSWORD:?MIDPOINT_JDBC_PASSWORD doit contenir le mot de passe JDBC}"
 
-MIDPOINT_ADMIN_USER="${MIDPOINT_ADMIN_USER:-administrator}"
+MIDPOINT_JDBC_USERNAME="${MIDPOINT_JDBC_USERNAME:-midpoint}"
 NINJA="${NINJA:-/opt/midpoint/bin/ninja.sh}"
 OBJECTS_DIR="${OBJECTS_DIR:-/opt/midpoint/objects}"
-WAIT_TIMEOUT="${WAIT_TIMEOUT:-180}"
-WAIT_INTERVAL="${WAIT_INTERVAL:-5}"
-HTTP_TIMEOUT="${HTTP_TIMEOUT:-5}"
+IMPORT_TYPES="${IMPORT_TYPES:-}"
 
-MIDPOINT_URL="${MIDPOINT_URL%/}"
+# ninja.sh (le wrapper, pas ninja.jar) ajoute toujours lui-même un "-m
+# $MIDPOINT_HOME" à la commande - en fournir un nous-mêmes échoue avec
+# "Can only specify option -m once". MIDPOINT_HOME doit malgré tout pointer
+# vers un répertoire contenant un config.xml (même minimal : la connexion
+# réelle est fixée par -U/-u/-p ci-dessous, qui priment sur son contenu).
+MIDPOINT_HOME="${MIDPOINT_HOME:-/tmp/ninja-home}"
+export MIDPOINT_HOME
+CONFIG_TEMPLATE="${CONFIG_TEMPLATE:-/opt/midpoint/doc/config/config-native.xml}"
 
 fail() {
     printf 'ERREUR : %s\n' "$*" >&2
     exit 1
 }
 
-check_positive_integer() {
-    case "$2" in
-        ''|*[!0-9]*)
-            fail "$1 doit être un entier strictement positif."
-            ;;
+type_selected() {
+    [ -z "$IMPORT_TYPES" ] && return 0
+    case " $IMPORT_TYPES " in
+        *" $1 "*) return 0 ;;
+        *) return 1 ;;
     esac
-
-    [ "$2" -gt 0 ] ||
-        fail "$1 doit être supérieur à zéro."
 }
-
-check_positive_integer WAIT_TIMEOUT "$WAIT_TIMEOUT"
-check_positive_integer WAIT_INTERVAL "$WAIT_INTERVAL"
-check_positive_integer HTTP_TIMEOUT "$HTTP_TIMEOUT"
 
 [ -x "$NINJA" ] ||
     fail "Ninja introuvable ou non exécutable : $NINJA"
@@ -48,8 +63,12 @@ check_positive_integer HTTP_TIMEOUT "$HTTP_TIMEOUT"
 [ -d "$OBJECTS_DIR" ] ||
     fail "Répertoire introuvable : $OBJECTS_DIR"
 
-command -v wget >/dev/null 2>&1 ||
-    fail "wget est requis."
+if [ ! -e "$MIDPOINT_HOME/config.xml" ]; then
+    [ -f "$CONFIG_TEMPLATE" ] ||
+        fail "Modèle de config.xml introuvable : $CONFIG_TEMPLATE"
+    mkdir -p "$MIDPOINT_HOME"
+    cp "$CONFIG_TEMPLATE" "$MIDPOINT_HOME/config.xml"
+fi
 
 # Ordre établi à partir des dépendances du dépôt.
 ORDERED_TYPES="
@@ -94,52 +113,15 @@ done
 
 echo "======================================"
 echo " Import configuration MidPoint"
-echo " Mode REST / ECS"
+echo " Connexion JDBC directe (ECS)"
 echo "======================================"
-printf 'URL MidPoint : %s\n' "$MIDPOINT_URL"
-printf 'Répertoire   : %s\n' "$OBJECTS_DIR"
-echo
-
-# Vérifie l'accessibilité HTTP, pas les droits d'import REST.
-# Le délai global est contrôlé entre les tentatives.
-# Une requête en cours peut dépasser légèrement ce délai.
-printf 'Attente de MidPoint : %s\n' "$MIDPOINT_URL"
-
-started_at=$(date +%s)
-deadline=$((started_at + WAIT_TIMEOUT))
-
-while :; do
-    now=$(date +%s)
-    remaining=$((deadline - now))
-
-    [ "$remaining" -gt 0 ] ||
-        fail "MidPoint inaccessible après ${WAIT_TIMEOUT}s."
-
-    request_timeout="$HTTP_TIMEOUT"
-    if [ "$request_timeout" -gt "$remaining" ]; then
-        request_timeout="$remaining"
-    fi
-
-    if wget -q -T "$request_timeout" -O /dev/null \
-        "$MIDPOINT_URL/" 2>/dev/null; then
-        break
-    fi
-
-    now=$(date +%s)
-    remaining=$((deadline - now))
-
-    [ "$remaining" -gt 0 ] ||
-        fail "MidPoint inaccessible après ${WAIT_TIMEOUT}s."
-
-    sleep_duration="$WAIT_INTERVAL"
-    if [ "$sleep_duration" -gt "$remaining" ]; then
-        sleep_duration="$remaining"
-    fi
-
-    sleep "$sleep_duration"
-done
-
-echo "MidPoint est accessible en HTTP."
+printf 'JDBC URL   : %s\n' "$MIDPOINT_JDBC_URL"
+printf 'Répertoire : %s\n' "$OBJECTS_DIR"
+if [ -n "$IMPORT_TYPES" ]; then
+    printf 'Types      : %s (sélection incrémentale)\n' "$IMPORT_TYPES"
+else
+    printf 'Types      : tous\n'
+fi
 echo
 
 imported_directories=0
@@ -149,6 +131,11 @@ for type in $ORDERED_TYPES; do
 
     if [ ! -d "$dir" ]; then
         printf '%s\n' "--- Ignoré : $type (répertoire absent) ---"
+        continue
+    fi
+
+    if ! type_selected "$type"; then
+        printf '%s\n' "--- Ignoré : $type (hors sélection IMPORT_TYPES) ---"
         continue
     fi
 
@@ -167,13 +154,17 @@ for type in $ORDERED_TYPES; do
 
     printf '%s\n' "--- Import : $type ---"
 
+    # Pas de "-m" ici (voir commentaire sur MIDPOINT_HOME plus haut). "-M"
+    # n'existe pas comme option ninja, et l'option d'overwrite est "-O"
+    # (majuscule), pas "-o" - les deux ont été vérifiées contre le vrai
+    # analyseur de CLI de ninja.jar (JCommander), pas seulement contre sa doc.
     if "$NINJA" \
-        -m "$MIDPOINT_URL" \
-        -u "$MIDPOINT_ADMIN_USER" \
-        -p "$MIDPOINT_ADMIN_PASSWORD" \
+        -U "$MIDPOINT_JDBC_URL" \
+        -u "$MIDPOINT_JDBC_USERNAME" \
+        -p "$MIDPOINT_JDBC_PASSWORD" \
         import \
         -i "$dir" \
-        -o; then
+        -O; then
         imported_directories=$((imported_directories + 1))
     else
         fail "Échec de Ninja pour $type. Les imports précédents ne sont pas annulés."

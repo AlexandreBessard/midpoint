@@ -35,6 +35,7 @@ credentials.kdbx
 # Exports and old HR data containing employee PII - not versioned
 export/
 old_data/
+requirements/
 
 # Disposable one-shot tasks (shadow cleanup, simulations)
 objects/tasks/Delete*shadows.xml
