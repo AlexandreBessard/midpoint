@@ -1,0 +1,16 @@
+# Copy to terraform.tfvars (gitignored) and fill in real values.
+# Never commit terraform.tfvars or any .tfstate file.
+
+aws_region = "eu-west-3"
+
+# Your own public IP in CIDR form, e.g. "203.0.113.42/32". Never use 0.0.0.0/0.
+admin_cidr = "CHANGE_ME/32"
+
+# RDS master password. Prefer setting this via env var instead of this file:
+#   export TF_VAR_db_password='...'
+db_password = "CHANGE_ME"
+
+# Optional: set enable_ssh = true and ssh_key_name to an existing EC2 key
+# pair if you don't want to rely on SSM Session Manager.
+# enable_ssh   = true
+# ssh_key_name = "my-keypair"
